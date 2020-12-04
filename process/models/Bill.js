@@ -1,24 +1,29 @@
+const Vote = require('./Vote')
+
 class Bill {
-    constructor({bill, annotations, articles}) {
-        this.updateDate = bill.updateDate
-        this.identifier = bill.identifier
-        this.title = bill.title
-        this.session = bill.legislative_session
+    constructor({bill, annotations, articles, votes}) {
+        this.data = {
+            key: this.billKey(bill),
+            identifier: bill.identifier,
+            title: bill.title,
+            session: bill.legislative_session,
 
-        this.status = this.getStatus(bill)
-        this.sponsor = this.getSponsor(bill)
-        this.lawsUrl = this.getLawsUrl(bill)
-        this.textUrl = this.getTextUrl(bill)
-        this.fiscalNoteUrl = this.getFiscalNoteUrl(bill)
-        this.legalNoteUrl = this.getLegalNoteUrl(bill)
+            status: this.getStatus(bill),
+            sponsor: this.getSponsor(bill),
+            lawsUrl: this.getLawsUrl(bill),
+            textUrl: this.getTextUrl(bill),
+            fiscalNoteUrl: this.getFiscalNoteUrl(bill),
+            legalNoteUrl: this.getLegalNoteUrl(bill),
 
-        this.annotation = this.getAnnotations(bill, annotations)
-        this.isMajorBill = this.getMajorStatus(bill, annotations)
-        this.actions = this.getActions(bill)
-        this.articles = this.getArticles(bill, articles)
+            annotation: this.getAnnotations(bill, annotations),
+            isMajorBill: this.getMajorStatus(bill, annotations),
+            actions: this.getActions(bill, votes),
+            articles: this.getArticles(bill, articles),
+        }
+        
     }
 
-    billKey = () => this.identifier.substring(0,2).toLowerCase() + '-' + this.identifier.substring(3,)
+    billKey = (bill) => bill.identifier.substring(0,2).toLowerCase() + '-' + bill.identifier.substring(3,)
 
     getStatus = (bill) => 'TK' // TODO
 
@@ -49,42 +54,34 @@ class Bill {
         return (match && match.isMajorBill) || 'no'
     }
 
-    getActions = (bill) => {
-        return bill.actions.map(d => {
+    getActions = (bill, votes) => {
+        const billVotes = votes
+            .filter(vote => vote.bill_identifier === bill.identifier)
+            .map(vote => new Vote({vote}).export())
+
+        const actions = bill.actions.map(action => {
+            // TODO: Add more definitive identification point to scraper code
+            // This will fail on repeated votes with the same action description on same day
+            const actionVote = billVotes
+                .filter(vote => vote.date === action.date)
+                .find(vote => vote.action === action.description)
             return {
-                date: d.date,
-                description: d.description,
-                chamber: null, // TODO
-                committee: null, // TODO
-                vote: null, // TODO
-                isMajor: true, // TODO - change
+                date: action.date,
+                description: action.description,
+                chamber: null, // TODO -- will need to tweak scraper
+                committee: null, // TODO -- will need to tweak scraper
+                vote: actionVote || null,
+                isMajor: true, // TODO - will need to reference action list
             }
         }).sort((a,b) => new Date(b.date) - new Date(a.date))
+
+        // console.log(actions)
+        return actions
     }
 
     getArticles = (bill) => [] // TODO
 
-    export() {
-        return {
-            key: this.billKey(),
-            updateDate: this.updateDate,
-            identifier: this.identifier,
-            title: this.title,
-            session: this.session,
-            
-            status: this.status,
-            sponsor: this.sponsor,
-            lawsUrl: this.lawsUrl,
-            textUrl: this.textUrl,
-            fiscalNoteUrl: this.fiscalNoteUrl,
-            legalNoteUrl: this.legalNoteUrl,
-
-            annotation: this.annotation,
-            isMajorBill: this.isMajorBill,
-            actions: this.actions,
-            articles: this.articles,
-        }
-    }
+    export = () => ({...this.data})
 }
 
 module.exports = Bill
