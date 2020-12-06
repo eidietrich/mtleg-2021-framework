@@ -1,53 +1,93 @@
+const {
+    lawmakerFromLawsName
+} = require('../functions.js')
+
 class Vote {
     constructor({vote}) {
+        this.votes = this.cleanVotes(vote.votes)
+        this.count = this.cleanCount(vote.counts) // reformatting
+        this.gopCount = this.getGopCount(this.votes),
+        this.demCount = this.getDemCount(this.votes),
+
+        this.motion = vote.motion_text
+
+        // TODO -- work out how to set threshold as a function of motion text
+        const threshold = 'Simple'
+
         this.data = {
             date: vote.start_date,
             bill: vote.bill_identifier,
             action: vote.bill_action,
             session: vote.legislative_session,
 
-            motion: vote.motion_text,
-            motionClass: vote.motion_classification[0],
+            motion: this.motion,
 
-            // counts: vote.counts, // This came from prior prep script
-            // gopCaucus: vote.gopCaucus,
-            // demCaucus: vote.demCaucus,
+            count: this.count,
+            gopCount: this.gopCount,
+            demCount: this.demCount,
 
-            source: this.getSource(vote),
+            motionPassed: this.didMotionPass(this.count, threshold),
+            gopSupported: this.didMotionPass(this.gopCount, threshold),
+            demSupported: this.didMotionPass(this.demCount, threshold),
+            
+            voteUrl: this.getSource(vote),
 
-            votes: this.cleanVotes(vote.votes),
-            // outcome bools
-            voteSucceeds: this.getVotePassage(vote),
-            gopSupport: this.getGopSupport(vote),
-            demSupport: this.getDemSupport(vote),
-            // Text for table displays
-            voteOutcomeText: this.getVoteOutcomeText(vote),
-            voteGopCaucusText: this.getVoteGopCaucusText(vote),
-            voteDemCaucusText: this.getVoteDemCaucusText(vote),
-            lawmakersAbsent: this.getAbsentLawmakers(vote),
+            votes: this.votes,
         }
     }
 
     getSource = (vote) => vote.sources[0].url
 
-    cleanVotes = (rawVotes) => {
-        return rawVotes.map(v => ({
-            voter: v.voter_name, // TODO: Transform this to name version used elsewhere
-            option: v.option,
-            party: '', // TODO -- this will take a data merge
-            district: '', // TODO — this will take a data merge
-        }))
+    cleanCount = (rawCounts) => {
+        const count = {}
+        rawCounts.forEach(c => count[c.option] = c.value)
+        return count
     }
 
-    getVotePassage = (vote) => {
-        // TODO: Assumes 50% margin for passage... need to refine
-        // Looks like there's an entry for this in LAWS
-        const yeas = vote.counts.find(d => d.option === 'yes').value
-        const nays = vote.counts.find(d => d.option === 'no').value
-        return yeas > nays
+    cleanVotes = (rawVotes) => {
+        return rawVotes.map(v => {
+            const lawmaker = lawmakerFromLawsName(v.voter_name)
+            return {
+                name: lawmaker.name,
+                option: v.option,
+                lastName: lawmaker.last_name,
+                party: lawmaker.party,
+                city: lawmaker.city,
+                district: lawmaker.district,
+            }
+        })
     }
-    getGopSupport = (vote) => vote.gopCaucus.yes > vote.gopCaucus.no
-    getDemSupport = (vote) => vote.demCaucus.yes > vote.demCaucus.no
+
+    getGopCount = (votes) => {
+        const gopVotes = votes.filter(d => d.party === 'R')
+        return {
+            yes: gopVotes.filter(d => d.option === 'yes').length,
+            no: gopVotes.filter(d => d.option === 'no').length,
+            absent: gopVotes.filter(d => d.option === 'absent').length,
+            excused: gopVotes.filter(d => d.option === 'excused').length,
+            other: gopVotes.filter(d => !['yes','no','absent','excused'].includes(d.option)).length
+        }
+    }
+
+    getDemCount = (votes) => {
+        const gopVotes = votes.filter(d => d.party === 'D')
+        return {
+            yes: gopVotes.filter(d => d.option === 'yes').length,
+            no: gopVotes.filter(d => d.option === 'no').length,
+            absent: gopVotes.filter(d => d.option === 'absent').length,
+            excused: gopVotes.filter(d => d.option === 'excused').length,
+            other: gopVotes.filter(d => !['yes','no','absent','excused'].includes(d.option)).length
+        }
+    }
+
+    didMotionPass = (count, threshold='Simple') => {
+       // TODO --> Account for non-simple-majority votes
+        if (threshold === 'Simple') {
+            return (count.yes > count.no)
+        } else {
+            throw 'Unsupported vote threshold'
+        }
+    }
 
     getVoteOutcomeText = (vote) => {
         const yeas = vote.counts.find(d => d.option === 'yes').value

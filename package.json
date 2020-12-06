@@ -1,0 +1,15 @@
+{
+  "name": "mtleg-2021",
+  "version": "1.0.0",
+  "description": "System for tracking Montana's 2021 Legislature. A project of the Montana Free Press.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "moment": "^2.29.1"
+  }
+}
