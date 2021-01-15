@@ -1,0 +1,5756 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> - Montana State Legislature</title>
+
+<link rel="shortcut icon" type="image/png" href="/static/icon/favicon.ico"/>
+
+<!-- Javascript -->
+<script src="/static/js/lib/jquery-3.3.1.min.js"></script>
+<script src="/static/js/lib/popper.min.js"></script>
+<script src="/static/js/lib/bootstrap.min.js"></script>
+<script src="/static/js/search.js?version=2.0"></script>
+<script src="/static/js/site.js?version=1.0"></script>
+<script src="/static/js/lib/Chart.js"></script>
+<script src="/static/js/lib/chartjs-plugin-datalabels.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/lib/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/main-style.css?version=1.0" >
+<link rel="stylesheet" type="text/css" href="/static/css/lib/font-awesome.min.css">
+
+
+
+    <!-- Site Version: 0.0.7   Environment: Production   Copyright 2021 - Legislative Services -->
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap" rel="stylesheet">
+
+<!--Google Custom Search Engine -->
+<link href="/static/css/search.css?version=2.1" rel="stylesheet">
+<script async src="https://cse.google.com/cse.js?cx=007613742950989341268:lkllobjn12w"></script>
+
+
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-152857342-1', 'auto');
+ga('send', 'pageview', location.pathname);
+// Feature detects Navigation Timing API support.
+if (window.performance) {
+  // Gets the number of milliseconds since page load
+  // (and rounds the result since the value must be an integer).
+  var timeSincePageLoad = Math.round(performance.now());
+
+  // Sends the timing hit to Google Analytics.
+  ga('send', 'timing', 'JS Dependencies', 'load', timeSincePageLoad);
+}
+</script>
+<!-- End Google Analytics -->
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/static/js/lib/html5shiv.min.js"></script>
+      <script src="/static/js/lib/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+        <link rel="stylesheet" href="/static/css/lib/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="/static/css/lib/jquery-ui.min.css">
+    
+
+
+        <script>
+            var hideStale = false;
+            var toggled = true;
+            var firstRun = true;
+            var RosterOldSearchVal = "";
+            var searchIsFocused = false;
+
+            setTimeout("hideStaleContactInfo()", 93);
+            setTimeout("hideStaleContactInfo()", 187);
+            window.addEventListener("load", function () {
+                hideStaleContactInfo();
+                displaySelectedSession($('#id_session_select'));
+            }, false);
+
+            function hideStaleContactInfo() {
+                setTimeout("hideStaleContactInfo()", 375);
+                if (hideStale) {
+                    $('.emailCell').hide();
+                    $('#emailTh').hide();
+                    $('.phoneCell').hide();
+                    $('#phoneTh').hide();
+                    $("#toggleStaleButton").show();
+                }
+                else {
+                    if (toggled) {
+                        $("#toggleStaleButton").hide();
+                    }
+
+                    $('.emailCell').show();
+                    $('#emailTh').show();
+                    $('.phoneCell').show();
+                    $('#phoneTh').show();
+                }
+            }
+
+            function toggleStaleContactInfo() {
+                hideStale = !hideStale;
+                toggled = !toggled;
+                $('.emailCell').toggle();
+                $('#emailTh').toggle();
+                $('.phoneCell').toggle();
+                $('#phoneTh').toggle();
+            }
+
+            function filterBody() {
+                var RosterCurrentSearchVal = $('#reports-table_filter > label > input').val();
+                if (RosterOldSearchVal != RosterCurrentSearchVal || !searchIsFocused) {//Don't do anything if the usr hits left/right/ctrl+a/etc
+                    RosterOldSearchVal = $('#reports-table_filter > label > input').val();
+                    updateHouseFilter();
+                    if (firstRun) {
+                        $('#reports-table_filter > label > input').on("keyup", filterBody);
+                        $('#reports-table_filter > label > input').on("focus", function () {
+                            searchIsFocused = true;
+                        });
+                        $('#reports-table_filter > label > input').on("blur", function () {
+                            searchIsFocused = false;
+                        });
+                        firstRun = false;
+                    }
+                }
+            }
+
+            function updateHouseFilter() {
+                $('#reports-table_filter > label > input').val($("#rosterSearchFilterHouse").val() + RosterOldSearchVal);
+                $('#reports-table_filter > label > input').trigger("paste");
+                $('#reports-table_filter > label > input').val(RosterOldSearchVal);
+            }
+
+            function displaySelectedSession(selectElem) {
+                var getSession_select = getQuery('session_select');
+                var start_of_session_str = "01-Jan-2021"
+                var start_of_session = new Date(Date.parse(start_of_session_str.replace(/-/g, " ")))
+
+                var today = new Date();
+                var today_year = today.getFullYear();
+                var today_month = today.getMonth();
+                var today_day = today.getDate();
+                var two_years_ago = new Date(
+                    today_year - 2,
+                    today_month,
+                    today_day)
+                $(selectElem).val(getSession_select);
+                if ( (start_of_session > new Date() ) &&
+                     (getSession_select == 116 || !getSession_select)) {
+                    $("#cont > section > div > h2").text("Legislator Roster(Elected)")
+                }
+                else if(start_of_session <= two_years_ago){
+                    $("#viewTextVersionDescription").hide()
+                }
+            }
+
+            function getQuery(q) {
+                return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+            }
+        </script>
+        <script>
+            hideStaleContactInfo();
+            $(document).ready(function () {
+                if ($(".well2")) {
+                    $(".well2").hide();
+                }
+                $('#reports-table').DataTable({
+                    responsive: true,
+                    "aaSorting": [],//initially sorts by email unless we have this code
+                    "pageLength": 50
+                });
+
+                $.ajax({
+                    url: ".",
+                    method: "POST",
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            function sessionSelected(dropdown) {
+                dropdown.form.submit();
+                $('#reports-table_wrapper').html("<TR><TD>LOADING...</TD></TR>");
+                $("#viewTextVersionDescription").hide();
+            }
+        </script>
+    
+
+        <script src="/static/js/lib/jquery.dataTables.min.js"></script>
+        <script src="/static/js/lib/dataTables.bootstrap4.min.js"></script>
+        <script src="/static/js/lib/dataTables.responsive.min.js"></script>
+        <script src="/static/js/lib/responsive.bootstrap4.min.js"></script>
+        <script src="/static/js/lib/jquery-ui.min.js"></script>
+    
+
+
+
+</head>
+<body onload="randombg()" id="random" >
+
+<a href="#" id="scroll" style="display: none;"><span></span></a>
+<a class="skip-main" href="#main">Skip to main content</a>
+
+<!-- Navigation -->
+
+
+   <nav class="navbar  navbar-expand-xl navbar-dark bg-darkBlue" role="navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      Menu
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+        <li>
+            <a class="nav-link" href="/">Home</a>
+        </li>
+      <li class="nav-item dropdown megamenu-li">
+       <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laws &amp; Bills</a>
+       <div class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+        <div class="row">
+         <div class="col-sm-6 col-lg-3">
+          <h5>Bill Information</h5>
+             <a class="dropdown-item" href="http://laws.leg.mt.gov/legprd/law0203w$.startup?P_SESS=20211" target="_blank">2021 Session <strong>Bill Lookup<i class="fa fa-external-link" aria-hidden="true"></i></strong></a>
+          <a class="dropdown-item" href="/bill-info/">About Bill Lookup</a>
+         </div>
+         <div class="col-sm-6 col-lg-3">
+          <h5>Laws/Statutes</h5>
+          <a class="dropdown-item" href="/statute/">Montana State Statutes (MCA)</a>
+          <a class="dropdown-item" href="/statute/mca-publications/">Purchase/View MCA Materials</a>
+          <a class="dropdown-item" href="/statute/annotations/">Annotations to the MCA</a>
+          <a class="dropdown-item" href="/bills/mca/title_0000/chapters_index.html" target="_blank">State Constitution<i class="fa fa-external-link" aria-hidden="true"></i></a>
+         </div>
+         <div class="col-sm-6 col-lg-3">
+          <h5>2021 Session</h5>
+          <a class="dropdown-item" href="/session/">Session Information</a>
+          <a class="dropdown-item" href="https://leg.mt.gov/bills/2021/reports/" target="_blank">2021 Session Reports<i class="fa fa-external-link" aria-hidden="true"></i></a>
+          <a class="dropdown-item" href="/session/past-session-information/">Past Session Information</a>
+         </div>
+         <div class="col-sm-6 col-lg-3">
+          <h5>Purchasing Information</h5>
+          <a class="btn btn-xs btn-default mb-3" href="/statute/mca-publications/">Buy MCA Publications</a><br />
+          <a class="btn btn-xs btn-default" href="https://app.mt.gov/accessgov/leg-lsd/Forms/Page/pay-invoice" target="_blank">Pay my Invoice<i class="fa fa-external-link" aria-hidden="true"></i></a>
+         </div>
+        </div>
+       </div>
+      </li>
+      <li class="nav-item dropdown megamenu-li">
+       <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Legislators</a>
+       <div class="dropdown-menu megamenu" aria-labelledby="dropdown02">
+        <div class="row">
+         <div class="col-sm-6 col-lg-4">
+             <h5><a class="dropdown-item" href="/house/"><strong>House</strong> of Representatives</a></h5>
+             <h5><a class="dropdown-item" href="/senate/"><strong>Senate</strong></a></h5>
+         </div>
+         <div class="col-sm-6 col-lg-4">
+          <h5>Lookup My Legislator</h5>
+          <a class="dropdown-item" href="/map/">By Address</a>
+          <a class="dropdown-item" href="/legislator-information/">By Name (Legislator Roster)</a>
+          <a class="dropdown-item" href="/legislator-lookup/">More Options</a>
+         </div>
+         <div class="col-sm-6 col-lg-4">
+             <h5><a class="dropdown-item" href="/districting/2020-commission/">2020 Redistricting</a></h5>
+         </div>
+        </div>
+       </div>
+      </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Watch &amp; Listen</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://sg001-harmony.sliq.net/00309/Harmony/en">Streaming Schedule<i class="fa fa-external-link" aria-hidden="true"></i></a>
+                    <a class="dropdown-item" href="/content/AV/SliqHarmonyQuickStartGuide.pdf">How to Find and Stream Archives<i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                    <a class="dropdown-item" href="/audio-video/">General Information</a>
+                    <hr>
+                    <p class="whiteTextSmall text-center"><strong>Please Note:</strong> Internet streaming is best done using the Google Chrome browser.</p>
+                </div>
+        </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Committees</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/committees">About Committees</a>
+                <a class="dropdown-item" href="/committees/admincom">Administrative</a>
+                <a class="dropdown-item" href="/committees/interim">Interim</a>
+                <a class="dropdown-item" href="/committees/session-committees">Session</a>
+                <a class="dropdown-item" href="/committees/other-groups">Other</a>
+            </div>
+      </li>
+      <li>
+            <a class="nav-link" href="/reference">reference</a>
+        </li>
+      <li class="nav-item dropdown megamenu-li">
+       <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
+       <div class="dropdown-menu megamenu" aria-labelledby="dropdown05">
+        <div class="row pb-50">
+
+            <div class="col-sm-12 col-lg-4">
+              <h5>Contact Us by Phone:</h5>
+                <div class="pl-3">
+                 <p class="whiteText"><strong>General Legislative Questions:<br />406.444.3064</strong></p>
+                 <p class="whiteText">Technical Questions (i.e. website, streaming):<br />406-444-0912</p>
+                </div>
+         </div>
+         <div class="col-sm-12 col-lg-4">
+             <h5>Contact Us by Mail:</h5>
+                 <div class="pl-3">
+                    <p class="whiteText"><strong>Montana State Legislature</strong><br />State Capitol<br />PO Box 201706<br />Helena, MT 59620-1706</p>
+                 </div>
+         </div>
+         <div class="col-sm-12 col-lg-4">
+              <h5>Legislative Offices</h5>
+              <a class="dropdown-item" href="/lsd/">Legislative Services Division</a>
+              <a class="dropdown-item" href="/lfd/">Legislative Fiscal Division</a>
+              <a class="dropdown-item" href="/lad/">Legislative Audit Division</a>
+              <a class="dropdown-item" href="/occ/">Consumer Counsel</a>
+         </div>
+        </div>
+       </div>
+      </li>
+        <li class="nav-item dropdown megamenu-li">
+       <a class="nav-link dropdown-toggle" href="" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
+       <div class="dropdown-menu megamenu" aria-labelledby="searchDropdown">
+           <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <div class="row text-center search-container-content">
+                    <div class="search-collection-selector-box" aria-labelledby="searchCollectionDropdownContent"><strong>Filter Results:</strong>
+                      <div class="search-collection-item allBoxCollectionItem search-collection-item-active mx-1" onclick="javascript:highlightDropdown('all')">All</div>
+                      <div class="search-collection-item mcaBoxCollectionItem mx-1" onclick="javascript:highlightDropdown('mca')">MCA</div>
+                      <div class="search-collection-item billsBoxCollectionItem" onclick="javascript:highlightDropdown('bills')">Bills</div>
+                    </div>
+                    <div class="col-sm-12 col-lg-10 "><div class="gcse-search"></div></div>
+                 </div>
+            </div>
+         </div>
+        </div>
+         </div>
+       </div>
+      </li>
+
+     </ul>
+    </div>
+   </nav>
+<main role="main">
+
+    <span id="cont">
+        
+    <body>
+        <section>
+            <div class="container white">
+                
+                    <h2>Legislator Roster</h2>
+                
+                
+
+                <ol id="breadcrumb-block" class="breadcrumb">
+                    
+     
+        
+            <li class="breadcrumb-item active">Home</li>
+        
+    
+
+
+
+
+                </ol>
+
+                
+
+                
+
+    
+
+    
+    <p>Find a legislator by selecting a year or typing in the search box.</p>
+
+    
+
+<form  class="form-horizontal" method="get" > <div  
+    class="row" > <div  
+     > <div id="div_id_session_select" class="control-group"> <label for="id_session_select" class="control-label ">
+                Filter by Session:
+            </label> <div class="controls"> <select name="session_select" onload="javascript:displaySelectedSession(this)" onchange="javascript:sessionSelected(this)" class="form-control-sm select" id="id_session_select"> <option value="116">67th Legislature -- 2021 REGULAR</option> <option value="113">66th Legislature -- 2019 REGULAR</option> <option value="111">65th Legislature -- 2017 REGULAR</option> <option value="109">64th Legislature -- 2015 REGULAR</option> <option value="107">63rd Legislature -- 2013 REGULAR</option> <option value="105">62nd Legislature -- 2011 REGULAR</option> <option value="94">61st Legislature -- 2009 REGULAR</option> <option value="91">60th Legislature -- 2007 REGULAR</option> <option value="88">59th Legislature -- 2005 REGULAR</option> <option value="80">58th Legislature -- 2003 REGULAR</option>
+
+</select> </div> </div> </div>
+
+</div>
+<br /> </form>
+
+    <select onchange="javascript:RosterOldSearchVal='unlikelyToken';filterBody()" id="rosterSearchFilterHouse">
+        <option value="    " disabled selected>Filter by House/Senate:</option>
+        <option value="    ">Either</option>
+        <option value="&quot; HD &quot;">House</option>
+        <option value="&quot; SD &quot;">Senate</option>
+    </select>
+
+    <p id="viewTextVersionDescription">
+        <a href="./csv">View the text(CSV) version of this list.</a>
+    </p>
+    <table id="reports-table"
+           class="table table-striped table-bordered dt-responsive"
+           cellspacing="0">
+        <thead>
+        <tr>
+            <th id="emailTh">Email</th>
+            <th>Name</th>
+            <th>Party</th>
+            <th>Seat</th>
+            <th id="phoneTh">Phone</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6872">
+                        Kim
+                        
+                        Abbott
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    83
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 439-8721
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6898">
+                        Fred
+                        
+                        Anderson
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    20
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 761-4042
+                    <br/>(406) 868-3815
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:goodwind1.duane@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6810">
+                        Duane
+                        
+                        Ankney
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    20
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 740-0629
+                    <br/>(406) 748-4328
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:danbartel2@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6839">
+                        Dan
+                        
+                        Bartel
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    29
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 366-4160
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:becky4hd80@blackfoot.net">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6924">
+                        Becky
+                        
+                        Beard
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    80
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 492-6590
+                    <br/>(406) 479-3048
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6854">
+                        David
+                        
+                        Bedey
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    86
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 381-2059
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:bennettformontana@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6802">
+                        Bryce
+                        
+                        Bennett
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    50
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 546-3629
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Seth.Berglee@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6916">
+                        Seth
+                        
+                        Berglee
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    58
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 690-9329
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:martaformontana@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6922">
+                        Marta
+                        
+                        Bertoglio
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    75
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 438-1772
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:michele@binkleyformontana.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6925">
+                        Michele
+                        
+                        Binkley
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    85
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 375-0291
+                    <br/>(406) 381-8615
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Laurie.Bishop@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6861">
+                        Laurie
+                        
+                        Bishop
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    60
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 223-1122
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Mark.Blasdel@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6804">
+                        Mark
+                        
+                        Blasdel
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    4
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 261-3269
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:kenneth.bogner@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6809">
+                        Kenneth
+                        
+                        Bogner
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    19
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 916-9690
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Carlie.Boland@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6795">
+                        Cydnie (Carlie)
+                        
+                        Boland
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    12
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 868-1029
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:EllieMarieBoldman@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6886">
+                        Ellie
+                        
+                        Boldman
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    45
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 218-9608
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Larry.Brewster@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6910">
+                        Larry
+                        
+                        Brewster
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    44
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 670-0929
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Bob.Brown@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6933">
+                        Bob
+                        
+                        Brown
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    7
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 242-0141
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:aliceformontana@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6863">
+                        Alice
+                        
+                        Buckley
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    63
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 404-0891
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:ed.buttrey@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6899">
+                        Ed
+                        
+                        Buttrey
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    21
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 452-6460
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:marycaferro@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6870">
+                        Mary
+                        
+                        Caferro
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    81
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 461-2384
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jennifer.Carlson@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6851">
+                        Jennifer
+                        
+                        Carlson
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    69
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 579-2929
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jill.Cohenour@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6800">
+                        Jill
+                        
+                        Cohenour
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    42
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 227-1144
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:mcuffe@interbel.net">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6803">
+                        Mike
+                        
+                        Cuffe
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    1
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 293-1247
+                    <br/>(406) 889-5777
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Willis.Curdy@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6879">
+                        Willis
+                        
+                        Curdy
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    98
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 546-0523
+                    <br/>(406) 728-0981
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:jericuster@yahoo.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6845">
+                        Geraldine
+                        
+                        Custer
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    39
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 351-1235
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:julie.dooling@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6852">
+                        Julie
+                        
+                        Dooling
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    70
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 471-4125
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:maryann.dunwell@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6873">
+                        Mary Ann
+                        
+                        Dunwell
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    84
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 461-5358
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Neil.Duram@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6889">
+                        Neil
+                        
+                        Duram
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    2
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 471-2356
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Janet.Ellis@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6799">
+                        Janet
+                        
+                        Ellis
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    41
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 431-9157
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jason.Ellsworth@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6816">
+                        Jason
+                        
+                        Ellsworth
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    43
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 360-0009
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:johnesp2001@yahoo.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6814">
+                        John
+                        
+                        Esp
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    30
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 932-5662
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:robformontana@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6869">
+                        Robert
+                        
+                        Farris-Olsen
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    79
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 794-4780
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:fern@montanasky.net">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6856">
+                        Dave
+                        
+                        Fern
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    5
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 212-0674
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:paulfielder@blackfoot.net">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6895">
+                        Paul
+                        
+                        Fielder
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    13
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 210-5943
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:ross.fitzgerald@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6896">
+                        Ross
+                        
+                        Fitzgerald
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    17
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 467-2032
+                    <br/>(406) 788-1443
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:steve.fitzpatrick@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6819">
+                        Steve
+                        
+                        Fitzpatrick
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    10
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 750-6764
+                    <br/>(406) 727-0826
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:fleminglor5@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6913">
+                        Frank
+                        
+                        Fleming
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    51
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 697-9354
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:pat.flowers@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6797">
+                        Pat
+                        
+                        Flowers
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    32
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 580-0035
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:fbbuffalo@yahoo.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6817">
+                        Mike
+                        
+                        Fox
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    16
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 399-0479
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:tom.france@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6877">
+                        Tom
+                        
+                        France
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    94
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 396-5085
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6923">
+                        Gregory
+                        
+                        Frazer
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    78
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 560-4707
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:chris@chrisfriedel.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6936">
+                        Chris
+                        
+                        Friedel
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    26
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 272-2245
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:John.Fuller@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6833">
+                        John
+                        
+                        Fuller
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    8
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 253-4897
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Moffie.Funk@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6871">
+                        Moffie
+                        
+                        Funk
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    82
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 461-6785
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:galloway4mt@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6902">
+                        Steven
+                        
+                        Galloway
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    24
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 727-4963
+                    <br/>(406) 750-4723
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:wyliegaltformt@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6906">
+                        Wylie
+                        
+                        Galt
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    30
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 220-0157
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:frankgarnerhd7@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6892">
+                        Frank
+                        
+                        Garner
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    7
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 752-5696
+                    <br/>(406) 471-7197
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:mrmac570@me.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6938">
+                        Terry
+                        
+                        Gauthier
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    40
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 461-0744
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Bruce.Gillespie@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6806">
+                        Bruce (Butch)
+                        
+                        Gillespie
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    9
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 949-4453
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jane.Gillette@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6918">
+                        Jane
+                        
+                        Gillette
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    64
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 444-4800
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:steve.gist@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6903">
+                        Steve
+                        
+                        Gist
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    25
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 231-4050
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:carl.glimm@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6931">
+                        Carl
+                        
+                        Glimm
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    2
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 751-7334
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6855">
+                        Sharon
+                        
+                        Greef
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    88
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 370-0580
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jen.Gross@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6881">
+                        Jen
+                        
+                        Gross
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    25
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 696-0649
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:steve.gunderson@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6888">
+                        Steve
+                        
+                        Gunderson
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    1
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 334-4370
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jim.Hamilton@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6830">
+                        Jim
+                        
+                        Hamilton
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    61
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 570-7517
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:derek.harvey@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6866">
+                        Derek
+                        
+                        Harvey
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    74
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 490-5472
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Donavon.Hawk@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6867">
+                        Donavon
+                        
+                        Hawk
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    76
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 578-1233
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:denise.hayman@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6831">
+                        Denise
+                        
+                        Hayman
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    66
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 587-7229
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:greg.hertz@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6818">
+                        Greg
+                        
+                        Hertz
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    6
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 253-9505
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:hillforhouse28@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6905">
+                        Ed
+                        
+                        Hill
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    28
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 390-1098
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:steve.hinebauch@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6934">
+                        Steve
+                        
+                        Hinebauch
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    18
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 365-7967
+                    <br/>(406) 989-1372
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:jedediah.hinkle@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6919">
+                        Jedediah
+                        
+                        Hinkle
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    67
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 992-0703
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:caleb.hinkle@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6920">
+                        Caleb
+                        
+                        Hinkle
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    68
+                </td>
+                <td class="rosterCell phoneCell">
+                    
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Ken.holmlund@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6844">
+                        Kenneth
+                        
+                        Holmlund
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    38
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 234-2956
+                    <br/>(406) 951-6764
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Mike.Hopkins@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6927">
+                        Mike
+                        
+                        Hopkins
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    92
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 531-1775
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Brian.Hoven@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6807">
+                        Brian
+                        
+                        Hoven
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    13
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 761-8533
+                    <br/>(406) 899-5000
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:David.Howard@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6813">
+                        David
+                        
+                        Howard
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    29
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 633-2762
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Tom.Jacobson@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6794">
+                        Tom
+                        
+                        Jacobson
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    11
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 868-9814
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Llew.Jones@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6837">
+                        Llew
+                        
+                        Jones
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    18
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 271-3104
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:jessica.karjala@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6859">
+                        Jessica
+                        
+                        Karjala
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    48
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 672-8681
+                    <br/>(406) 672-8681
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Doug.Kary@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6811">
+                        Doug
+                        
+                        Kary
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    22
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 698-1478
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:JKASSMIER@LIVE.COM">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6838">
+                        Josh
+                        
+                        Kassmier
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    27
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 781-5386
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6865">
+                        Jim
+                        
+                        Keane
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    73
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 723-8378
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Bob.Keenan@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6805">
+                        Bob
+                        
+                        Keenan
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    5
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 250-4111
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6858">
+                        Kathy
+                        
+                        Kelker
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    47
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 652-6716
+                    <br/>(406) 698-5610
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Connie.Keogh@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6876">
+                        Connie
+                        
+                        Keogh
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    91
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 298-0985
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Scot.Kerns@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6901">
+                        Scot
+                        
+                        Kerns
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    23
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 351-0154
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:emma.kc@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6860">
+                        Emma
+                        
+                        Kerr-Carpenter
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    49
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 894-0377
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:rhonda.knudsen@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6841">
+                        Rhonda
+                        
+                        Knudsen
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    34
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 489-5253
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6840">
+                        Casey
+                        
+                        Knudsen
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    33
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 390-0274
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:kelly.kortum@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6864">
+                        Kelly
+                        
+                        Kortum
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    65
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 404-6643
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:mike.lang@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6821">
+                        Mike
+                        
+                        Lang
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    17
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 654-7357
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Dennis.Lenz@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6847">
+                        Dennis
+                        
+                        Lenz
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    53
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 671-7052
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:lerforrichland@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6842">
+                        Brandon
+                        
+                        Ler
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    35
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 480-5687
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Denleylogehd14@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6836">
+                        Denley
+                        
+                        Loge
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    14
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 649-2368
+                    <br/>(406) 544-5220
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Ryan.Lynch@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6883">
+                        Ryan
+                        
+                        Lynch
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    37
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 498-6625
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:dogrockranch@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6917">
+                        Marty
+                        
+                        Malone
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    59
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 223-1302
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:theresa.manzella@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6939">
+                        Theresa
+                        
+                        Manzella
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    44
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 546-9462
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:marilyn.marler@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6875">
+                        Marilyn
+                        
+                        Marler
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    90
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 544-7189
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:ronmarshallmt87@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6926">
+                        Ron
+                        
+                        Marshall
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    87
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 579-9498
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:edie.mcclafferty@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6884">
+                        Edie
+                        
+                        McClafferty
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    38
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 490-5873
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Tom.McGillvray@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6822">
+                        Tom
+                        
+                        McGillvray
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    23
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 698-4428
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6897">
+                        Wendy
+                        
+                        McKamey
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    19
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 866-3300
+                    <br/>(406) 868-5006
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Mary.McNally@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6796">
+                        Mary
+                        
+                        McNally
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    24
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 671-1376
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:wwmercer406@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6911">
+                        Bill
+                        
+                        Mercer
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    46
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 698-1671
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:BraxtonMMitchell@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6890">
+                        Braxton
+                        
+                        Mitchell
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    3
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 200-8384
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:brad.molnar@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6823">
+                        Brad
+                        
+                        Molnar
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    28
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 794-5982
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:terry.moore@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6915">
+                        Terry
+                        
+                        Moore
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    54
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 671-5393
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:shane@shaneformt.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6942">
+                        Shane
+                        
+                        Morigeau
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    48
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 546-4290
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Fiona.nave@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6850">
+                        Fiona
+                        
+                        Nave
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    57
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 321-4602
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:marknolandhd10@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6893">
+                        Mark
+                        
+                        Noland
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    10
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 253-8982
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6868">
+                        Sara
+                        
+                        Novak
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    77
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 691-0069
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:obriendumke@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6887">
+                        Shannon
+                        
+                        O&#39;Brien
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    46
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 274-3805
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Andrea.Olsen@MTLeg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6941">
+                        Andrea
+                        
+                        Olsen
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    100
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 543-2666
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:ryanosmundson@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6820">
+                        Ryan
+                        
+                        Osmundson
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    15
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 949-3715
+                    <br/>(406) 374-2449
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6914">
+                        Jimmy
+                        
+                        Patelis
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    52
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 671-9972
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Bob.Phalen@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6843">
+                        Bob
+                        
+                        Phalen
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    36
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 939-1187
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:jp.pomnichowski@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6798">
+                        JP
+                        
+                        Pomnichowski
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    33
+                </td>
+                <td class="rosterCell phoneCell">
+                    
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Chris.Pope@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6882">
+                        Christopher
+                        
+                        Pope
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    31
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 581-8739
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:brian.putnam@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6834">
+                        Brian
+                        
+                        Putnam
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    9
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 233-9463
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:joeread2019mt@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6928">
+                        Joe
+                        
+                        Read
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    93
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 676-0200
+                    <br/>(406) 253-1130
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:keith.regier@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6932">
+                        Keith
+                        
+                        Regier
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    3
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 756-6141
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:matt.regier@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6832">
+                        Matt
+                        
+                        Regier
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    4
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 253-3293
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Amy.Regier@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6891">
+                        Amy
+                        
+                        Regier
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    6
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 253-8421
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:reksten4mthouse@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6894">
+                        Linda
+                        
+                        Reksten
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    12
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 471-8359
+                    <br/>(406) 883-4454
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6848">
+                        Vince
+                        
+                        Ricci
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    55
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 855-9153
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:trwolves@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6826">
+                        Tyson
+                        
+                        Running Wolf
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    16
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 845-2115
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:waltsales4montana@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6824">
+                        Walt
+                        
+                        Sales
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    35
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 282-7435
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:dan.salomon@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6940">
+                        Dan
+                        
+                        Salomon
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    47
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 253-9724
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:SenatorSands@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6801">
+                        Diane
+                        
+                        Sands
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    49
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 251-2001
+                    <br/>(406) 396-9859
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:jerry.schillinger@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6907">
+                        Jerry
+                        
+                        Schillinger
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    37
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 974-2478
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Kerri4MT@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6909">
+                        Kerri
+                        
+                        Seekins-Crowe
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    43
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 208-6587
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:lola.sheldon-galloway@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6900">
+                        Lola
+                        
+                        Sheldon-Galloway
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    22
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 750-4721
+                    <br/>(406) 727-4963
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Derek.Skees@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6835">
+                        Derek
+                        
+                        Skees
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    11
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 212-5493
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:j2thedsmall@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6935">
+                        Jason
+                        
+                        Small
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    21
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 690-0923
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:cary.smith@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6812">
+                        Cary
+                        
+                        Smith
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    27
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 698-9307
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:clairena@hughes.net">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6827">
+                        Frank
+                        
+                        Smith
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    31
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 942-0615
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Edstafman@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6862">
+                        Ed
+                        
+                        Stafman
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    62
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 640-3362
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6829">
+                        Sharon
+                        
+                        Stewart Peregoy
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    42
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 639-2198
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Malleriestromswold@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6912">
+                        Mallerie
+                        
+                        Stromswold
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    50
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 670-0698
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:katie.sullivan@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6874">
+                        Katie
+                        
+                        Sullivan
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    89
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 616-3914
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:masween@hotmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6885">
+                        Mark
+                        
+                        Sweeney
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    39
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 560-0171
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Russ.Tempel@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6808">
+                        Russ
+                        
+                        Tempel
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    14
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 265-0990
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:drtenenbaum@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6878">
+                        Danny
+                        
+                        Tenenbaum
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    95
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 285-1460
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:thanehd99@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6880">
+                        Mark
+                        
+                        Thane
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    99
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 552-3957
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:trebasformthouse@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6904">
+                        Jeremy
+                        
+                        Trebas
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    26
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 899-5445
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6930">
+                        Brad
+                        
+                        Tschida
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    97
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 546-4349
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:barry.usher@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6908">
+                        Barry
+                        
+                        Usher
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    40
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 252-2888
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:vancesd34@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6815">
+                        Gordon
+                        
+                        Vance
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    34
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 587-8608
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:sue.vinton@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6849">
+                        Sue
+                        
+                        Vinton
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    56
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 855-2625
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:kenneth.walsh@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6921">
+                        Kenneth
+                        
+                        Walsh
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    71
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 684-5624
+                    <br/>(406) 596-0418
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:repmarvinwwaxjr@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6825">
+                        Marvin
+                        
+                        Weatherwax
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    15
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 338-7741
+                    <br/>(406) 845-5477
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:nitzitap@3rivers.net">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6793">
+                        Susan
+                        
+                        Webber
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    8
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 450-1894
+                    <br/>(406) 338-2159
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Jeff.welborn@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6937">
+                        Jeff
+                        
+                        Welborn
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    SD
+                    36
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 949-6070
+                    <br/>(406) 988-0090
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:tom.welch@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6853">
+                        Tom
+                        
+                        Welch
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    72
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 683-4811
+                    <br/>(406) 660-2988
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:pena_rynalea@yahoo.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6828">
+                        Rynalea
+                        
+                        Whiteman Pena
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    41
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 477-8713
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:Kathy.Whitman@mtleg.gov">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6929">
+                        Kathy
+                        
+                        Whitman
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    96
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 207-4709
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:rep32jwb@gmail.com">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6857">
+                        Jonathan
+                        
+                        Windy Boy
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    D 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    32
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 945-1805
+                    
+                </td>
+                
+            </tr>
+        
+            <tr>
+                
+                <td class="rosterCell emailCell">
+                    
+                        <a href="mailto:">
+                            <img src="/static/images/email-icon.png" class="emailIcon"/>
+                        </a>
+                    
+                </td>
+
+                <td class="rosterCell nameCell">
+                    <a href="/legislator-information/roster/individual/6846">
+                        Katie
+                        
+                        Zolnikov
+                        
+                    </a>
+                    
+
+                    
+                </td>
+                <td class="rosterCell partyCell">
+                    R 
+                </td>
+                <td class="rosterCell seatCell">
+                    HD
+                    45
+                </td>
+                <td class="rosterCell phoneCell">
+                    (406) 690-1684
+                    
+                </td>
+                
+            </tr>
+        
+        </tbody>
+    </table>
+
+    <p id="toggleStaleButton">
+        This table has potentially stale contact info. <input
+            onclick="toggleStaleContactInfo()" type="button"
+            value="Toggle Stale Contact Information"/>
+    </p>
+
+    
+
+
+    
+
+
+            </div>
+        </section>
+    </body>
+
+    </span>
+
+</main>
+<!-- FOOTER -->
+<div class="wellDome"></div>
+<footer class="blue pt-5" role="contentinfo">
+  <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md text-center">
+          <a href="/"><img src="/static/images/logo.png" alt="Montana State Legislature"/></a>
+        </div>
+        <div class="col-md text-center text-md-left">
+          <p class="footerNavHeading"><strong>Legislative Divisions</strong></p>
+          <nav class="nav flex-column">
+              <a class="nav-link" href="/lad">Legislative Audit Division</a>
+              <a class="nav-link active" href="/lfd">Legislative Fiscal Division</a>
+              <a class="nav-link" href="/lsd">Legislative Services Division</a>
+              <a class="nav-link" href="/occ">Consumer Counsel</a>
+          </nav>
+        </div>
+        <div class="col-md text-center text-md-left">
+          <p class="footerNavHeading"><strong>Civic Education</strong></p>
+          <nav class="nav flex-column">
+              <a class="nav-link" href="/civic-education/about">About the Legislature</a>
+              <a class="nav-link active" href="/civic-education/back-school-program">Back to School Program</a>
+              <a class="nav-link" href="/civic-education/visiting-capitol">Visiting the Capitol</a>
+              <a class="nav-link" href="/civic-education/facts">Facts and Statistics</a>
+              <a class="nav-link" href="/civic-education/civic-education-resources">Resources</a>
+          </nav>
+        </div>
+        <div class="col-md text-center text-md-left">
+          <p class="footerNavHeading"><strong>Engage in Government</strong></p>
+          <nav class="nav flex-column">
+              <a class="nav-link" href="/engage-government/page-program">Page Program</a>
+              <a class="nav-link active" href="/engage-government/lobbying">Lobbying</a>
+              <a class="nav-link" href="/engage-government/media-guidelines">Guidelines for the Media</a>
+              <a class="nav-link" href="/engage-government/employment">Employment Opportunities</a>
+          </nav>
+        </div>
+        <div class="col-md text-center text-md-left">
+          <p class="footerNavHeading"><strong>Info For Legislators</strong></p>
+          <nav class="nav flex-column">
+              <a class="nav-link" href="/information-legislators/drafting-bills">Bill Drafting Information</a>
+              <a class="nav-link" href="/information-legislators/compensation">Compensation</a>
+              <a class="nav-link active" href="/information-legislators/resources-organizations">Resources &amp; Organizations</a>
+              <a class="nav-link" href="/information-legislators/orientation">Orientation Materials</a>
+              <a class="nav-link" href="/information-legislators/training">Training</a>
+              <a class="nav-link" href="/information-legislators/email">Email Account Info &amp; Login</a>
+          </nav>
+        </div>
+      </div>
+      <div class="row mt-5">
+		  <div class="col-md text-center footerWhiteLinks">
+              <a href="/contact">Contact Us</a> &bull; <a href="/site">Site Map</a> &bull; <a href="/privacy" target="_blank">Privacy Policy</a> &bull; <a href="http://mt.gov/discover/disclaimer.asp" target ="_blank">Disclaimer</a> &bull; <a href="http://mt.gov/" target="_blank">MT.GOV</a> &bull; <a href="https://app.mt.gov/cgi-bin/cashier/cashier.cgi?REG_ID=156" target="_blank">Pay My Invoice</a><br>
+              <a href="/"><img src=/static/images/montana.png class="img-fluid m-3" alt="State of Montana - Click to return to homepage" ></a>
+          <p><a href="https://www.facebook.com/mtlegislature/" target=""_blank" aria-label="Visit the Montana Legislature Facebook Page"><i class="fa fa-facebook whiteIcon"></i></a> &nbsp; <a href="https://twitter.com/MTLegislature" target="_blank" aria-label="Visit the Montana Legislature Twitter Page"><i class="fa fa-twitter whiteIcon"></i></a></p>
+          </div>
+      </div>
+
+  </div>
+</footer>
+</body>
+</html>

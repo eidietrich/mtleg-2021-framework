@@ -18,6 +18,3 @@ module.exports.writeJson = (path, data) => {
     );
 }
 
-module.exports.timeStamp = () => moment().format('YYYY-MM-DD')
-
-

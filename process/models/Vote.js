@@ -4,6 +4,7 @@ const {
 
 class Vote {
     constructor({vote}) {
+        
         this.votes = this.cleanVotes(vote.votes)
         this.count = this.cleanCount(vote.counts) // reformatting
         this.gopCount = this.getGopCount(this.votes),
@@ -12,7 +13,8 @@ class Vote {
         this.motion = vote.motion_text
 
         // TODO -- work out how to set threshold as a function of motion text
-        const threshold = 'Simple'
+        // Need to reference bill
+        const threshold = 'simple'
 
         this.data = {
             date: vote.start_date,
@@ -21,6 +23,7 @@ class Vote {
             session: vote.legislative_session,
 
             motion: this.motion,
+            thresholdRequired: threshold,
 
             count: this.count,
             gopCount: this.gopCount,
@@ -32,8 +35,10 @@ class Vote {
             
             voteUrl: this.getSource(vote),
 
+            // TODO - figure out how to remove this from export
             votes: this.votes,
         }
+        
     }
 
     getSource = (vote) => vote.sources[0].url
@@ -46,11 +51,12 @@ class Vote {
 
     cleanVotes = (rawVotes) => {
         return rawVotes.map(v => {
+            // .replace('<skip>','Reksten')
             const lawmaker = lawmakerFromLawsName(v.voter_name)
             return {
                 name: lawmaker.name,
                 option: v.option,
-                lastName: lawmaker.last_name,
+                // lastName: lawmaker.last_name,
                 party: lawmaker.party,
                 city: lawmaker.city,
                 district: lawmaker.district,
@@ -82,7 +88,7 @@ class Vote {
 
     didMotionPass = (count, threshold='Simple') => {
        // TODO --> Account for non-simple-majority votes
-        if (threshold === 'Simple') {
+        if (threshold === 'simple') {
             return (count.yes > count.no)
         } else {
             throw 'Unsupported vote threshold'

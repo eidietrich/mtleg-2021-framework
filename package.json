@@ -4,12 +4,24 @@
   "description": "System for tracking Montana's 2021 Legislature. A project of the Montana Free Press.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scrape:laws": "(cd scrapers/openstates && docker-compose run --rm scrape mt bills --scrape)",
+    "storybook": "(cd app && npm run storybook)",
+    "start": "(cd app && npm start)",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "process": "node process/main.js",
+    "update:text": "node scrapers/text/fetch-text.js",
+    "update:lawmaker-portraits": "cp -r  scrapers/lawmakers/images/. app/src/images",
+    "deploy:local": "(cd app && gatsby build && gatsby serve)",
+    "deploy:staging": "(cd app && gatsby build --prefix-paths && aws s3 sync public s3://apps.montanafreepress.org/staging-mtleg-2021 --delete)"
   },
-  "author": "",
+  "author": "Eric Dietrich",
   "license": "ISC",
   "dependencies": {
+    "@newswire/doc-to-archieml": "^1.0.0",
+    "d3-time-format": "^3.0.0",
     "glob": "^7.1.6",
-    "moment": "^2.29.1"
+    "googleapis": "^66.0.0",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1"
   }
 }

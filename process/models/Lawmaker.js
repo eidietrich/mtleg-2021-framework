@@ -1,32 +1,56 @@
 const {
+    LAWMAKER_REPLACEMENTS
+} = require('../config.js')
+
+const {
     filterToFloorVotes,
+    lawmakerLastName,
     billKey,
 } = require('../functions.js')
 
 class Lawmaker {
-    constructor({lawmaker, annotations, articles, votes, bills}) {
+    constructor({lawmaker, annotations, articles, votes, bills, districts}) {
         this.sponsoredBills = this.getSponsoredBills(lawmaker, bills),
         this.votes = this.getVotes(lawmaker, votes),
+
+        // console.log(lawmaker.name, this.votes.length)
+
+        lawmaker.chamber = this.getChamber(lawmaker.district)
+
+
         this.data = {
             key: this.lawmakerKey(lawmaker),
             name: lawmaker.name,
-            lastName: lawmaker.last_name,
-            district: lawmaker.district,
+            lastName: lawmakerLastName(lawmaker.name),
+            district: this.getDistrictInfo(lawmaker, districts),
             residence: lawmaker.city,
             title: this.getTitle(lawmaker),
             fullTitle: this.getFullTitle(lawmaker),
             chamber: lawmaker.chamber,
             party: lawmaker.party,
-            districtNum: lawmaker.district_num,
+            districtNum: this.getDistrictNum(lawmaker.district),
+
+            committees: lawmaker.committees_19, // TODO - change to 2021
+            leadershipRoles: [], // TODO (annotate Speaker of the House etc.)
+
+            legislativeHistory: this.getHistory(lawmaker.sessions),
 
             articles: this.getArticles(lawmaker, articles),
             annotation: this.getAnnotation(lawmaker, annotations),
+            
+            imageSlug: this.getImageSlug(lawmaker),
 
             votingSummary: this.getVotingSummary(lawmaker, this.votes),
-            voteTabulation: this.getVoteTabulation(lawmaker, filterToFloorVotes(this.votes)), // BIG DATA
-            bills: this.sponsoredBills,
+            // voteTabulation: this.getVoteTabulation(lawmaker, filterToFloorVotes(this.votes)), // BIG DATA
+            votes: [], // TODO,
+            sponsoredBills: this.sponsoredBills,
             // votes: this.votes.map(vote => vote.data)
         }
+    }
+
+    getChamber = (districtKey) => {
+        if (districtKey.includes('SD')) return 'senate'
+        if (districtKey.includes('HD')) return 'house'
     }
 
     getTitle = (lawmaker) => {
@@ -39,7 +63,28 @@ class Lawmaker {
         if (lawmaker.chamber === 'house') return 'Representative'
     }
 
-    
+    getDistrictNum = key => +key.replace('HD ','').replace('SD ','')
+
+    getDistrictInfo = (lawmaker, districts) => {
+        const district = districts.find(d => d.key === lawmaker.district)
+        const replacement = LAWMAKER_REPLACEMENTS.find(d => d.district === district.key)
+        if (replacement) district.replacementNote = replacement.note
+        return district
+    }
+
+    getHistory = sessions => {
+        const houseSessions = sessions.filter(d => d.chamber === 'house')
+        const senateSessions = sessions.filter(d => d.chamber === 'senate')
+
+        return {
+            houseSessions,
+            numHouseSessions: houseSessions.length,
+            senateSessions,
+            numSenateSessions: senateSessions.length,
+        }
+    }
+
+    getImageSlug = (lawmaker) => lawmaker.image_path.replace('images/','')
 
     getSponsoredBills = (lawmaker, bills) => {
         const sponsoredBills = bills.filter(bill => bill.data.sponsor === lawmaker.name)
@@ -102,20 +147,22 @@ class Lawmaker {
             numVotesRecorded,
             numVotesCast,
             numVotesNotPresent,
-            fractionVotesNotPresent: numVotesNotPresent / numVotesRecorded,
+            fractionVotesNotPresent: (numVotesNotPresent / numVotesRecorded) || 0,
             votesWithMajority,
-            fractionVotesWithMajority: votesWithMajority / numVotesCast,
+            fractionVotesWithMajority: (votesWithMajority / numVotesCast) || 0,
             votesWithGopMajority,
-            fractionVotesWithGopMajority: votesWithGopMajority / numVotesCast,
+            fractionVotesWithGopMajority: (votesWithGopMajority / numVotesCast) || 0,
             votesWithDemMajority,
-            fractionVotesWithDemMajority: votesWithDemMajority / numVotesCast,
+            fractionVotesWithDemMajority: (votesWithDemMajority / numVotesCast) || 0,
         }
         return votingSummary
         
     }
 
     getArticles = (lawmaker, articles) => {
-        return []
+        const articlesAboutLawmaker = articles.filter(article => article.data.lawmakerTags.includes(lawmaker.name)).map(d => d.export())
+        // if (articlesAboutLawmaker.length > 0) console.log(lawmaker.name, articlesAboutLawmaker.length)
+        return articlesAboutLawmaker
     }
 
     getAnnotation = (lawmaker, annotations) => {

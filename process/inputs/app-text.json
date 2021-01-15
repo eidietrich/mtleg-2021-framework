@@ -1,0 +1,123 @@
+{
+  "house": {
+    "description": [
+      {
+        "type": "text",
+        "value": "The Montana House is the Legislature’s larger chamber, with 100 representatives elected to two-year terms."
+      },
+      {
+        "type": "text",
+        "value": "TK 1-2 grafs more w/ high school civics info."
+      }
+    ]
+  },
+  "senate": {
+    "description": [
+      {
+        "type": "text",
+        "value": "The Montana Senate is the Legislature’s smaller chamber with 50 senators elected to four-year terms. Each senate district spans two house district."
+      },
+      {
+        "type": "text",
+        "value": "TK 1-2 grafs more w/ high school civics info."
+      }
+    ]
+  },
+  "governor": {
+    "description": [
+      {
+        "type": "text",
+        "value": "Gov. Greg Gianforte, elected in Nov. 2020, took office in early 2021 as Montana’s first Republican governor since 2005."
+      },
+      {
+        "type": "text",
+        "value": "The governor appoints state agency heads and is ultimately responsible for the day-to-day management of government. The governor also prepares a budget proposal that serves as a starting point for the legislative appropriations process, where lawmakers determine how much the governor’s executive branch is allowed to spend."
+      },
+      {
+        "type": "text",
+        "value": "Bills passed by the legislature are sent to the Governor, who can sign them into law, issue a veto, or let them become law without his signature. Vetos can be overridden by two-thirds majority votes in both the House and Senate."
+      }
+    ]
+  },
+  "about": {
+    "description": [
+      {
+        "type": "text",
+        "value": "This guide is an effort to make the quantifiable aspects of the Montana Legislature more accessible to the public, compiling information on lawmakers, proposed bills and the legislative process into a single place with contextual information that can help Montana citizens make sense of the work their elected representatives are doing in Helena. This is a project of the Montana Free Press, a 501(c)(3) nonprofit newsroom that aims to provide Montanans with in-depth, nonpartisan news coverage."
+      },
+      {
+        "type": "text",
+        "value": "Data presented here is sourced from a variety of sources, primarily the Montana Legislature’s <a href=\"https://leg.mt.gov/legislator-information/\">official roster</a> and its official bill-tracking system, the <a href=\"http://laws.leg.mt.gov/legprd/law0203w$.startup?P_SESS=20211\">Legislative Automated Workflow System</a>, or LAWS. Data from LAWS data is collected daily using an open-source scraping script developed by <a href=\"https://openstates.org/\">the Open State project</a>."
+      },
+      {
+        "type": "text",
+        "value": "Web design, data wrangling and other reporting for this guide was done by MTFP data reporter Eric Dietrich. Contact <a href=\"mailto:edietrich@montanafreepress.org\">edietrich@montanafreepress.org</a> with bug reports, questions, or suggestions."
+      }
+    ]
+  },
+  "bills": [
+    {
+      "key": "HB 2",
+      "isMajorBill": "True",
+      "label": "Primary state budget bill",
+      "annotation": [
+        {
+          "type": "text",
+          "value": "This is the primary state budget bill, incorporating most of the spending the legislature will authorize for state agencies. As such, it follows a slightly different process than other bills, with joint appropriations subcommittees including members from the House and Senate holding numerous hearings about its contents early in the legislative session."
+        },
+        {
+          "type": "text",
+          "value": "While the budget is high-profile legislation that sometimes ends up caught in procedural turmoil, House Bill 2 is generally voted on by the full House Appropriations Committee before being forwarded for debate on the House Floor. Once passed by the House, a similar process is generally repeated with the Senate Finance and Claims Committee and the Senate Floor."
+        }
+      ]
+    },
+    {
+      "key": "HB 13",
+      "isMajorBill": "True",
+      "annotation": [
+        {
+          "type": "text",
+          "value": "The state employee pay plan bill specifies expected changes to the base salaries paid to state workers. The 2021 version was developed in negotiations between public employees unions and the Bullock administration, though may be amended as the bill moves through the Legislature."
+        }
+      ]
+    },
+    {
+      "key": "HB 13",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 112",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 113",
+      "label": "Would prohibit hormonal treatments and gender surgeries for transgender youth",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 102",
+      "isMajorBill": "True"
+    }
+  ],
+  "lawmakers": [
+    {
+      "key": "Wylie Galt",
+      "annotation": [
+        {
+          "type": "text",
+          "value": "Galt is the Speaker of the House, that body’s presiding officer."
+        }
+      ]
+    },
+    {
+      "key": "Mark Blasdel",
+      "annotation": [
+        {
+          "type": "text",
+          "value": "Blasdel is the Senate President, that body’s presiding officer."
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2021-01-15T17:23:31.240Z"
+}
