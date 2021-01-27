@@ -32,7 +32,7 @@ const LAWMAKER_INFO_PATH = './scrapers/lawmakers/process/lawmakers.json'
 
 // App text passed through copy editing, bill/lawmaker annotations, flags for key bills
 const TEXT_PATH = './process/inputs/app-text.json'
-
+const LEGAL_NOTE_PATH = './scrapers/legal-notes/legal-notes.json'
 const ARTICLES_PATH = './scrapers/mtfp-articles/articles.json'
 
 // OUTPUTS
@@ -54,12 +54,12 @@ const rawDistricts = getJson(DISTRICT_INFO_PATH)
 const annotations = getJson(TEXT_PATH)
 const rawArticles = getJson(ARTICLES_PATH) // TODO Add
 
+const legalNotes = getJson(LEGAL_NOTE_PATH)
+
 const articles = rawArticles
     .filter(d => d.status === 'publish')
     .map(article => new Article({article}))
 const votes = rawVotes.map(vote => new Vote({vote}))
-// console.log('votes', votes.length)
-
 
 const keyBillIds = annotations.bills.filter(d => d.isMajorBill === 'True').map(d => d.key)
 const bills = rawBills.map(bill => new Bill({
@@ -67,15 +67,20 @@ const bills = rawBills.map(bill => new Bill({
         votes,
         annotations,
         articles, 
+        legalNotes,
         keyBillIds,
     })
 )
 
+// console.log(bills.find(d => d.data.identifier === 'HB 13'))
+
 const summaryData = {
     summary: calculateSummaryStats(bills, votes),
     about: annotations.about,
+    contactUs: annotations.contactUs,
     updateTime: new Date(),
     mostRecentActionDate: mostRecentActionDate(bills),
+    infoPopups: annotations.infoPopups
 }
 
 const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
@@ -92,7 +97,7 @@ const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
 
 // console.log(lawmakers.map(d => d.export().votingSummary))
 // console.log(lawmakers[0].export())
-// console.log(bills.find(d => d.data.identifier === 'HB 2').data)
+// console.log(bills.find(d => d.data.identifier === 'HB 171').data)
 
 // const actionsWithVotes = Array.from(new Set(bills.map(b => b.data.actions).map(d => d).flat().filter(d => d.vote).map(d => d.description))).sort((a,b) => a.localeCompare(b))
 // console.log(actionsWithVotes)
@@ -108,6 +113,11 @@ const houseData = new House({annotations}).export()
 const senateData = new Senate({annotations}).export()
 const governorData = new Governor({annotations, articles}).export()
 
+// Log output
+writeJson('./process/logs/lawmaker.json', lawmakersData[45])
+writeJson('./process/logs/bill.json', billsData[45])
+
+// Data output
 writeJson(LAWMAKERS_OUTPUT_PATH, lawmakersData)
 writeJson(BILLS_OUTPUT_PATH, billsData)
 writeJson(HOUSE_OUTPUT_PATH, houseData)

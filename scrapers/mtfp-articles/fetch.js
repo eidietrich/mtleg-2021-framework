@@ -27,21 +27,27 @@ async function getStories(cursor) {
                     link
                     status
                     tags {
-                        nodes {
+                      nodes {
                         name
-                        }
-                    }
-                    featuredImage {
-                        node {
-                        link
-                        }
+                      }
                     }
                     categories {
-                        nodes {
+                      nodes {
                         name
-                        }
+                      }
                     }
-                }
+                    featuredImage {
+                      node {
+                        link
+                      }
+                    }
+                    author {
+                      node {
+                        name
+                      }
+                    }
+                    excerpt
+                  }
             }
         }
         `,

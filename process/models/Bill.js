@@ -9,7 +9,7 @@ const {
 
 class Bill {
     /* Translates bill data from openstates format (w/ added data modifications) to schema used for app */
-    constructor({bill, annotations, articles, votes, keyBillIds}) {
+    constructor({bill, annotations, articles, votes, keyBillIds, legalNotes}) {
         // console.log(bill)
 
         this.type = this.getType(bill)
@@ -41,7 +41,7 @@ class Bill {
             lawsUrl: this.getLawsUrl(bill),
             textUrl: this.getTextUrl(bill),
             fiscalNoteUrl: this.getFiscalNoteUrl(bill),
-            legalNoteUrl: this.getLegalNoteUrl(bill),
+            legalNoteUrl: this.getLegalNoteUrl(bill, legalNotes),
 
             annotation: this.getAnnotations(bill, annotations),
             label: this.getLabel(bill, annotations),
@@ -66,7 +66,9 @@ class Bill {
     getStatus = (bill) => {
         // Status as pulled from LAWS status line
         const match = BILL_STATUSES.find(d => d.key === bill.extras.bill_status)
-        if (!match) console.log('Missing bill status match for', bill.extras.bill_status)
+        if (!match) {
+            throw 'Missing bill status match for', bill.extras.bill_status
+        }
         return match
     }
 
@@ -81,7 +83,7 @@ class Bill {
             toSecondChamber: false,
             secondChamberStatus: null,
             toGovernor: false,
-            governorStatus: null,
+            governorStatus: 'null',
             finalOutcome: null,
         }
         // Possible improvement here progress as array of thresholds to clear, in order
@@ -98,7 +100,7 @@ class Bill {
             if (hasProgressFlag(actions, 'introduction')) progress.toFirstChamber = true
             
         }
-        if ((this.type === 'bill') || (this.type === 'joint resolution')) {
+        if (['bill', 'joint resolution', 'referendum proposal'].includes(this.type)) {
             const firstChamberActions = (bill.identifier[0] === 'H') ? 
                 actions.filter(d => d.chamber === 'House') :
                 actions.filter(d => d.chamber === 'Senate')
@@ -134,7 +136,7 @@ class Bill {
             
         }
         if (this.type === 'bill') {
-            // Logic for bills that doesn't apply to joint resolutions
+            // Logic for bills that doesn't apply to joint resolutions, referendum proposals
             // Governor
             const toGovernor = hasProgressFlag(actions, 'sentToGovernor')
             const signedByGovernor = hasProgressFlag(actions, 'signedByGovernor')
@@ -143,10 +145,11 @@ class Bill {
             if (signedByGovernor) progress.governorStatus = 'signed'
             if (vetoedByGovernor) progress.governorStatus = 'vetoed'
             if (toGovernor && ultimatelyPassed && (!signedByGovernor && !vetoedByGovernor)) progress.governorStatus = 'became law unsigned'
+            else progress.governorStatus = 'pending'
             
         } 
         
-        if (!['bill','resolution','joint resolution'].includes(this.type)) {
+        if (!['bill','resolution','joint resolution', 'referendum proposal'].includes(this.type)) {
             console.log('Unhandled bill type', this.type)
         }
 
@@ -158,7 +161,11 @@ class Bill {
 
     getRequestor = (bill) => bill.extras.requester // Last name in data only
 
-    getType = (bill) => bill.classification[0]
+    getType = (bill) => {
+        if (bill.extras['category:'] === 'REFERENDUM PROPOSALS') return 'referendum proposal'
+        else return bill.classification[0]
+    }
+
 
     getTransmittalDeadline = (bill) => bill.extras['transmittal_date:']
 
@@ -188,7 +195,11 @@ class Bill {
         return fiscalNote && fiscalNote.links[0].url
     }
 
-    getLegalNoteUrl = (bill) => null // TODO - need to find an example of a bill w/ legal notes attached
+    getLegalNoteUrl = (bill, legalNotes) => {
+        const match = legalNotes.find(d => d.bill === bill.identifier)
+        if (match) return match.url
+        else return null
+    }
 
     getAnnotations = (bill, annotations) => {
         const match = annotations.bills.find(d => d.key === bill.identifier)

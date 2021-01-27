@@ -490,13 +490,6 @@ module.exports.filterToFloorVotes = (votes) => {
 module.exports.billKey = (identifier) => identifier.substring(0, 2).toLowerCase() + '-' + identifier.substring(3,)
 
 module.exports.calculateSummaryStats = (bills, votes) => {
-    const actualBills = bills
-        .filter(d => d.type === 'bill')
-    const senateBills = actualBills.filter(d => d.data.identifier[0] === 'S')
-    const houseBills = actualBills.filter(d => d.data.identifier[0] === 'H')
-    // TODO - sort voter referendums out from bills
-    const resolutions = bills.filter(d => ['resolution', 'joint resolution'].includes(d.type))
-    
     // status tests
     const introduced = d => d.data.progress.toFirstChamber
     const pastFirstChamber = d => d.data.progress.firstChamberStatus === 'passed'
@@ -506,6 +499,22 @@ module.exports.calculateSummaryStats = (bills, votes) => {
     const vetoedByGovernor = d => d.data.progress.governorStatus === 'vetoed'
     const enactedWithNoGovernorSignature = d => d.data.progress.governorStatus === 'became law unsigned'
     const becameLaw = d => d.data.progress.finalOutcome === 'passed'
+    
+    const actualBills = bills
+        .filter(d => d.type === 'bill')
+    const senateBills = actualBills.filter(d => d.data.identifier[0] === 'S')
+    const houseBills = actualBills.filter(d => d.data.identifier[0] === 'H')
+    const resolutions = bills.filter(d => ['resolution', 'joint resolution', 'referendum proposal'].includes(d.type))
+    
+    console.log("Bill stats")
+    console.table([
+        {key: 'bills', value: actualBills.length},
+        {key: '-- house bills', value: houseBills.length},
+        {key: '-- senate bills', value: senateBills.length},
+        {key: 'resolutions', value: bills.filter(d => d.type === 'resolution').length},
+        {key: 'joint resolutions', value: bills.filter(d => d.type === 'joint resolution').length},
+        {key: 'referendum proposals', value: bills.filter(d => d.type === 'referendum proposal').length},
+    ])
 
     const summary = {
         numBillsAndResolutions: bills.length,
@@ -534,14 +543,13 @@ module.exports.calculateSummaryStats = (bills, votes) => {
 
     }
     return summary
-
-    // console.log('bills', bills.length)
-    // console.log('votes', votes.length)
 }
 
+const actionsThatCanBeFuture = ['Scheduled for Executive Action','Hearing', 'Scheduled for 2nd Reading', 'Scheduled for 3rd Reading']
 module.exports.mostRecentActionDate = bills => {
     const actions = bills.map(d => d.actions).flat()
-        .filter(d => d.description !== 'Hearing') // excludes future hearings
+        .filter(d => !actionsThatCanBeFuture.includes(d.description)) // excludes future actions, hopefully
     const mostRecent = actions.reduce((prev, current) => new Date(prev.date) > new Date(current.date) ? prev : current)
+    // console.log(mostRecent)
     return timeParse('%Y-%m-%d')(mostRecent.date)
 }

@@ -3,13 +3,14 @@ module.exports.LAWMAKER_REPLACEMENTS = [
 ]
 
 module.exports.BILL_STATUSES = [
+    { key: 'In Drafting Process', step: 'Drafting', label: 'In drafting', status: 'not introduced' },
 
     // first-house
     { key: 'In First House--Introduced', step: 'First chamber', label: 'Introduced', status: 'live' },
     { key: 'In First House Committee--Nontabled', step: 'First chamber', label: 'In committee', status: 'live' },
-    { key: 'In First House Committee--Tabled', step: 'First chamber', label: 'Tabled', status: 'stalled' },
-    { key: 'In First House--Out of Committee', step: 'First chamber', label: 'On floor', status: 'live' },
-    { key: 'In First House--Through 2nd Reading', step: 'First chamber', label: 'Past 1st floor vote', status: 'live' },
+    { key: 'In First House Committee--Tabled', step: 'First chamber', label: 'Tabled in committee', status: 'stalled' },
+    { key: 'In First House--Out of Committee', step: 'First chamber', label: 'Out of committee', status: 'live' },
+    { key: 'In First House--Through 2nd Reading', step: 'First chamber', label: 'Passed second reading vote', status: 'live' },
     { key: 'In First House--Through 3rd Reading', step: 'First chamber', label: 'Passed chamber', status: 'live' },
 
     // second-house
@@ -17,16 +18,16 @@ module.exports.BILL_STATUSES = [
     { key: 'In Second House Committee--Nontabled', step: 'Second chamber', label: 'In committee', status: 'live' },
     { key: 'In Second House Committee--Tabled', step: 'Second chamber', label: 'Tabled', status: 'stalled' },
     { key: 'In Second House--Out of Committee', step: 'Second chamber', label: 'On floor', status: 'live' },
-    { key: 'In Second House--Through 2nd Reading', step: 'Second chamber', label: 'Past 1st floor vote', status: 'live' },
+    { key: 'In Second House--Through 2nd Reading', step: 'Second chamber', label: 'Passed 2nd reading vote', status: 'live' },
     { key: 'In Second House--Through 3rd Reading', step: 'Second chamber', label: 'Passed chamber', status: 'live' },
 
     // reconciliation
-    { key: 'Returned to First House with Second House Amendments', step: 'Reconciliation', label: 'Amendment reconciliation', status: 'live' },
-    { key: 'In Process to Consider Second House Amendments', step: 'Reconciliation', label: 'Amendment reconciliation', status: 'live' },
-    { key: 'In Conference or Free Conference Committee Process', step: 'Reconciliation', label: 'Amendment reconciliation', status: 'live' },
+    { key: 'Returned to First House with Second House Amendments', step: 'Reconciliation', label: 'In reconciliation', status: 'live' },
+    { key: 'In Process to Consider Second House Amendments', step: 'Reconciliation', label: 'In reconciliation', status: 'live' },
+    { key: 'In Conference or Free Conference Committee Process', step: 'Reconciliation', label: 'In reconciliation', status: 'live' },
 
-    // Passed resolutions
-    
+    // Passed Legislature
+    { key: 'Passed By Legislature--Enrolling and Final Preparation Process', step: 'Through Legislature', label: 'Passed both chambers', status: 'live' },
 
     // governor's desk
     { key: 'Transmitted to Governor', step: 'Governor', label: 'Before governor', status: 'live' },
@@ -36,8 +37,8 @@ module.exports.BILL_STATUSES = [
 
     // Final markers --> complicate things
     { key: 'Probably Dead', label: 'Probably Dead', step: 'Failed', status: 'stalled' },
-    { key: 'Became Law', label: 'Became Law', step: 'Passed', status: 'passed' },
-    { key: 'Passed By Legislature--Enrolling and Final Preparation Process', step: 'Passed', label: 'En route', status: 'live' },
+    { key: 'Became Law', label: 'Became Law', step: 'Passed', status: 'became-law' },
+    
 ]
 
 // Display flags
@@ -236,6 +237,7 @@ module.exports.ACTIONS = [
     { key: 'Fiscal Note Probable', },
     { key: 'Fiscal Note Received', },
     { key: 'Fiscal Note Requested', },
+    { key: 'Fiscal Note Requested (Local Government Fiscal Impact)', },
     { key: 'Fiscal Note Signed', },
     { key: 'Fiscal Note Unsigned', },
     { key: 'Pre-Introduction Letter Sent', },

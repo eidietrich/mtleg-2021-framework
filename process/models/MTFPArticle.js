@@ -17,10 +17,12 @@ class Article {
         this.tags = article.tags.nodes.map(d => d.name)
         this.data = {
             title: article.title,
+            subtitle: this.parseExcerpt(article.excerpt),
             date: new Date(article.date),
             link: article.link,
             // status: article.status,
             tags: this.tags,
+            author: article.author.node.name,
             // categories: article.categories.nodes.map(d => d.name),
             imageUrl: article.featuredImage && article.featuredImage.node.link,
         }
@@ -37,6 +39,12 @@ class Article {
         this.data.billTags = billTags
         this.data.lawmakerTags = lawmakerTags
         this.data.governorTags = governorTags
+    }
+
+    parseExcerpt = (excerptText) => {
+        // assumes excerpt == subtitle
+        // TODO - write code that strips junk from excerpt
+        return ''
     }
 
     export = () => ({...this.data})
