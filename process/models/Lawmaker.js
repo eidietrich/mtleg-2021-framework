@@ -23,7 +23,7 @@ class Lawmaker {
             name: lawmaker.name,
             lastName: lawmakerLastName(lawmaker.name),
             district: this.getDistrictInfo(lawmaker, districts),
-            residence: lawmaker.city,
+            locale: this.getLocales(lawmaker, districts),
             title: this.getTitle(lawmaker),
             fullTitle: this.getFullTitle(lawmaker),
             chamber: lawmaker.chamber,
@@ -70,6 +70,13 @@ class Lawmaker {
         const replacement = LAWMAKER_REPLACEMENTS.find(d => d.district === district.key)
         if (replacement) district.replacementNote = replacement.note
         return district
+    }
+    getLocales = (lawmaker, districts) => {
+        const district = districts.find(d => d.key === lawmaker.district)
+        return {
+            short: district.locale,
+            long: district.locale_description
+        }
     }
 
     getHistory = sessions => {

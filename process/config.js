@@ -84,8 +84,9 @@ module.exports.ACTIONS = [
     // Resolution commitee actions
     { key: 'Committee Executive Action--Resolution Adopted', isMajor, isHighlight, firstCommitteePassage},
     { key: 'Committee Executive Action--Resolution Adopted as Amended', isMajor, isHighlight, firstCommitteePassage},
+    { key: 'Committee Executive Action--Resolution Not Adopted', isMajor, isHighlight, firstCommitteeFailed},
     // Resolutuon floor actions
-    { key: 'Resolution Adopted', isMajor, isHighlight},
+    { key: 'Resolution Adopted', isMajor, isHighlight, ultimatelyPassed},
 
     // general committee actions
     { key: 'Tabled in Committee', isMajor, isHighlight, committeeTabled},
@@ -250,6 +251,7 @@ module.exports.ACTIONS = [
     { key: 'Revised Fiscal Note Signed', },
     { key: 'Scheduled for 2nd Reading', },
     { key: '2nd Reading Pass Consideration'},
+    { key: '2nd Reading Indefinitely Postpone Motion Failed'},
     { key: 'Scheduled for 3rd Reading', },
     { key: '3rd Reading Pass Consideration'},
     { key: 'Scheduled for Executive Action', },

@@ -55,7 +55,9 @@
                     "votes": 1518
                 }
             ]
-        }
+        },
+        "locale": "Libby",
+        "locale_description": "Libby, Troy"
     },
     {
         "key": "HD 8",
@@ -103,7 +105,9 @@
                     "votes": 5108
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "West and south Kalispell"
     },
     {
         "key": "HD 92",
@@ -161,7 +165,9 @@
                     "votes": 2620
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "East Missoula, Clinton, Seeley Lake, Condon"
     },
     {
         "key": "HD 10",
@@ -224,7 +230,9 @@
                     "votes": 2178
                 }
             ]
-        }
+        },
+        "locale": "Bigfork",
+        "locale_description": "Bigfork, Swan Lake"
     },
     {
         "key": "HD 11",
@@ -277,7 +285,9 @@
                     "votes": 5358
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "South of Kalispell, Somers"
     },
     {
         "key": "HD 13",
@@ -340,7 +350,9 @@
                     "votes": 493
                 }
             ]
-        }
+        },
+        "locale": "Thompson Falls",
+        "locale_description": "Thompson Falls, Heron, Marion"
     },
     {
         "key": "HD 12",
@@ -398,7 +410,9 @@
                     "votes": 2830
                 }
             ]
-        }
+        },
+        "locale": "Polson",
+        "locale_description": "Polson"
     },
     {
         "key": "HD 15",
@@ -451,7 +465,9 @@
                     "votes": 2908
                 }
             ]
-        }
+        },
+        "locale": "Browning",
+        "locale_description": "Browning, Heart Butte"
     },
     {
         "key": "HD 16",
@@ -499,7 +515,9 @@
                     "votes": 3237
                 }
             ]
-        }
+        },
+        "locale": "Browning",
+        "locale_description": "Browning, East Glacier, Cut Bank"
     },
     {
         "key": "HD 17",
@@ -557,7 +575,9 @@
                     "votes": 1219
                 }
             ]
-        }
+        },
+        "locale": "Fairfield",
+        "locale_description": "Fairfield, Choteau, Augusta, Valier, Brady"
     },
     {
         "key": "HD 93",
@@ -620,7 +640,9 @@
                     "votes": 2279
                 }
             ]
-        }
+        },
+        "locale": "Ronan",
+        "locale_description": "Ronan, Charlo, Arlee"
     },
     {
         "key": "HD 14",
@@ -673,7 +695,9 @@
                     "votes": 5185
                 }
             ]
-        }
+        },
+        "locale": "St Regis",
+        "locale_description": "St. Regis, Superior, Hot Springs, Dixon, Alberton"
     },
     {
         "key": "HD 2",
@@ -731,7 +755,9 @@
                     "votes": 1258
                 }
             ]
-        }
+        },
+        "locale": "Eureka",
+        "locale_description": "Eureka"
     },
     {
         "key": "HD 19",
@@ -784,7 +810,9 @@
                     "votes": 762
                 }
             ]
-        }
+        },
+        "locale": "Ulm",
+        "locale_description": "Ulm, Cascade, Simms, Belt"
     },
     {
         "key": "HD 20",
@@ -842,7 +870,9 @@
                     "votes": 2078
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "South of Great Falls"
     },
     {
         "key": "HD 23",
@@ -900,7 +930,9 @@
                     "votes": 1972
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "South side of Great Falls"
     },
     {
         "key": "HD 24",
@@ -958,7 +990,9 @@
                     "votes": 2058
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "Central Great Falls"
     },
     {
         "key": "HD 25",
@@ -1016,7 +1050,9 @@
                     "votes": 2038
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "Central Great Falls"
     },
     {
         "key": "HD 26",
@@ -1084,7 +1120,9 @@
                     "votes": 1506
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "Great Falls and Malmstrom AFB"
     },
     {
         "key": "HD 18",
@@ -1132,7 +1170,9 @@
                     "votes": 3844
                 }
             ]
-        }
+        },
+        "locale": "Conrad",
+        "locale_description": "Conrad, Shelby, Cut Bank"
     },
     {
         "key": "HD 21",
@@ -1195,7 +1235,9 @@
                     "votes": 1768
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "North side of Great Falls"
     },
     {
         "key": "HD 22",
@@ -1258,7 +1300,9 @@
                     "votes": 1840
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "Northwest Great Falls"
     },
     {
         "key": "HD 27",
@@ -1306,7 +1350,9 @@
                     "votes": 4911
                 }
             ]
-        }
+        },
+        "locale": "Fort Benton",
+        "locale_description": "Fort Benton, Geraldine, Chester, Big Sandy"
     },
     {
         "key": "HD 79",
@@ -1369,7 +1415,9 @@
                     "votes": 3006
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "West Helena"
     },
     {
         "key": "HD 28",
@@ -1427,7 +1475,9 @@
                     "votes": 2133
                 }
             ]
-        }
+        },
+        "locale": "Havre",
+        "locale_description": "Havre"
     },
     {
         "key": "HD 31",
@@ -1475,7 +1525,9 @@
                     "votes": 2820
                 }
             ]
-        }
+        },
+        "locale": "Poplar",
+        "locale_description": "Poplar, Fort Peck, Wolf Point"
     },
     {
         "key": "HD 32",
@@ -1533,7 +1585,9 @@
                     "votes": 1671
                 }
             ]
-        }
+        },
+        "locale": "Box Elder",
+        "locale_description": "Box Elder, Chinook, Hays"
     },
     {
         "key": "HD 33",
@@ -1586,7 +1640,9 @@
                     "votes": 4346
                 }
             ]
-        }
+        },
+        "locale": "Malta",
+        "locale_description": "Malta, Glasgow, Chinook"
     },
     {
         "key": "HD 34",
@@ -1639,7 +1695,9 @@
                     "votes": 4914
                 }
             ]
-        }
+        },
+        "locale": "Culbertson",
+        "locale_description": "Culbertson, Opheim, Plentywood"
     },
     {
         "key": "HD 35",
@@ -1692,7 +1750,9 @@
                     "votes": 4760
                 }
             ]
-        }
+        },
+        "locale": "Sidney",
+        "locale_description": "Sidney, Lambert, Savage"
     },
     {
         "key": "HD 36",
@@ -1755,7 +1815,9 @@
                     "votes": 4728
                 }
             ]
-        }
+        },
+        "locale": "Glendive",
+        "locale_description": "Glendive, Wibaux"
     },
     {
         "key": "HD 37",
@@ -1813,7 +1875,9 @@
                     "votes": 603
                 }
             ]
-        }
+        },
+        "locale": "Circle",
+        "locale_description": "Circle, Jordan, Terry, Baker, Ekalaka, Broadus"
     },
     {
         "key": "HD 39",
@@ -1866,7 +1930,9 @@
                     "votes": 4940
                 }
             ]
-        }
+        },
+        "locale": "Forsyth",
+        "locale_description": "Forsyth, Worden, Hysham, Colstrip"
     },
     {
         "key": "HD 38",
@@ -1914,7 +1980,9 @@
                     "votes": 4006
                 }
             ]
-        }
+        },
+        "locale": "Miles City",
+        "locale_description": "Mile City"
     },
     {
         "key": "HD 5",
@@ -1977,7 +2045,9 @@
                     "votes": 2978
                 }
             ]
-        }
+        },
+        "locale": "Whitefish",
+        "locale_description": "Whitefish"
     },
     {
         "key": "HD 29",
@@ -2025,7 +2095,9 @@
                     "votes": 4761
                 }
             ]
-        }
+        },
+        "locale": "Lewistown",
+        "locale_description": "Lewistown, Winifred, Roy, Winnett"
     },
     {
         "key": "HD 41",
@@ -2078,7 +2150,9 @@
                     "votes": 1829
                 }
             ]
-        }
+        },
+        "locale": "Lame Deer",
+        "locale_description": "Lame Deer, Busby, Colstrip, Wyola"
     },
     {
         "key": "HD 42",
@@ -2126,7 +2200,9 @@
                     "votes": 2778
                 }
             ]
-        }
+        },
+        "locale": "Crow Agency",
+        "locale_description": "Crow Agency, Hardin"
     },
     {
         "key": "HD 30",
@@ -2184,7 +2260,9 @@
                     "votes": 1163
                 }
             ]
-        }
+        },
+        "locale": "Martinsdale",
+        "locale_description": "Martinsdale, White Sulphur Springs, Geyser, Lavina"
     },
     {
         "key": "HD 59",
@@ -2242,7 +2320,9 @@
                     "votes": 2514
                 }
             ]
-        }
+        },
+        "locale": "Pray",
+        "locale_description": "Pray, Gardiner, Wilsall, Big Timber"
     },
     {
         "key": "HD 57",
@@ -2290,7 +2370,9 @@
                     "votes": 5104
                 }
             ]
-        }
+        },
+        "locale": "Columbus",
+        "locale_description": "Columbus, Absarokee, Reed Point, Rapelje, Park City"
     },
     {
         "key": "HD 40",
@@ -2348,7 +2430,9 @@
                     "votes": 1120
                 }
             ]
-        }
+        },
+        "locale": "Roundup",
+        "locale_description": "Roundup, Meltsone, Broadview, Shepherd"
     },
     {
         "key": "HD 43",
@@ -2401,7 +2485,9 @@
                     "votes": 1496
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Northeast Billings"
     },
     {
         "key": "HD 45",
@@ -2449,7 +2535,9 @@
                     "votes": 4996
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "North of Billings"
     },
     {
         "key": "HD 46",
@@ -2507,7 +2595,9 @@
                     "votes": 2031
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Northwest Billings"
     },
     {
         "key": "HD 3",
@@ -2565,7 +2655,9 @@
                     "votes": 2393
                 }
             ]
-        }
+        },
+        "locale": "Columbia Falls",
+        "locale_description": "Columbia Falls, West Glacier, Hungry Horse"
     },
     {
         "key": "HD 53",
@@ -2613,7 +2705,9 @@
                     "votes": 8025
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "West of Billings"
     },
     {
         "key": "HD 54",
@@ -2671,7 +2765,9 @@
                     "votes": 2239
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "West Billings"
     },
     {
         "key": "HD 55",
@@ -2719,7 +2815,9 @@
                     "votes": 4473
                 }
             ]
-        }
+        },
+        "locale": "Laurel",
+        "locale_description": "Laurel, South of Billings"
     },
     {
         "key": "HD 56",
@@ -2767,7 +2865,9 @@
                     "votes": 4444
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Southeast of Billings"
     },
     {
         "key": "HD 44",
@@ -2825,7 +2925,9 @@
                     "votes": 1825
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Northeast Billings"
     },
     {
         "key": "HD 47",
@@ -2883,7 +2985,9 @@
                     "votes": 1992
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "HD 48",
@@ -2941,7 +3045,9 @@
                     "votes": 2415
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "HD 49",
@@ -2999,7 +3105,9 @@
                     "votes": 1643
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "HD 58",
@@ -3057,7 +3165,9 @@
                     "votes": 2402
                 }
             ]
-        }
+        },
+        "locale": "Joliet",
+        "locale_description": "Joliet, Red Lodge, Belfry"
     },
     {
         "key": "HD 60",
@@ -3115,7 +3225,9 @@
                     "votes": 2927
                 }
             ]
-        }
+        },
+        "locale": "Livingston",
+        "locale_description": "Livingston"
     },
     {
         "key": "HD 4",
@@ -3163,7 +3275,9 @@
                     "votes": 5922
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "Northeast of Kalispell"
     },
     {
         "key": "HD 50",
@@ -3221,7 +3335,9 @@
                     "votes": 1992
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "HD 51",
@@ -3279,7 +3395,9 @@
                     "votes": 2319
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "South of Billings"
     },
     {
         "key": "HD 52",
@@ -3337,7 +3455,9 @@
                     "votes": 1838
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "HD 61",
@@ -3390,7 +3510,9 @@
                     "votes": 6200
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "East Bozeman"
     },
     {
         "key": "HD 69",
@@ -3443,7 +3565,9 @@
                     "votes": 5801
                 }
             ]
-        }
+        },
+        "locale": "Manhattan",
+        "locale_description": "Manhattan, Three Forks"
     },
     {
         "key": "HD 67",
@@ -3506,7 +3630,9 @@
                     "votes": 363
                 }
             ]
-        }
+        },
+        "locale": "Belgrade",
+        "locale_description": "Belgrade"
     },
     {
         "key": "HD 68",
@@ -3569,7 +3695,9 @@
                     "votes": 2148
                 }
             ]
-        }
+        },
+        "locale": "Belgrade",
+        "locale_description": "Belgrade"
     },
     {
         "key": "HD 65",
@@ -3627,7 +3755,9 @@
                     "votes": 3834
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "Northwest Bozeman"
     },
     {
         "key": "HD 66",
@@ -3675,7 +3805,9 @@
                     "votes": 5321
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "Central Bozeman"
     },
     {
         "key": "HD 63",
@@ -3738,7 +3870,9 @@
                     "votes": 2312
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "Southwest Bozeman"
     },
     {
         "key": "HD 6",
@@ -3801,7 +3935,9 @@
                     "votes": 2294
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "Northwest of Kalispell"
     },
     {
         "key": "HD 62",
@@ -3854,7 +3990,9 @@
                     "votes": 2079
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "South Bozeman"
     },
     {
         "key": "HD 64",
@@ -3927,7 +4065,9 @@
                     "votes": 450
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "Bozeman, Gallatin Gateway, Big Sky, West Yellowstone"
     },
     {
         "key": "HD 71",
@@ -3990,7 +4130,9 @@
                     "votes": 1945
                 }
             ]
-        }
+        },
+        "locale": "Twin Bridges",
+        "locale_description": "Twin Bridges, Sheridan, Virginia City, Ennis"
     },
     {
         "key": "HD 72",
@@ -4038,7 +4180,9 @@
                     "votes": 5488
                 }
             ]
-        }
+        },
+        "locale": "Dillon",
+        "locale_description": "Dillon, Lima"
     },
     {
         "key": "HD 70",
@@ -4091,7 +4235,9 @@
                     "votes": 6527
                 }
             ]
-        }
+        },
+        "locale": "Townsend",
+        "locale_description": "Townsend"
     },
     {
         "key": "HD 75",
@@ -4154,7 +4300,9 @@
                     "votes": 2187
                 }
             ]
-        }
+        },
+        "locale": "Clancy",
+        "locale_description": "Clancy, Boulder, Whitehall"
     },
     {
         "key": "HD 76",
@@ -4212,7 +4360,9 @@
                     "votes": 2390
                 }
             ]
-        }
+        },
+        "locale": "Butte",
+        "locale_description": "Southeast Butte"
     },
     {
         "key": "HD 73",
@@ -4270,7 +4420,9 @@
                     "votes": 1969
                 }
             ]
-        }
+        },
+        "locale": "Butte",
+        "locale_description": "Southwest Butte"
     },
     {
         "key": "HD 74",
@@ -4328,7 +4480,9 @@
                     "votes": 1570
                 }
             ]
-        }
+        },
+        "locale": "Butte",
+        "locale_description": "Northwest Butte"
     },
     {
         "key": "HD 77",
@@ -4386,7 +4540,9 @@
                     "votes": 2730
                 }
             ]
-        }
+        },
+        "locale": "Anaconda",
+        "locale_description": "Anaconda, Philipsburg, Drummund"
     },
     {
         "key": "HD 9",
@@ -4439,7 +4595,9 @@
                     "votes": 4142
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "Northeast Kalispell"
     },
     {
         "key": "HD 78",
@@ -4497,7 +4655,9 @@
                     "votes": 1863
                 }
             ]
-        }
+        },
+        "locale": "Deer Lodge",
+        "locale_description": "Deer Lodge, Warm Springs"
     },
     {
         "key": "HD 80",
@@ -4550,7 +4710,9 @@
                     "votes": 1185
                 }
             ]
-        }
+        },
+        "locale": "Elliston",
+        "locale_description": "Elliston, Lincoln"
     },
     {
         "key": "HD 89",
@@ -4608,7 +4770,9 @@
                     "votes": 2242
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Missoula"
     },
     {
         "key": "HD 97",
@@ -4666,7 +4830,9 @@
                     "votes": 2707
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "West of Missoula"
     },
     {
         "key": "HD 99",
@@ -4724,7 +4890,9 @@
                     "votes": 2265
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Southwest Missoula"
     },
     {
         "key": "HD 85",
@@ -4797,7 +4965,9 @@
                     "votes": 1818
                 }
             ]
-        }
+        },
+        "locale": "Hamilton",
+        "locale_description": "Hamilton, Darby"
     },
     {
         "key": "HD 86",
@@ -4850,7 +5020,9 @@
                     "votes": 5067
                 }
             ]
-        }
+        },
+        "locale": "Hamilton",
+        "locale_description": "Hamilton"
     },
     {
         "key": "HD 87",
@@ -4918,7 +5090,9 @@
                     "votes": 1940
                 }
             ]
-        }
+        },
+        "locale": "Pinesdale",
+        "locale_description": "Pinesdale, Victor, Corvallis"
     },
     {
         "key": "HD 88",
@@ -4976,7 +5150,9 @@
                     "votes": 5587
                 }
             ]
-        }
+        },
+        "locale": "Florence",
+        "locale_description": "Florence, Stevensville"
     },
     {
         "key": "HD 81",
@@ -5034,7 +5210,9 @@
                     "votes": 2776
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "Central Helena, Helena Valley"
     },
     {
         "key": "HD 7",
@@ -5102,7 +5280,9 @@
                     "votes": 260
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "Central Kalispell"
     },
     {
         "key": "HD 82",
@@ -5160,7 +5340,9 @@
                     "votes": 2717
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "Central Helena, Helena Valley"
     },
     {
         "key": "HD 83",
@@ -5218,7 +5400,9 @@
                     "votes": 2536
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "Central Helena, Helena Valley"
     },
     {
         "key": "HD 84",
@@ -5281,7 +5465,9 @@
                     "votes": 2819
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "Helena, East Helena"
     },
     {
         "key": "HD 90",
@@ -5339,7 +5525,9 @@
                     "votes": 1867
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "South Missoula"
     },
     {
         "key": "HD 100",
@@ -5397,7 +5585,9 @@
                     "votes": 1145
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Central Missoula"
     },
     {
         "key": "HD 98",
@@ -5460,7 +5650,9 @@
                     "votes": 302
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "West Missoula"
     },
     {
         "key": "HD 95",
@@ -5523,7 +5715,9 @@
                     "votes": 1573
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "North Missoula"
     },
     {
         "key": "HD 96",
@@ -5586,7 +5780,9 @@
                     "votes": 3519
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Northwest Missoula"
     },
     {
         "key": "HD 94",
@@ -5649,7 +5845,9 @@
                     "votes": 2897
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Missoula, Frenchtown"
     },
     {
         "key": "HD 91",
@@ -5707,7 +5905,9 @@
                     "votes": 1186
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Northeast Missoula"
     },
     {
         "key": "SD 1",
@@ -5761,7 +5961,9 @@
                     "votes": 1484
                 }
             ]
-        }
+        },
+        "locale": "Eureka",
+        "locale_description": "Troy, Libby, Eureka"
     },
     {
         "key": "SD 2",
@@ -5830,7 +6032,9 @@
                     "votes": 4066
                 }
             ]
-        }
+        },
+        "locale": "Columbia Falls",
+        "locale_description": "Columbia Falls, West Glacier, Hungry Horse"
     },
     {
         "key": "SD 3",
@@ -5889,7 +6093,9 @@
                     "votes": 6588
                 }
             ]
-        }
+        },
+        "locale": "Whitefish",
+        "locale_description": "Whitefish"
     },
     {
         "key": "SD 4",
@@ -5948,7 +6154,9 @@
                     "votes": 3097
                 }
             ]
-        }
+        },
+        "locale": "Kalispell",
+        "locale_description": "Kalispell"
     },
     {
         "key": "SD 5",
@@ -6002,7 +6210,9 @@
                     "votes": 8048
                 }
             ]
-        }
+        },
+        "locale": "Bigfork",
+        "locale_description": "Bigfork, Swan Lake"
     },
     {
         "key": "SD 6",
@@ -6051,7 +6261,9 @@
                     "votes": 10305
                 }
             ]
-        }
+        },
+        "locale": "Polson",
+        "locale_description": "Polson, Somers"
     },
     {
         "key": "SD 7",
@@ -6115,7 +6327,9 @@
                     "votes": 3187
                 }
             ]
-        }
+        },
+        "locale": "Thompson Falls",
+        "locale_description": "Noxon, St Regis, Alberton, Marion, Dixon"
     },
     {
         "key": "SD 8",
@@ -6164,7 +6378,9 @@
                     "votes": 5443
                 }
             ]
-        }
+        },
+        "locale": "Browning",
+        "locale_description": "Browning, East Glacier, Heart Butte"
     },
     {
         "key": "SD 9",
@@ -6228,7 +6444,9 @@
                     "votes": 2318
                 }
             ]
-        }
+        },
+        "locale": "Ethridge",
+        "locale_description": "Ethridge, Augusta, Choteau, Shelby, Cut Bank "
     },
     {
         "key": "SD 10",
@@ -6282,7 +6500,9 @@
                     "votes": 10018
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "South of Great Falls, Simms, Cascade, Belt"
     },
     {
         "key": "SD 11",
@@ -6341,7 +6561,9 @@
                     "votes": 3478
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "Northwest Great Falls"
     },
     {
         "key": "SD 12",
@@ -6400,7 +6622,9 @@
                     "votes": 3472
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "South Great Falls"
     },
     {
         "key": "SD 13",
@@ -6464,7 +6688,9 @@
                     "votes": 176
                 }
             ]
-        }
+        },
+        "locale": "Great Falls",
+        "locale_description": "Northeast Great Falls"
     },
     {
         "key": "SD 14",
@@ -6528,7 +6754,9 @@
                     "votes": 4394
                 }
             ]
-        }
+        },
+        "locale": "Chester",
+        "locale_description": "Chester, Havre, Fort Benton"
     },
     {
         "key": "SD 15",
@@ -6577,7 +6805,9 @@
                     "votes": 9511
                 }
             ]
-        }
+        },
+        "locale": "Buffalo",
+        "locale_description": "Buffalo, Lewistown, White Sulphur Springs, Winnett"
     },
     {
         "key": "SD 16",
@@ -6641,7 +6871,9 @@
                     "votes": 5718
                 }
             ]
-        }
+        },
+        "locale": "Hays",
+        "locale_description": "Hays, Box Elder, Fort Peck, Wolf Point, Poplar"
     },
     {
         "key": "SD 17",
@@ -6690,7 +6922,9 @@
                     "votes": 9385
                 }
             ]
-        }
+        },
+        "locale": "Malta",
+        "locale_description": "Malta, Glasgow, Plentywood"
     },
     {
         "key": "SD 18",
@@ -6749,7 +6983,9 @@
                     "votes": 2378
                 }
             ]
-        }
+        },
+        "locale": "Wibaux",
+        "locale_description": "Wibaux, Glendive, Sidney"
     },
     {
         "key": "SD 19",
@@ -6818,7 +7054,9 @@
                     "votes": 1737
                 }
             ]
-        }
+        },
+        "locale": "Miles City",
+        "locale_description": "Miles City, Jordan, Terry, Baker, Ekalaka"
     },
     {
         "key": "SD 20",
@@ -6867,7 +7105,9 @@
                     "votes": 8226
                 }
             ]
-        }
+        },
+        "locale": "Colstrip",
+        "locale_description": "Colstrip, Custer, Forsyth, Worden"
     },
     {
         "key": "SD 21",
@@ -6926,7 +7166,9 @@
                     "votes": 2937
                 }
             ]
-        }
+        },
+        "locale": "Busby",
+        "locale_description": "Busby, Hardin, Crow Agency, Lame Deer, Ashland"
     },
     {
         "key": "SD 22",
@@ -6990,7 +7232,9 @@
                     "votes": 3349
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Northeast Billings"
     },
     {
         "key": "SD 23",
@@ -7039,7 +7283,9 @@
                     "votes": 9893
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Northwest Billings"
     },
     {
         "key": "SD 24",
@@ -7098,7 +7344,9 @@
                     "votes": 3927
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "SD 25",
@@ -7157,7 +7405,9 @@
                     "votes": 3912
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "Central Billings"
     },
     {
         "key": "SD 26",
@@ -7221,7 +7471,9 @@
                     "votes": 4355
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "South Billings"
     },
     {
         "key": "SD 27",
@@ -7280,7 +7532,9 @@
                     "votes": 4060
                 }
             ]
-        }
+        },
+        "locale": "Billings",
+        "locale_description": "West Billings "
     },
     {
         "key": "SD 28",
@@ -7334,7 +7588,9 @@
                     "votes": 8659
                 }
             ]
-        }
+        },
+        "locale": "Laurel",
+        "locale_description": "Laurel, South of Billings"
     },
     {
         "key": "SD 29",
@@ -7398,7 +7654,9 @@
                     "votes": 3649
                 }
             ]
-        }
+        },
+        "locale": "Park City",
+        "locale_description": "Park City, Reed Point, Red Lodge"
     },
     {
         "key": "SD 30",
@@ -7462,7 +7720,9 @@
                     "votes": 296
                 }
             ]
-        }
+        },
+        "locale": "Big Timber",
+        "locale_description": "Big Timber, Livingston, Gardiner, Wilsall"
     },
     {
         "key": "SD 31",
@@ -7521,7 +7781,9 @@
                     "votes": 5596
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "East Bozeman"
     },
     {
         "key": "SD 32",
@@ -7585,7 +7847,9 @@
                     "votes": 336
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "Southwest Bozeman, Big Sky, West Yellowstone"
     },
     {
         "key": "SD 33",
@@ -7634,7 +7898,9 @@
                     "votes": 9627
                 }
             ]
-        }
+        },
+        "locale": "Bozeman",
+        "locale_description": "Bozeman"
     },
     {
         "key": "SD 34",
@@ -7693,7 +7959,9 @@
                     "votes": 3475
                 }
             ]
-        }
+        },
+        "locale": "Belgrade",
+        "locale_description": "Belgrade"
     },
     {
         "key": "SD 35",
@@ -7752,7 +8020,9 @@
                     "votes": 12191
                 }
             ]
-        }
+        },
+        "locale": "Manhattan",
+        "locale_description": "Manhattan, Three Forks, Townsend"
     },
     {
         "key": "SD 36",
@@ -7806,7 +8076,9 @@
                     "votes": 2706
                 }
             ]
-        }
+        },
+        "locale": "Dillon",
+        "locale_description": "Dillon, Twin Bridges, Ennis"
     },
     {
         "key": "SD 37",
@@ -7865,7 +8137,9 @@
                     "votes": 3337
                 }
             ]
-        }
+        },
+        "locale": "Butte",
+        "locale_description": "Butte"
     },
     {
         "key": "SD 38",
@@ -7929,7 +8203,9 @@
                     "votes": 6586
                 }
             ]
-        }
+        },
+        "locale": "Butte",
+        "locale_description": "Butte, Boulder, Clancy"
     },
     {
         "key": "SD 39",
@@ -7993,7 +8269,9 @@
                     "votes": 4306
                 }
             ]
-        }
+        },
+        "locale": "Philipsburg",
+        "locale_description": "Philipsburg, Anaconda, Deer Lodge, Warm Springs"
     },
     {
         "key": "SD 40",
@@ -8057,7 +8335,9 @@
                     "votes": 5560
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "Helena, Lincoln"
     },
     {
         "key": "SD 41",
@@ -8121,7 +8401,9 @@
                     "votes": 4436
                 }
             ]
-        }
+        },
+        "locale": "Helena",
+        "locale_description": "Helena, Helena Valley"
     },
     {
         "key": "SD 42",
@@ -8180,7 +8462,9 @@
                     "votes": 4180
                 }
             ]
-        }
+        },
+        "locale": "East Helena",
+        "locale_description": "Helena, East Helena"
     },
     {
         "key": "SD 43",
@@ -8244,7 +8528,9 @@
                     "votes": 4274
                 }
             ]
-        }
+        },
+        "locale": "Hamilton",
+        "locale_description": "Hamilton, Darby"
     },
     {
         "key": "SD 44",
@@ -8313,7 +8599,9 @@
                     "votes": 4626
                 }
             ]
-        }
+        },
+        "locale": "Stevensville",
+        "locale_description": "Pinesdale, Victor, Stevensville, Florence"
     },
     {
         "key": "SD 45",
@@ -8397,7 +8685,9 @@
                     "votes": 435
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Missoula"
     },
     {
         "key": "SD 46",
@@ -8461,7 +8751,9 @@
                     "votes": 4296
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Missoula, East Missoula, Seeley Lake"
     },
     {
         "key": "SD 47",
@@ -8530,7 +8822,9 @@
                     "votes": 581
                 }
             ]
-        }
+        },
+        "locale": "Ronan",
+        "locale_description": "Ronan, Charlo, Arlee, Frenchtown"
     },
     {
         "key": "SD 48",
@@ -8589,7 +8883,9 @@
                     "votes": 3813
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Northwest Missoula"
     },
     {
         "key": "SD 49",
@@ -8653,7 +8949,9 @@
                     "votes": 5236
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "West Missoula"
     },
     {
         "key": "SD 50",
@@ -8712,6 +9010,8 @@
                     "votes": 3130
                 }
             ]
-        }
+        },
+        "locale": "Missoula",
+        "locale_description": "Central Missoula"
     }
 ]

@@ -549,6 +549,7 @@ const actionsThatCanBeFuture = ['Scheduled for Executive Action','Hearing', 'Sch
 module.exports.mostRecentActionDate = bills => {
     const actions = bills.map(d => d.actions).flat()
         .filter(d => !actionsThatCanBeFuture.includes(d.description)) // excludes future actions, hopefully
+        .filter(d => new Date(d.date) < new Date()) // explicitly exclude other future actions (as data entry errors)
     const mostRecent = actions.reduce((prev, current) => new Date(prev.date) > new Date(current.date) ? prev : current)
     // console.log(mostRecent)
     return timeParse('%Y-%m-%d')(mostRecent.date)

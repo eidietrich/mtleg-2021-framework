@@ -12,6 +12,7 @@
     "clean": "(cd app && gatsby clean)",
     "build": "(cd app && npm run build)",
     "update": "npm run scrape:laws && npm run update:text && npm run update:coverage && npm run process",
+    "update:no-scrape": "npm run update:text && npm run update:coverage && npm run process",
     "update:text": "node scrapers/text/fetch-text.js",
     "update:coverage": "node scrapers/mtfp-articles/fetch.js",
     "update:lawmaker-portraits": "cp -r  scrapers/lawmakers/images/. app/src/images",

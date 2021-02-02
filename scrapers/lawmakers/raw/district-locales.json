@@ -1,0 +1,1052 @@
+[
+    {
+      "key": "HD 1",
+      "lawmaker_2021": "Steve Gunderson",
+      "roster_residence": "Libby",
+      "mtfp_residence": "Libby",
+      "district_scope": "Libby, Troy"
+    },
+    {
+      "key": "HD 2",
+      "lawmaker_2021": "Neil Duram",
+      "roster_residence": "Eureka",
+      "mtfp_residence": "Eureka",
+      "district_scope": "Eureka"
+    },
+    {
+      "key": "HD 3",
+      "lawmaker_2021": "Braxton Mitchell",
+      "roster_residence": "Columbia Falls",
+      "mtfp_residence": "Columbia Falls",
+      "district_scope": "Columbia Falls, West Glacier, Hungry Horse"
+    },
+    {
+      "key": "HD 4",
+      "lawmaker_2021": "Matt Regier",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "Northeast of Kalispell"
+    },
+    {
+      "key": "HD 5",
+      "lawmaker_2021": "Dave Fern",
+      "roster_residence": "Whitefish",
+      "mtfp_residence": "Whitefish",
+      "district_scope": "Whitefish"
+    },
+    {
+      "key": "HD 6",
+      "lawmaker_2021": "Amy Regier",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "Northwest of Kalispell"
+    },
+    {
+      "key": "HD 7",
+      "lawmaker_2021": "Frank Garner",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "Central Kalispell"
+    },
+    {
+      "key": "HD 8",
+      "lawmaker_2021": "John Fuller",
+      "roster_residence": "Whitefish",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "West and south Kalispell"
+    },
+    {
+      "key": "HD 9",
+      "lawmaker_2021": "Brian Putnam",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "Northeast Kalispell"
+    },
+    {
+      "key": "HD 10",
+      "lawmaker_2021": "Mark Noland",
+      "roster_residence": "Bigfork",
+      "mtfp_residence": "Bigfork",
+      "district_scope": "Bigfork, Swan Lake"
+    },
+    {
+      "key": "HD 11",
+      "lawmaker_2021": "Derek Skees",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "South of Kalispell, Somers"
+    },
+    {
+      "key": "HD 12",
+      "lawmaker_2021": "Linda Reksten",
+      "roster_residence": "Polson",
+      "mtfp_residence": "Polson",
+      "district_scope": "Polson"
+    },
+    {
+      "key": "HD 13",
+      "lawmaker_2021": "Paul Fielder",
+      "roster_residence": "Thompson Falls",
+      "mtfp_residence": "Thompson Falls",
+      "district_scope": "Thompson Falls, Heron, Marion"
+    },
+    {
+      "key": "HD 14",
+      "lawmaker_2021": "Denley Loge",
+      "roster_residence": "St Regis",
+      "mtfp_residence": "St Regis",
+      "district_scope": "St. Regis, Superior, Hot Springs, Dixon, Alberton"
+    },
+    {
+      "key": "HD 15",
+      "lawmaker_2021": "Marvin Weatherwax",
+      "roster_residence": "Browning",
+      "mtfp_residence": "Browning",
+      "district_scope": "Browning, Heart Butte"
+    },
+    {
+      "key": "HD 16",
+      "lawmaker_2021": "Tyson Running Wolf",
+      "roster_residence": "Browning",
+      "mtfp_residence": "Browning",
+      "district_scope": "Browning, East Glacier, Cut Bank"
+    },
+    {
+      "key": "HD 17",
+      "lawmaker_2021": "Ross Fitzgerald",
+      "roster_residence": "Fairfield",
+      "mtfp_residence": "Fairfield",
+      "district_scope": "Fairfield, Choteau, Augusta, Valier, Brady"
+    },
+    {
+      "key": "HD 18",
+      "lawmaker_2021": "Llew Jones",
+      "roster_residence": "Conrad",
+      "mtfp_residence": "Conrad",
+      "district_scope": "Conrad, Shelby, Cut Bank"
+    },
+    {
+      "key": "HD 19",
+      "lawmaker_2021": "Wendy McKamey",
+      "roster_residence": "Ulm",
+      "mtfp_residence": "Ulm",
+      "district_scope": "Ulm, Cascade, Simms, Belt"
+    },
+    {
+      "key": "HD 20",
+      "lawmaker_2021": "Fred Anderson",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "South of Great Falls"
+    },
+    {
+      "key": "HD 21",
+      "lawmaker_2021": "Ed Buttrey",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "North side of Great Falls"
+    },
+    {
+      "key": "HD 22",
+      "lawmaker_2021": "Lola Sheldon-Galloway",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "Northwest Great Falls"
+    },
+    {
+      "key": "HD 23",
+      "lawmaker_2021": "Scot Kerns",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "South side of Great Falls"
+    },
+    {
+      "key": "HD 24",
+      "lawmaker_2021": "Steven Galloway",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "Central Great Falls"
+    },
+    {
+      "key": "HD 25",
+      "lawmaker_2021": "Steve Gist",
+      "roster_residence": "Cascade",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "Central Great Falls"
+    },
+    {
+      "key": "HD 26",
+      "lawmaker_2021": "Jeremy Trebas",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "Great Falls and Malmstrom AFB"
+    },
+    {
+      "key": "HD 27",
+      "lawmaker_2021": "Josh Kassmier",
+      "roster_residence": "Fort Benton",
+      "mtfp_residence": "Fort Benton",
+      "district_scope": "Fort Benton, Geraldine, Chester, Big Sandy"
+    },
+    {
+      "key": "HD 28",
+      "lawmaker_2021": "Ed Hill",
+      "roster_residence": "Havre",
+      "mtfp_residence": "Havre",
+      "district_scope": "Havre"
+    },
+    {
+      "key": "HD 29",
+      "lawmaker_2021": "Dan Bartel",
+      "roster_residence": "Lewistown",
+      "mtfp_residence": "Lewistown",
+      "district_scope": "Lewistown, Winifred, Roy, Winnett"
+    },
+    {
+      "key": "HD 30",
+      "lawmaker_2021": "Wylie Galt",
+      "roster_residence": "Martinsdale",
+      "mtfp_residence": "Martinsdale",
+      "district_scope": "Martinsdale, White Sulphur Springs, Geyser, Lavina"
+    },
+    {
+      "key": "HD 31",
+      "lawmaker_2021": "Frank Smith",
+      "roster_residence": "Poplar",
+      "mtfp_residence": "Poplar",
+      "district_scope": "Poplar, Fort Peck, Wolf Point"
+    },
+    {
+      "key": "HD 32",
+      "lawmaker_2021": "Jonathan Windy Boy",
+      "roster_residence": "Box Elder",
+      "mtfp_residence": "Box Elder",
+      "district_scope": "Box Elder, Chinook, Hays"
+    },
+    {
+      "key": "HD 33",
+      "lawmaker_2021": "Casey Knudsen",
+      "roster_residence": "Malta",
+      "mtfp_residence": "Malta",
+      "district_scope": "Malta, Glasgow, Chinook"
+    },
+    {
+      "key": "HD 34",
+      "lawmaker_2021": "Rhonda Knudsen",
+      "roster_residence": "Culbertson",
+      "mtfp_residence": "Culbertson",
+      "district_scope": "Culbertson, Opheim, Plentywood"
+    },
+    {
+      "key": "HD 35",
+      "lawmaker_2021": "Brandon Ler",
+      "roster_residence": "Savage",
+      "mtfp_residence": "Sidney",
+      "district_scope": "Sidney, Lambert, Savage"
+    },
+    {
+      "key": "HD 36",
+      "lawmaker_2021": "Bob Phalen",
+      "roster_residence": "Lindsay",
+      "mtfp_residence": "Glendive",
+      "district_scope": "Glendive, Wibaux"
+    },
+    {
+      "key": "HD 37",
+      "lawmaker_2021": "Jerry Schillinger",
+      "roster_residence": "Circle",
+      "mtfp_residence": "Circle",
+      "district_scope": "Circle, Jordan, Terry, Baker, Ekalaka, Broadus"
+    },
+    {
+      "key": "HD 38",
+      "lawmaker_2021": "Kenneth Holmlund",
+      "roster_residence": "Miles City",
+      "mtfp_residence": "Miles City",
+      "district_scope": "Mile City"
+    },
+    {
+      "key": "HD 39",
+      "lawmaker_2021": "Geraldine Custer",
+      "roster_residence": "Forsyth",
+      "mtfp_residence": "Forsyth",
+      "district_scope": "Forsyth, Worden, Hysham, Colstrip"
+    },
+    {
+      "key": "HD 40",
+      "lawmaker_2021": "Barry Usher",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Roundup",
+      "district_scope": "Roundup, Meltsone, Broadview, Shepherd"
+    },
+    {
+      "key": "HD 41",
+      "lawmaker_2021": "Rynalea Whiteman Pena",
+      "roster_residence": "Lame Deer",
+      "mtfp_residence": "Lame Deer",
+      "district_scope": "Lame Deer, Busby, Colstrip, Wyola"
+    },
+    {
+      "key": "HD 42",
+      "lawmaker_2021": "Sharon Stewart Peregoy",
+      "roster_residence": "Crow Agency",
+      "mtfp_residence": "Crow Agency",
+      "district_scope": "Crow Agency, Hardin"
+    },
+    {
+      "key": "HD 43",
+      "lawmaker_2021": "Kerri Seekins-Crowe",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Northeast Billings"
+    },
+    {
+      "key": "HD 44",
+      "lawmaker_2021": "Larry Brewster",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Northeast Billings"
+    },
+    {
+      "key": "HD 45",
+      "lawmaker_2021": "Katie Zolnikov",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "North of Billings"
+    },
+    {
+      "key": "HD 46",
+      "lawmaker_2021": "Bill Mercer",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Northwest Billings"
+    },
+    {
+      "key": "HD 47",
+      "lawmaker_2021": "Kathy Kelker",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "HD 48",
+      "lawmaker_2021": "Jessica Karjala",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "HD 49",
+      "lawmaker_2021": "Emma Kerr-Carpenter",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "HD 50",
+      "lawmaker_2021": "Mallerie Stromswold",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "HD 51",
+      "lawmaker_2021": "Frank Fleming",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "South of Billings"
+    },
+    {
+      "key": "HD 52",
+      "lawmaker_2021": "Jimmy Patelis",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "HD 53",
+      "lawmaker_2021": "Dennis Lenz",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "West of Billings"
+    },
+    {
+      "key": "HD 54",
+      "lawmaker_2021": "Terry Moore",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "West Billings"
+    },
+    {
+      "key": "HD 55",
+      "lawmaker_2021": "Vince Ricci",
+      "roster_residence": "Laurel",
+      "mtfp_residence": "Laurel",
+      "district_scope": "Laurel, South of Billings"
+    },
+    {
+      "key": "HD 56",
+      "lawmaker_2021": "Sue Vinton",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Southeast of Billings"
+    },
+    {
+      "key": "HD 57",
+      "lawmaker_2021": "Fiona Nave",
+      "roster_residence": "Columbus",
+      "mtfp_residence": "Columbus",
+      "district_scope": "Columbus, Absarokee, Reed Point, Rapelje, Park City"
+    },
+    {
+      "key": "HD 58",
+      "lawmaker_2021": "Seth Berglee",
+      "roster_residence": "Joliet",
+      "mtfp_residence": "Joliet",
+      "district_scope": "Joliet, Red Lodge, Belfry"
+    },
+    {
+      "key": "HD 59",
+      "lawmaker_2021": "Marty Malone",
+      "roster_residence": "Pray",
+      "mtfp_residence": "Pray",
+      "district_scope": "Pray, Gardiner, Wilsall, Big Timber"
+    },
+    {
+      "key": "HD 60",
+      "lawmaker_2021": "Laurie Bishop",
+      "roster_residence": "Livingston",
+      "mtfp_residence": "Livingston",
+      "district_scope": "Livingston"
+    },
+    {
+      "key": "HD 61",
+      "lawmaker_2021": "Jim Hamilton",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "East Bozeman"
+    },
+    {
+      "key": "HD 62",
+      "lawmaker_2021": "Ed Stafman",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "South Bozeman"
+    },
+    {
+      "key": "HD 63",
+      "lawmaker_2021": "Alice Buckley",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "Southwest Bozeman"
+    },
+    {
+      "key": "HD 64",
+      "lawmaker_2021": "Jane Gillette",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "Bozeman, Gallatin Gateway, Big Sky, West Yellowstone"
+    },
+    {
+      "key": "HD 65",
+      "lawmaker_2021": "Kelly Kortum",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "Northwest Bozeman"
+    },
+    {
+      "key": "HD 66",
+      "lawmaker_2021": "Denise Hayman",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "Central Bozeman"
+    },
+    {
+      "key": "HD 67",
+      "lawmaker_2021": "Jedediah Hinkle",
+      "roster_residence": "Belgrade",
+      "mtfp_residence": "Belgrade",
+      "district_scope": "Belgrade"
+    },
+    {
+      "key": "HD 68",
+      "lawmaker_2021": "Caleb Hinkle",
+      "roster_residence": "Belgrade",
+      "mtfp_residence": "Belgrade",
+      "district_scope": "Belgrade"
+    },
+    {
+      "key": "HD 69",
+      "lawmaker_2021": "Jennifer Carlson",
+      "roster_residence": "Manhattan",
+      "mtfp_residence": "Manhattan",
+      "district_scope": "Manhattan, Three Forks"
+    },
+    {
+      "key": "HD 70",
+      "lawmaker_2021": "Julie Dooling",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Townsend",
+      "district_scope": "Townsend"
+    },
+    {
+      "key": "HD 71",
+      "lawmaker_2021": "Kenneth Walsh",
+      "roster_residence": "Twin Bridges",
+      "mtfp_residence": "Twin Bridges",
+      "district_scope": "Twin Bridges, Sheridan, Virginia City, Ennis"
+    },
+    {
+      "key": "HD 72",
+      "lawmaker_2021": "Tom Welch",
+      "roster_residence": "Dillon",
+      "mtfp_residence": "Dillon",
+      "district_scope": "Dillon, Lima"
+    },
+    {
+      "key": "HD 73",
+      "lawmaker_2021": "Jim Keane",
+      "roster_residence": "Butte",
+      "mtfp_residence": "Butte",
+      "district_scope": "Southwest Butte"
+    },
+    {
+      "key": "HD 74",
+      "lawmaker_2021": "Derek Harvey",
+      "roster_residence": "Butte",
+      "mtfp_residence": "Butte",
+      "district_scope": "Northwest Butte"
+    },
+    {
+      "key": "HD 75",
+      "lawmaker_2021": "Marta Bertoglio",
+      "roster_residence": "Clancy",
+      "mtfp_residence": "Clancy",
+      "district_scope": "Clancy, Boulder, Whitehall"
+    },
+    {
+      "key": "HD 76",
+      "lawmaker_2021": "Donavon Hawk",
+      "roster_residence": "Butte",
+      "mtfp_residence": "Butte",
+      "district_scope": "Southeast Butte"
+    },
+    {
+      "key": "HD 77",
+      "lawmaker_2021": "Sara Novak",
+      "roster_residence": "Anaconda",
+      "mtfp_residence": "Anaconda",
+      "district_scope": "Anaconda, Philipsburg, Drummund"
+    },
+    {
+      "key": "HD 78",
+      "lawmaker_2021": "Gregory Frazer",
+      "roster_residence": "Deer Lodge",
+      "mtfp_residence": "Deer Lodge",
+      "district_scope": "Deer Lodge, Warm Springs"
+    },
+    {
+      "key": "HD 79",
+      "lawmaker_2021": "Robert Farris-Olsen",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "West Helena"
+    },
+    {
+      "key": "HD 80",
+      "lawmaker_2021": "Becky Beard",
+      "roster_residence": "Elliston",
+      "mtfp_residence": "Elliston",
+      "district_scope": "Elliston, Lincoln"
+    },
+    {
+      "key": "HD 81",
+      "lawmaker_2021": "Mary Caferro",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "Central Helena, Helena Valley"
+    },
+    {
+      "key": "HD 82",
+      "lawmaker_2021": "Moffie Funk",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "Central Helena, Helena Valley"
+    },
+    {
+      "key": "HD 83",
+      "lawmaker_2021": "Kim Abbott",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "Central Helena, Helena Valley"
+    },
+    {
+      "key": "HD 84",
+      "lawmaker_2021": "Mary Ann Dunwell",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "Helena, East Helena"
+    },
+    {
+      "key": "HD 85",
+      "lawmaker_2021": "Michele Binkley",
+      "roster_residence": "Hamilton",
+      "mtfp_residence": "Hamilton",
+      "district_scope": "Hamilton, Darby"
+    },
+    {
+      "key": "HD 86",
+      "lawmaker_2021": "David Bedey",
+      "roster_residence": "Hamilton",
+      "mtfp_residence": "Hamilton",
+      "district_scope": "Hamilton"
+    },
+    {
+      "key": "HD 87",
+      "lawmaker_2021": "Ron Marshall",
+      "roster_residence": "Hamilton",
+      "mtfp_residence": "Pinesdale",
+      "district_scope": "Pinesdale, Victor, Corvallis"
+    },
+    {
+      "key": "HD 88",
+      "lawmaker_2021": "Sharon Greef",
+      "roster_residence": "Florence",
+      "mtfp_residence": "Florence",
+      "district_scope": "Florence, Stevensville"
+    },
+    {
+      "key": "HD 89",
+      "lawmaker_2021": "Katie Sullivan",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Missoula"
+    },
+    {
+      "key": "HD 90",
+      "lawmaker_2021": "Marilyn Marler",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "South Missoula"
+    },
+    {
+      "key": "HD 91",
+      "lawmaker_2021": "Connie Keogh",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Northeast Missoula"
+    },
+    {
+      "key": "HD 92",
+      "lawmaker_2021": "Mike Hopkins",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "East Missoula, Clinton, Seeley Lake, Condon"
+    },
+    {
+      "key": "HD 93",
+      "lawmaker_2021": "Joe Read",
+      "roster_residence": "Ronan",
+      "mtfp_residence": "Ronan",
+      "district_scope": "Ronan, Charlo, Arlee"
+    },
+    {
+      "key": "HD 94",
+      "lawmaker_2021": "Tom France",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Missoula, Frenchtown"
+    },
+    {
+      "key": "HD 95",
+      "lawmaker_2021": "Danny Tenenbaum",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "North Missoula"
+    },
+    {
+      "key": "HD 96",
+      "lawmaker_2021": "Kathy Whitman",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Northwest Missoula"
+    },
+    {
+      "key": "HD 97",
+      "lawmaker_2021": "Brad Tschida",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "West of Missoula"
+    },
+    {
+      "key": "HD 98",
+      "lawmaker_2021": "Willis Curdy",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "West Missoula"
+    },
+    {
+      "key": "HD 99",
+      "lawmaker_2021": "Mark Thane",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Southwest Missoula"
+    },
+    {
+      "key": "HD 100",
+      "lawmaker_2021": "Andrea Olsen",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Central Missoula"
+    },
+    {
+      "key": "SD 1",
+      "lawmaker_2021": "Mike Cuffe",
+      "roster_residence": "Eureka",
+      "mtfp_residence": "Eureka",
+      "district_scope": "Troy, Libby, Eureka"
+    },
+    {
+      "key": "SD 2",
+      "lawmaker_2021": "Carl Glimm",
+      "roster_residence": "Kila",
+      "mtfp_residence": "Columbia Falls",
+      "district_scope": "Columbia Falls, West Glacier, Hungry Horse"
+    },
+    {
+      "key": "SD 3",
+      "lawmaker_2021": "Keith Regier",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Whitefish",
+      "district_scope": "Whitefish"
+    },
+    {
+      "key": "SD 4",
+      "lawmaker_2021": "Mark Blasdel",
+      "roster_residence": "Kalispell",
+      "mtfp_residence": "Kalispell",
+      "district_scope": "Kalispell"
+    },
+    {
+      "key": "SD 5",
+      "lawmaker_2021": "Bob Keenan",
+      "roster_residence": "Bigfork",
+      "mtfp_residence": "Bigfork",
+      "district_scope": "Bigfork, Swan Lake"
+    },
+    {
+      "key": "SD 6",
+      "lawmaker_2021": "Greg Hertz",
+      "roster_residence": "Polson",
+      "mtfp_residence": "Polson",
+      "district_scope": "Polson, Somers"
+    },
+    {
+      "key": "SD 7",
+      "lawmaker_2021": "Bob Brown",
+      "roster_residence": "Thompson Falls",
+      "mtfp_residence": "Thompson Falls",
+      "district_scope": "Noxon, St Regis, Alberton, Marion, Dixon"
+    },
+    {
+      "key": "SD 8",
+      "lawmaker_2021": "Susan Webber",
+      "roster_residence": "Browning",
+      "mtfp_residence": "Browning",
+      "district_scope": "Browning, East Glacier, Heart Butte"
+    },
+    {
+      "key": "SD 9",
+      "lawmaker_2021": "Bruce Gillespie",
+      "roster_residence": "Ethridge",
+      "mtfp_residence": "Ethridge",
+      "district_scope": "Ethridge, Augusta, Choteau, Shelby, Cut Bank "
+    },
+    {
+      "key": "SD 10",
+      "lawmaker_2021": "Steve Fitzpatrick",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "South of Great Falls, Simms, Cascade, Belt"
+    },
+    {
+      "key": "SD 11",
+      "lawmaker_2021": "Tom Jacobson",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "Northwest Great Falls"
+    },
+    {
+      "key": "SD 12",
+      "lawmaker_2021": "Carlie Boland",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "South Great Falls"
+    },
+    {
+      "key": "SD 13",
+      "lawmaker_2021": "Brian Hoven",
+      "roster_residence": "Great Falls",
+      "mtfp_residence": "Great Falls",
+      "district_scope": "Northeast Great Falls"
+    },
+    {
+      "key": "SD 14",
+      "lawmaker_2021": "Russ Tempel",
+      "roster_residence": "Chester",
+      "mtfp_residence": "Chester",
+      "district_scope": "Chester, Havre, Fort Benton"
+    },
+    {
+      "key": "SD 15",
+      "lawmaker_2021": "Ryan Osmundson",
+      "roster_residence": "Buffalo",
+      "mtfp_residence": "Buffalo",
+      "district_scope": "Buffalo, Lewistown, White Sulphur Springs, Winnett"
+    },
+    {
+      "key": "SD 16",
+      "lawmaker_2021": "Mike Fox",
+      "roster_residence": "Hayden",
+      "mtfp_residence": "Hays",
+      "district_scope": "Hays, Box Elder, Fort Peck, Wolf Point, Poplar"
+    },
+    {
+      "key": "SD 17",
+      "lawmaker_2021": "Mike Lang",
+      "roster_residence": "Malta",
+      "mtfp_residence": "Malta",
+      "district_scope": "Malta, Glasgow, Plentywood"
+    },
+    {
+      "key": "SD 18",
+      "lawmaker_2021": "Steve Hinebauch",
+      "roster_residence": "Wibaux",
+      "mtfp_residence": "Wibaux",
+      "district_scope": "Wibaux, Glendive, Sidney"
+    },
+    {
+      "key": "SD 19",
+      "lawmaker_2021": "Kenneth Bogner",
+      "roster_residence": "Miles City",
+      "mtfp_residence": "Miles City",
+      "district_scope": "Miles City, Jordan, Terry, Baker, Ekalaka"
+    },
+    {
+      "key": "SD 20",
+      "lawmaker_2021": "Duane Ankney",
+      "roster_residence": "Colstrip",
+      "mtfp_residence": "Colstrip",
+      "district_scope": "Colstrip, Custer, Forsyth, Worden"
+    },
+    {
+      "key": "SD 21",
+      "lawmaker_2021": "Jason Small",
+      "roster_residence": "Busby",
+      "mtfp_residence": "Busby",
+      "district_scope": "Busby, Hardin, Crow Agency, Lame Deer, Ashland"
+    },
+    {
+      "key": "SD 22",
+      "lawmaker_2021": "Doug Kary",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Northeast Billings"
+    },
+    {
+      "key": "SD 23",
+      "lawmaker_2021": "Tom McGillvray",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Northwest Billings"
+    },
+    {
+      "key": "SD 24",
+      "lawmaker_2021": "Mary McNally",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "SD 25",
+      "lawmaker_2021": "Jen Gross",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Billings",
+      "district_scope": "Central Billings"
+    },
+    {
+      "key": "SD 26",
+      "lawmaker_2021": "Chris Friedel",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "South Billings"
+    },
+    {
+      "key": "SD 27",
+      "lawmaker_2021": "Cary Smith",
+      "roster_residence": "Billings",
+      "mtfp_residence": "Billings",
+      "district_scope": "West Billings "
+    },
+    {
+      "key": "SD 28",
+      "lawmaker_2021": "Brad Molnar",
+      "roster_residence": "Laurel",
+      "mtfp_residence": "Laurel",
+      "district_scope": "Laurel, South of Billings"
+    },
+    {
+      "key": "SD 29",
+      "lawmaker_2021": "David Howard",
+      "roster_residence": "Park City",
+      "mtfp_residence": "Park City",
+      "district_scope": "Park City, Reed Point, Red Lodge"
+    },
+    {
+      "key": "SD 30",
+      "lawmaker_2021": "John Esp",
+      "roster_residence": "Big Timber",
+      "mtfp_residence": "Big Timber",
+      "district_scope": "Big Timber, Livingston, Gardiner, Wilsall"
+    },
+    {
+      "key": "SD 31",
+      "lawmaker_2021": "Chris Pope",
+      "roster_residence": "Bozeman",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "East Bozeman"
+    },
+    {
+      "key": "SD 32",
+      "lawmaker_2021": "Pat Flowers",
+      "roster_residence": "Belgrade",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "Southwest Bozeman, Big Sky, West Yellowstone"
+    },
+    {
+      "key": "SD 33",
+      "lawmaker_2021": "JP Pomnichowski",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Bozeman",
+      "district_scope": "Bozeman"
+    },
+    {
+      "key": "SD 34",
+      "lawmaker_2021": "Gordon Vance",
+      "roster_residence": "Belgrade",
+      "mtfp_residence": "Belgrade",
+      "district_scope": "Belgrade"
+    },
+    {
+      "key": "SD 35",
+      "lawmaker_2021": "Walt Sales",
+      "roster_residence": "Manhattan",
+      "mtfp_residence": "Manhattan",
+      "district_scope": "Manhattan, Three Forks, Townsend"
+    },
+    {
+      "key": "SD 36",
+      "lawmaker_2021": "Jeff Welborn",
+      "roster_residence": "Dillon",
+      "mtfp_residence": "Dillon",
+      "district_scope": "Dillon, Twin Bridges, Ennis"
+    },
+    {
+      "key": "SD 37",
+      "lawmaker_2021": "Ryan Lynch",
+      "roster_residence": "Butte",
+      "mtfp_residence": "Butte",
+      "district_scope": "Butte"
+    },
+    {
+      "key": "SD 38",
+      "lawmaker_2021": "Edie McClafferty",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Butte",
+      "district_scope": "Butte, Boulder, Clancy"
+    },
+    {
+      "key": "SD 39",
+      "lawmaker_2021": "Mark Sweeney",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Philipsburg",
+      "district_scope": "Philipsburg, Anaconda, Deer Lodge, Warm Springs"
+    },
+    {
+      "key": "SD 40",
+      "lawmaker_2021": "Terry Gauthier",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "Helena, Lincoln"
+    },
+    {
+      "key": "SD 41",
+      "lawmaker_2021": "Janet Ellis",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Helena",
+      "district_scope": "Helena, Helena Valley"
+    },
+    {
+      "key": "SD 42",
+      "lawmaker_2021": "Jill Cohenour",
+      "roster_residence": "East Helena",
+      "mtfp_residence": "East Helena",
+      "district_scope": "Helena, East Helena"
+    },
+    {
+      "key": "SD 43",
+      "lawmaker_2021": "Jason Ellsworth",
+      "roster_residence": "Hamilton",
+      "mtfp_residence": "Hamilton",
+      "district_scope": "Hamilton, Darby"
+    },
+    {
+      "key": "SD 44",
+      "lawmaker_2021": "Theresa Manzella",
+      "roster_residence": "Hamilton",
+      "mtfp_residence": "Stevensville",
+      "district_scope": "Pinesdale, Victor, Stevensville, Florence"
+    },
+    {
+      "key": "SD 45",
+      "lawmaker_2021": "Ellie Boldman",
+      "roster_residence": "Missoula",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Missoula"
+    },
+    {
+      "key": "SD 46",
+      "lawmaker_2021": "Shannon O'Brien",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Missoula, East Missoula, Seeley Lake"
+    },
+    {
+      "key": "SD 47",
+      "lawmaker_2021": "Dan Salomon",
+      "roster_residence": "Ronan",
+      "mtfp_residence": "Ronan",
+      "district_scope": "Ronan, Charlo, Arlee, Frenchtown"
+    },
+    {
+      "key": "SD 48",
+      "lawmaker_2021": "Shane Morigeau",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Northwest Missoula"
+    },
+    {
+      "key": "SD 49",
+      "lawmaker_2021": "Diane Sands",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Missoula",
+      "district_scope": "West Missoula"
+    },
+    {
+      "key": "SD 50",
+      "lawmaker_2021": "Bryce Bennett",
+      "roster_residence": "Helena",
+      "mtfp_residence": "Missoula",
+      "district_scope": "Central Missoula"
+    }
+  ]

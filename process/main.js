@@ -11,6 +11,10 @@ const {
     mostRecentActionDate
 } = require('./functions.js')
 
+const {
+    checkArticleMatches
+} = require('./tests.js')
+
 // Data models
 const Vote = require('./models/Vote.js')
 const Bill = require('./models/Bill.js')
@@ -102,6 +106,9 @@ const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
 // const actionsWithVotes = Array.from(new Set(bills.map(b => b.data.actions).map(d => d).flat().filter(d => d.vote).map(d => d.description))).sort((a,b) => a.localeCompare(b))
 // console.log(actionsWithVotes)
 
+// Tests
+// checkArticleMatches(bills, articles)
+
 // Export these as arrays so they play nicely w/ Gatsby graphql engine
 const billsData = bills.map(bill => bill.export())
 const lawmakersData = lawmakers.map(lawmaker => lawmaker.export())
@@ -112,6 +119,8 @@ const lawmakersData = lawmakers.map(lawmaker => lawmaker.export())
 const houseData = new House({annotations}).export()
 const senateData = new Senate({annotations}).export()
 const governorData = new Governor({annotations, articles}).export()
+
+
 
 // Log output
 writeJson('./process/logs/lawmaker.json', lawmakersData[45])

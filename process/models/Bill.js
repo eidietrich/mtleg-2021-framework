@@ -98,7 +98,6 @@ class Bill {
         // Resolutions
         if (this.type === 'resolution') {
             if (hasProgressFlag(actions, 'introduction')) progress.toFirstChamber = true
-            
         }
         if (['bill', 'joint resolution', 'referendum proposal'].includes(this.type)) {
             const firstChamberActions = (bill.identifier[0] === 'H') ? 
