@@ -23,12 +23,14 @@ class Lawmaker {
             name: lawmaker.name,
             lastName: lawmakerLastName(lawmaker.name),
             district: this.getDistrictInfo(lawmaker, districts),
+            districtNum: this.getDistrictNum(lawmaker.district),
             locale: this.getLocales(lawmaker, districts),
             title: this.getTitle(lawmaker),
             fullTitle: this.getFullTitle(lawmaker),
             chamber: lawmaker.chamber,
             party: lawmaker.party,
-            districtNum: this.getDistrictNum(lawmaker.district),
+            phone: lawmaker.phone,
+            email: lawmaker.email,
 
             committees: lawmaker.committees_19, // TODO - change to 2021
             leadershipRoles: [], // TODO (annotate Speaker of the House etc.)
@@ -94,11 +96,33 @@ class Lawmaker {
     getImageSlug = (lawmaker) => lawmaker.image_path.replace('images/','')
 
     getSponsoredBills = (lawmaker, bills) => {
-        const sponsoredBills = bills.filter(bill => bill.data.sponsor === lawmaker.name)
+        const sponsoredBills = bills.filter(bill => bill.data.sponsor.name === lawmaker.name)
         // TODO - decide whether to export *ALL* bill data and filter into app via GraphQL
         return sponsoredBills.map(bill => {
-            const {key, identifier, title, status} = bill.data
-            return {key, identifier, title, status}
+            const {
+                key,
+                identifier,
+                title,
+                status,
+                label,
+                textUrl,
+                fiscalNoteUrl,
+                legalNoteUrl,
+                numArticles,
+                sponsor
+            } = bill.data
+            return {
+                key,
+                identifier,
+                title,
+                status, // object
+                label,
+                textUrl,
+                fiscalNoteUrl,
+                legalNoteUrl,
+                numArticles,
+                sponsor, // object
+            }
         })
     }
 

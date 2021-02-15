@@ -6,10 +6,6 @@ const {
     writeJson,
 } = require('./utils.js')
 
-const {
-    calculateSummaryStats,
-    mostRecentActionDate
-} = require('./functions.js')
 
 const {
     checkArticleMatches
@@ -22,6 +18,7 @@ const Lawmaker = require('./models/Lawmaker.js')
 const House = require('./models/House.js')
 const Senate = require('./models/Senate.js')
 const Governor = require('./models/Governor.js')
+const Overview = require('./models/Overview.js')
 
 const Article = require('./models/MTFPArticle.js')
 
@@ -76,17 +73,6 @@ const bills = rawBills.map(bill => new Bill({
     })
 )
 
-// console.log(bills.find(d => d.data.identifier === 'HB 13'))
-
-const summaryData = {
-    summary: calculateSummaryStats(bills, votes),
-    about: annotations.about,
-    contactUs: annotations.contactUs,
-    updateTime: new Date(),
-    mostRecentActionDate: mostRecentActionDate(bills),
-    infoPopups: annotations.infoPopups
-}
-
 const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
         lawmaker,
         districts: rawDistricts,
@@ -97,16 +83,14 @@ const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
     })
 )
 
-// console.log(votes.map(d => ({bill: d.data.bill, action: d.data.action, count: d.data.count})))
-
-// console.log(lawmakers.map(d => d.export().votingSummary))
-// console.log(lawmakers[0].export())
-// console.log(bills.find(d => d.data.identifier === 'HB 171').data)
-
-// const actionsWithVotes = Array.from(new Set(bills.map(b => b.data.actions).map(d => d).flat().filter(d => d.vote).map(d => d.description))).sort((a,b) => a.localeCompare(b))
-// console.log(actionsWithVotes)
+const summaryData = new Overview({
+    bills,
+    votes,
+    annotations
+}).export()
 
 // Tests
+// TODO - create better framework for this
 // checkArticleMatches(bills, articles)
 
 // Export these as arrays so they play nicely w/ Gatsby graphql engine
@@ -120,11 +104,9 @@ const houseData = new House({annotations}).export()
 const senateData = new Senate({annotations}).export()
 const governorData = new Governor({annotations, articles}).export()
 
-
-
 // Log output
 writeJson('./process/logs/lawmaker.json', lawmakersData[45])
-writeJson('./process/logs/bill.json', billsData[45])
+writeJson('./process/logs/bill.json', billsData.find(d => d.identifier === 'SB 65'))
 
 // Data output
 writeJson(LAWMAKERS_OUTPUT_PATH, lawmakersData)

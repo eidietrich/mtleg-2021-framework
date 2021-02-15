@@ -1,0 +1,752 @@
+[
+    {
+        "name": "Kim Abbott",
+        "phone": "(406) 439-8721",
+        "email": "kim.abbott@mtleg.gov"
+    },
+    {
+        "name": "Fred Anderson",
+        "phone": "(406) 761-4042",
+        "email": "None"
+    },
+    {
+        "name": "Duane Ankney",
+        "phone": "(406) 740-0629",
+        "email": "goodwind1.duane@gmail.com"
+    },
+    {
+        "name": "Dan Bartel",
+        "phone": "(406) 366-4160",
+        "email": "danbartel2@gmail.com"
+    },
+    {
+        "name": "Becky Beard",
+        "phone": "(406) 492-6590",
+        "email": "becky4hd80@blackfoot.net"
+    },
+    {
+        "name": "David Bedey",
+        "phone": "(406) 381-2059",
+        "email": "David.Bedey@mtleg.gov"
+    },
+    {
+        "name": "Bryce Bennett",
+        "phone": "(406) 546-3629",
+        "email": "bennettformontana@gmail.com"
+    },
+    {
+        "name": "Seth Berglee",
+        "phone": "(406) 690-9329",
+        "email": "Seth.Berglee@mtleg.gov"
+    },
+    {
+        "name": "Marta Bertoglio",
+        "phone": "(406) 438-1772",
+        "email": "marta.bertoglio@mtleg.gov"
+    },
+    {
+        "name": "Michele Binkley",
+        "phone": "(406) 375-0291",
+        "email": "michele@binkleyformontana.com"
+    },
+    {
+        "name": "Laurie Bishop",
+        "phone": "(406) 223-1122",
+        "email": "Laurie.Bishop@mtleg.gov"
+    },
+    {
+        "name": "Mark Blasdel",
+        "phone": "(406) 261-3269",
+        "email": "Mark.Blasdel@mtleg.gov"
+    },
+    {
+        "name": "Kenneth Bogner",
+        "phone": "(406) 916-9690",
+        "email": "kenneth.bogner@mtleg.gov"
+    },
+    {
+        "name": "Carlie Boland",
+        "phone": "(406) 868-1029",
+        "email": "Carlie.Boland@mtleg.gov"
+    },
+    {
+        "name": "Ellie Boldman",
+        "phone": "(406) 218-9608",
+        "email": "EllieMarieBoldman@gmail.com"
+    },
+    {
+        "name": "Larry Brewster",
+        "phone": "(406) 670-0929",
+        "email": "Larry.Brewster@mtleg.gov"
+    },
+    {
+        "name": "Bob Brown",
+        "phone": "(406) 242-0141",
+        "email": "Bob.Brown@mtleg.gov"
+    },
+    {
+        "name": "Alice Buckley",
+        "phone": "(406) 404-0891",
+        "email": "aliceformontana@gmail.com"
+    },
+    {
+        "name": "Ed Buttrey",
+        "phone": "(406) 452-6460",
+        "email": "ed.buttrey@mtleg.gov"
+    },
+    {
+        "name": "Mary Caferro",
+        "phone": "(406) 461-2384",
+        "email": "marycaferro@gmail.com"
+    },
+    {
+        "name": "Jennifer Carlson",
+        "phone": "(406) 579-2929",
+        "email": "Jennifer.Carlson@mtleg.gov"
+    },
+    {
+        "name": "Jill Cohenour",
+        "phone": "(406) 227-1144",
+        "email": "Jill.Cohenour@mtleg.gov"
+    },
+    {
+        "name": "Mike Cuffe",
+        "phone": "(406) 293-1247",
+        "email": "mcuffe@interbel.net"
+    },
+    {
+        "name": "Willis Curdy",
+        "phone": "(406) 546-0523",
+        "email": "Willis.Curdy@mtleg.gov"
+    },
+    {
+        "name": "Geraldine Custer",
+        "phone": "(406) 351-1235",
+        "email": "jericuster@yahoo.com"
+    },
+    {
+        "name": "Julie Dooling",
+        "phone": "(406) 471-4125",
+        "email": "julie.dooling@mtleg.gov"
+    },
+    {
+        "name": "Mary Ann Dunwell",
+        "phone": "(406) 461-5358",
+        "email": "maryann.dunwell@mtleg.gov"
+    },
+    {
+        "name": "Neil Duram",
+        "phone": "(406) 471-2356",
+        "email": "Neil.Duram@mtleg.gov"
+    },
+    {
+        "name": "Janet Ellis",
+        "phone": "(406) 431-9157",
+        "email": "Janet.Ellis@mtleg.gov"
+    },
+    {
+        "name": "Jason Ellsworth",
+        "phone": "(406) 360-0009",
+        "email": "Jason.Ellsworth@mtleg.gov"
+    },
+    {
+        "name": "John Esp",
+        "phone": "(406) 932-5662",
+        "email": "johnesp2001@yahoo.com"
+    },
+    {
+        "name": "Robert Farris-Olsen",
+        "phone": "(406) 794-4780",
+        "email": "robformontana@gmail.com"
+    },
+    {
+        "name": "Dave Fern",
+        "phone": "(406) 212-0674",
+        "email": "fern@montanasky.net"
+    },
+    {
+        "name": "Paul Fielder",
+        "phone": "(406) 210-5943",
+        "email": "paulfielder@blackfoot.net"
+    },
+    {
+        "name": "Ross Fitzgerald",
+        "phone": "(406) 467-2032",
+        "email": "ross.fitzgerald@mtleg.gov"
+    },
+    {
+        "name": "Steve Fitzpatrick",
+        "phone": "(406) 750-6764",
+        "email": "steve.fitzpatrick@mtleg.gov"
+    },
+    {
+        "name": "Frank Fleming",
+        "phone": "(406) 697-9354",
+        "email": "fleminglor5@gmail.com"
+    },
+    {
+        "name": "Pat Flowers",
+        "phone": "(406) 580-0035",
+        "email": "pat.flowers@mtleg.gov"
+    },
+    {
+        "name": "Mike Fox",
+        "phone": "(406) 399-0479",
+        "email": "fbbuffalo@yahoo.com"
+    },
+    {
+        "name": "Tom France",
+        "phone": "(406) 396-5085",
+        "email": "tom.france@mtleg.gov"
+    },
+    {
+        "name": "Gregory Frazer",
+        "phone": "(406) 560-4707",
+        "email": "Gregory.Frazer@mtleg.gov"
+    },
+    {
+        "name": "Chris Friedel",
+        "phone": "(406) 272-2245",
+        "email": "chris@chrisfriedel.com"
+    },
+    {
+        "name": "John Fuller",
+        "phone": "(406) 253-4897",
+        "email": "John.Fuller@mtleg.gov"
+    },
+    {
+        "name": "Moffie Funk",
+        "phone": "(406) 461-6785",
+        "email": "Moffie.Funk@mtleg.gov"
+    },
+    {
+        "name": "Steven Galloway",
+        "phone": "(406) 727-4963",
+        "email": "galloway4mt@gmail.com"
+    },
+    {
+        "name": "Wylie Galt",
+        "phone": "(406) 220-0157",
+        "email": "wyliegaltformt@gmail.com"
+    },
+    {
+        "name": "Frank Garner",
+        "phone": "(406) 471-7197",
+        "email": "frankgarnerhd7@gmail.com"
+    },
+    {
+        "name": "Terry Gauthier",
+        "phone": "(406) 461-0744",
+        "email": "mrmac570@me.com"
+    },
+    {
+        "name": "Bruce Gillespie",
+        "phone": "(406) 949-4453",
+        "email": "Bruce.Gillespie@mtleg.gov"
+    },
+    {
+        "name": "Jane Gillette",
+        "phone": "(406) 444-4800",
+        "email": "Jane.Gillette@mtleg.gov"
+    },
+    {
+        "name": "Steve Gist",
+        "phone": "(406) 231-4050",
+        "email": "steve.gist@mtleg.gov"
+    },
+    {
+        "name": "Carl Glimm",
+        "phone": "(406) 751-7334",
+        "email": "carl.glimm@mtleg.gov"
+    },
+    {
+        "name": "Sharon Greef",
+        "phone": "(406) 370-0580",
+        "email": ""
+    },
+    {
+        "name": "Jen Gross",
+        "phone": "(406) 696-0649",
+        "email": "Jen.Gross@mtleg.gov"
+    },
+    {
+        "name": "Steve Gunderson",
+        "phone": "(406) 334-4370",
+        "email": "steve.gunderson@mtleg.gov"
+    },
+    {
+        "name": "Jim Hamilton",
+        "phone": "(406) 570-7517",
+        "email": "Jim.Hamilton@mtleg.gov"
+    },
+    {
+        "name": "Derek Harvey",
+        "phone": "(406) 490-5472",
+        "email": "derek.harvey@mtleg.gov"
+    },
+    {
+        "name": "Donavon Hawk",
+        "phone": "(406) 578-1233",
+        "email": "Donavon.Hawk@mtleg.gov"
+    },
+    {
+        "name": "Denise Hayman",
+        "phone": "(406) 587-7229",
+        "email": "denise.hayman@mtleg.gov"
+    },
+    {
+        "name": "Greg Hertz",
+        "phone": "(406) 253-9505",
+        "email": "greg.hertz@mtleg.gov"
+    },
+    {
+        "name": "Ed Hill",
+        "phone": "(406) 390-1098",
+        "email": "hillforhouse28@gmail.com"
+    },
+    {
+        "name": "Steve Hinebauch",
+        "phone": "(406) 365-7967",
+        "email": "steve.hinebauch@mtleg.gov"
+    },
+    {
+        "name": "Jedediah Hinkle",
+        "phone": "(406) 992-0703",
+        "email": "jedediah.hinkle@mtleg.gov"
+    },
+    {
+        "name": "Caleb Hinkle",
+        "phone": "",
+        "email": "caleb.hinkle@mtleg.gov"
+    },
+    {
+        "name": "Kenneth Holmlund",
+        "phone": "(406) 234-2956",
+        "email": "Ken.holmlund@mtleg.gov"
+    },
+    {
+        "name": "Mike Hopkins",
+        "phone": "(406) 531-1775",
+        "email": "Mike.Hopkins@mtleg.gov"
+    },
+    {
+        "name": "Brian Hoven",
+        "phone": "(406) 761-8533",
+        "email": "Brian.Hoven@mtleg.gov"
+    },
+    {
+        "name": "David Howard",
+        "phone": "(406) 633-2762",
+        "email": "David.Howard@mtleg.gov"
+    },
+    {
+        "name": "Tom Jacobson",
+        "phone": "(406) 868-9814",
+        "email": "Tom.Jacobson@mtleg.gov"
+    },
+    {
+        "name": "Llew Jones",
+        "phone": "(406) 271-3104",
+        "email": "Llew.Jones@mtleg.gov"
+    },
+    {
+        "name": "Jessica Karjala",
+        "phone": "(406) 672-8681",
+        "email": "jessica.karjala@gmail.com"
+    },
+    {
+        "name": "Doug Kary",
+        "phone": "(406) 698-1478",
+        "email": "Doug.Kary@mtleg.gov"
+    },
+    {
+        "name": "Josh Kassmier",
+        "phone": "(406) 781-5386",
+        "email": "JKASSMIER@LIVE.COM"
+    },
+    {
+        "name": "Jim Keane",
+        "phone": "(406) 723-8378",
+        "email": ""
+    },
+    {
+        "name": "Bob Keenan",
+        "phone": "(406) 250-4111",
+        "email": "Bob.Keenan@mtleg.gov"
+    },
+    {
+        "name": "Kathy Kelker",
+        "phone": "(406) 652-6716",
+        "email": ""
+    },
+    {
+        "name": "Connie Keogh",
+        "phone": "(406) 298-0985",
+        "email": "Connie.Keogh@mtleg.gov"
+    },
+    {
+        "name": "Scot Kerns",
+        "phone": "(406) 351-0154",
+        "email": "Scot.Kerns@mtleg.gov"
+    },
+    {
+        "name": "Emma Kerr-Carpenter",
+        "phone": "(406) 894-0377",
+        "email": "emma.kc@mtleg.gov"
+    },
+    {
+        "name": "Rhonda Knudsen",
+        "phone": "(406) 489-5253",
+        "email": "rhonda.knudsen@mtleg.gov"
+    },
+    {
+        "name": "Casey Knudsen",
+        "phone": "(406) 390-0274",
+        "email": ""
+    },
+    {
+        "name": "Kelly Kortum",
+        "phone": "(406) 404-6643",
+        "email": "kelly.kortum@mtleg.gov"
+    },
+    {
+        "name": "Mike Lang",
+        "phone": "(406) 654-7357",
+        "email": "mike.lang@mtleg.gov"
+    },
+    {
+        "name": "Dennis Lenz",
+        "phone": "(406) 671-7052",
+        "email": "Dennis.Lenz@mtleg.gov"
+    },
+    {
+        "name": "Brandon Ler",
+        "phone": "(406) 480-5687",
+        "email": "lerforrichland@gmail.com"
+    },
+    {
+        "name": "Denley Loge",
+        "phone": "(406) 649-2368",
+        "email": "Denleylogehd14@gmail.com"
+    },
+    {
+        "name": "Ryan Lynch",
+        "phone": "(406) 498-6625",
+        "email": "Ryan.Lynch@mtleg.gov"
+    },
+    {
+        "name": "Marty Malone",
+        "phone": "(406) 223-1302",
+        "email": "dogrockranch@gmail.com"
+    },
+    {
+        "name": "Theresa Manzella",
+        "phone": "(406) 546-9462",
+        "email": "theresa.manzella@mtleg.gov"
+    },
+    {
+        "name": "Marilyn Marler",
+        "phone": "(406) 544-7189",
+        "email": "marilyn.marler@mtleg.gov"
+    },
+    {
+        "name": "Ron Marshall",
+        "phone": "(406) 579-9498",
+        "email": "ronmarshallmt87@gmail.com"
+    },
+    {
+        "name": "Edie McClafferty",
+        "phone": "(406) 490-5873",
+        "email": "edie.mcclafferty@mtleg.gov"
+    },
+    {
+        "name": "Tom McGillvray",
+        "phone": "(406) 698-4428",
+        "email": "Tom.McGillvray@mtleg.gov"
+    },
+    {
+        "name": "Wendy McKamey",
+        "phone": "(406) 866-3300",
+        "email": ""
+    },
+    {
+        "name": "Mary McNally",
+        "phone": "(406) 671-1376",
+        "email": "Mary.McNally@mtleg.gov"
+    },
+    {
+        "name": "Bill Mercer",
+        "phone": "(406) 698-1671",
+        "email": "wwmercer406@gmail.com"
+    },
+    {
+        "name": "Braxton Mitchell",
+        "phone": "(406) 200-8384",
+        "email": "BraxtonMMitchell@gmail.com"
+    },
+    {
+        "name": "Brad Molnar",
+        "phone": "(406) 794-5982",
+        "email": "brad.molnar@mtleg.gov"
+    },
+    {
+        "name": "Terry Moore",
+        "phone": "(406) 671-5393",
+        "email": "terry.moore@mtleg.gov"
+    },
+    {
+        "name": "Shane Morigeau",
+        "phone": "(406) 546-4290",
+        "email": "shane@shaneformt.com"
+    },
+    {
+        "name": "Fiona Nave",
+        "phone": "(406) 321-4602",
+        "email": "Fiona.nave@mtleg.gov"
+    },
+    {
+        "name": "Mark Noland",
+        "phone": "(406) 253-8982",
+        "email": "marknolandhd10@gmail.com"
+    },
+    {
+        "name": "Sara Novak",
+        "phone": "(406) 691-0069",
+        "email": "novak4hd77@gmail.com"
+    },
+    {
+        "name": "Shannon O'Brien",
+        "phone": "(406) 274-3805",
+        "email": "obriendumke@gmail.com"
+    },
+    {
+        "name": "Andrea Olsen",
+        "phone": "(406) 543-2666",
+        "email": "Andrea.Olsen@MTLeg.gov"
+    },
+    {
+        "name": "Ryan Osmundson",
+        "phone": "(406) 949-3715",
+        "email": "ryanosmundson@gmail.com"
+    },
+    {
+        "name": "Jimmy Patelis",
+        "phone": "(406) 671-9972",
+        "email": ""
+    },
+    {
+        "name": "Bob Phalen",
+        "phone": "(406) 939-1187",
+        "email": "Bob.Phalen@mtleg.gov"
+    },
+    {
+        "name": "JP Pomnichowski",
+        "phone": "",
+        "email": "jp.pomnichowski@mtleg.gov"
+    },
+    {
+        "name": "Chris Pope",
+        "phone": "(406) 581-8739",
+        "email": "Chris.Pope@mtleg.gov"
+    },
+    {
+        "name": "Brian Putnam",
+        "phone": "(406) 233-9463",
+        "email": "brian.putnam@mtleg.gov"
+    },
+    {
+        "name": "Joe Read",
+        "phone": "(406) 676-0200",
+        "email": "joeread2019mt@gmail.com"
+    },
+    {
+        "name": "Keith Regier",
+        "phone": "(406) 756-6141",
+        "email": "keith.regier@mtleg.gov"
+    },
+    {
+        "name": "Matt Regier",
+        "phone": "(406) 253-3293",
+        "email": "matt.regier@mtleg.gov"
+    },
+    {
+        "name": "Amy Regier",
+        "phone": "(406) 253-8421",
+        "email": "Amy.Regier@mtleg.gov"
+    },
+    {
+        "name": "Linda Reksten",
+        "phone": "(406) 471-8359",
+        "email": "reksten4mthouse@gmail.com"
+    },
+    {
+        "name": "Vince Ricci",
+        "phone": "(406) 855-9153",
+        "email": ""
+    },
+    {
+        "name": "Tyson Running Wolf",
+        "phone": "(406) 845-2115",
+        "email": "trwolves@gmail.com"
+    },
+    {
+        "name": "Walt Sales",
+        "phone": "(406) 282-7435",
+        "email": "waltsales4montana@gmail.com"
+    },
+    {
+        "name": "Dan Salomon",
+        "phone": "(406) 253-9724",
+        "email": "dan.salomon@mtleg.gov"
+    },
+    {
+        "name": "Diane Sands",
+        "phone": "(406) 251-2001",
+        "email": "SenatorSands@gmail.com"
+    },
+    {
+        "name": "Jerry Schillinger",
+        "phone": "(406) 974-2478",
+        "email": "jerry.schillinger@mtleg.gov"
+    },
+    {
+        "name": "Kerri Seekins-Crowe",
+        "phone": "(406) 208-6587",
+        "email": "Kerri4MT@gmail.com"
+    },
+    {
+        "name": "Lola Sheldon-Galloway",
+        "phone": "(406) 750-4721",
+        "email": "lola.sheldon-galloway@mtleg.gov"
+    },
+    {
+        "name": "Derek Skees",
+        "phone": "(406) 212-5493",
+        "email": "Derek.Skees@mtleg.gov"
+    },
+    {
+        "name": "Jason Small",
+        "phone": "(406) 690-0923",
+        "email": "j2thedsmall@gmail.com"
+    },
+    {
+        "name": "Cary Smith",
+        "phone": "(406) 698-9307",
+        "email": "cary.smith@mtleg.gov"
+    },
+    {
+        "name": "Frank Smith",
+        "phone": "(406) 942-0615",
+        "email": "clairena@hughes.net"
+    },
+    {
+        "name": "Ed Stafman",
+        "phone": "(406) 640-3362",
+        "email": "Edstafman@gmail.com"
+    },
+    {
+        "name": "Sharon Stewart Peregoy",
+        "phone": "(406) 639-2198",
+        "email": ""
+    },
+    {
+        "name": "Mallerie Stromswold",
+        "phone": "(406) 670-0698",
+        "email": "Mallerie.Stromswold@mtleg.gov"
+    },
+    {
+        "name": "Katie Sullivan",
+        "phone": "(406) 616-3914",
+        "email": "katie.sullivan@mtleg.gov"
+    },
+    {
+        "name": "Mark Sweeney",
+        "phone": "(406) 560-0171",
+        "email": "masween@hotmail.com"
+    },
+    {
+        "name": "Russ Tempel",
+        "phone": "(406) 265-0990",
+        "email": "Russ.Tempel@mtleg.gov"
+    },
+    {
+        "name": "Danny Tenenbaum",
+        "phone": "(406) 285-1460",
+        "email": "drtenenbaum@gmail.com"
+    },
+    {
+        "name": "Mark Thane",
+        "phone": "(406) 552-3957",
+        "email": "thanehd99@gmail.com"
+    },
+    {
+        "name": "Jeremy Trebas",
+        "phone": "(406) 899-5445",
+        "email": "trebasformthouse@gmail.com"
+    },
+    {
+        "name": "Brad Tschida",
+        "phone": "(406) 546-4349",
+        "email": "brad.tschida@mtleg.gov"
+    },
+    {
+        "name": "Barry Usher",
+        "phone": "(406) 252-2888",
+        "email": "barry.usher@mtleg.gov"
+    },
+    {
+        "name": "Gordon Vance",
+        "phone": "(406) 587-8608",
+        "email": "vancesd34@gmail.com"
+    },
+    {
+        "name": "Sue Vinton",
+        "phone": "(406) 855-2625",
+        "email": "sue.vinton@mtleg.gov"
+    },
+    {
+        "name": "Kenneth Walsh",
+        "phone": "(406) 684-5624",
+        "email": "kenneth.walsh@mtleg.gov"
+    },
+    {
+        "name": "Marvin Weatherwax",
+        "phone": "(406) 338-7741",
+        "email": "repmarvinwwaxjr@gmail.com"
+    },
+    {
+        "name": "Susan Webber",
+        "phone": "(406) 450-1894",
+        "email": "Susan.Webber@mtleg.gov"
+    },
+    {
+        "name": "Jeff Welborn",
+        "phone": "(406) 949-6070",
+        "email": "Jeff.welborn@mtleg.gov"
+    },
+    {
+        "name": "Tom Welch",
+        "phone": "(406) 683-4811",
+        "email": "tom.welch@mtleg.gov"
+    },
+    {
+        "name": "Rynalea Whiteman Pena",
+        "phone": "(406) 477-8713",
+        "email": "pena_rynalea@yahoo.com"
+    },
+    {
+        "name": "Kathy Whitman",
+        "phone": "(406) 207-4709",
+        "email": "Kathy.Whitman@mtleg.gov"
+    },
+    {
+        "name": "Jonathan Windy Boy",
+        "phone": "(406) 945-1805",
+        "email": "rep32jwb@gmail.com"
+    },
+    {
+        "name": "Katie Zolnikov",
+        "phone": "(406) 690-1684",
+        "email": ""
+    }
+]

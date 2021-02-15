@@ -2,6 +2,7 @@ const fs = require('fs')
 const fetch = require('node-fetch')
 
 const TAG = "2021-legislature"
+const EXCLUDE_TAG = 'Tracker Exclude'
 const QUERY_LIMIT = 100
 const OUT_PATH = './scrapers/mtfp-articles/articles.json'
 
@@ -26,12 +27,12 @@ async function getStories(cursor) {
                     date
                     link
                     status
-                    tags {
+                    tags(first: 100) {
                       nodes {
                         name
                       }
                     }
-                    categories {
+                    categories(first: 100) {
                       nodes {
                         name
                       }
@@ -75,7 +76,9 @@ async function main() {
         cursor = query.posts.pageInfo.endCursor
         hasNextPage = query.posts.pageInfo.hasNextPage
     }
+    const filtered = stories.filter(d => !d.tags.nodes.map(t => t.name).includes(EXCLUDE_TAG))
     console.log(`Found ${stories.length} MTFP stories tagged ${TAG}`)
-    writeFile(stories, OUT_PATH)
+    console.log(`Returned ${filtered.length} excluding tag ${EXCLUDE_TAG}`)
+    writeFile(filtered, OUT_PATH)
 }
 main()

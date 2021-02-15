@@ -15,6 +15,8 @@ class Bill {
         this.type = this.getType(bill)
         this.actions = this.getActions(bill, votes)
 
+        const billArticles = this.getArticles(bill, articles) // Media coverage
+
         this.data = {
             key: billKey(bill.identifier),
             identifier: bill.identifier,
@@ -46,7 +48,9 @@ class Bill {
             annotation: this.getAnnotations(bill, annotations),
             label: this.getLabel(bill, annotations),
             isMajorBill: this.getMajorStatus(bill, keyBillIds),
-            articles: this.getArticles(bill, articles), // Media coverage
+            majorBillCategory: this.getMajorBillCategory(bill, annotations),
+            articles: billArticles,
+            numArticles: billArticles.length,
 
             actions: this.actions,
         }
@@ -142,8 +146,8 @@ class Bill {
             const vetoedByGovernor = hasProgressFlag(actions, 'vetoedByGovernor')
             if (toGovernor) progress.toGovernor = true
             if (signedByGovernor) progress.governorStatus = 'signed'
-            if (vetoedByGovernor) progress.governorStatus = 'vetoed'
-            if (toGovernor && ultimatelyPassed && (!signedByGovernor && !vetoedByGovernor)) progress.governorStatus = 'became law unsigned'
+            else if (vetoedByGovernor) progress.governorStatus = 'vetoed'
+            else if (toGovernor && ultimatelyPassed && (!signedByGovernor && !vetoedByGovernor)) progress.governorStatus = 'became law unsigned'
             else progress.governorStatus = 'pending'
             
         } 
@@ -156,7 +160,15 @@ class Bill {
 
     }
 
-    getSponsor = (bill) => lawmakerFromLawsName(bill.sponsorships[0].name).name
+    getSponsor = (bill) => {
+        const sponsor = lawmakerFromLawsName(bill.sponsorships[0].name)
+        return {
+            name: sponsor.name,
+            district: sponsor.district,
+            party: sponsor.party,
+            // city: sponsor.city, // This may be uncleaned city name
+        }
+    }
 
     getRequestor = (bill) => bill.extras.requester // Last name in data only
 
@@ -164,7 +176,6 @@ class Bill {
         if (bill.extras['category:'] === 'REFERENDUM PROPOSALS') return 'referendum proposal'
         else return bill.classification[0]
     }
-
 
     getTransmittalDeadline = (bill) => bill.extras['transmittal_date:']
 
@@ -211,7 +222,12 @@ class Bill {
         const match = annotations.bills.find(d => d.key === bill.identifier)
         return (match && match.label) || null
     }
-        
+
+    getMajorBillCategory = (bill, annotations) => {
+        const match = annotations.bills.find(d => d.key === bill.identifier)
+         // TODO - aggregate w/ get annotations
+        return (match && match.category) || null
+    }
 
     getMajorStatus = (bill, keyBillIds) => {
         return keyBillIds.includes(bill.identifier) ? 'yes' : 'no'

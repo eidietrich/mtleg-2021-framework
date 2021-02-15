@@ -44,10 +44,6 @@
       {
         "type": "text",
         "value": "Bills fail either when lawmakers don’t advance them fast enough to meet procedural deadlines, or when they’re subjected to an adverse vote. In some cases, sponsors may also withdraw their bills from consideration."
-      },
-      {
-        "type": "text",
-        "value": "Representatives can also introduce resolutions, which are used for proposing legislative studies and miscellaneous tasks like adopting procedural rules. House resolutions are passed by the House alone, and joint resolutions must be passed by both the House and Senate. Lawmakers can also propose voter referendums, or ballot measures for future elections. Referendum proposals must be passed by both the House and Senate, but don’t face review by the governor."
       }
     ]
   },
@@ -68,10 +64,6 @@
       {
         "type": "text",
         "value": "Bills fail either when lawmakers don’t advance them fast enough to meet procedural deadlines, or when they’re subjected to an adverse vote. In some cases, sponsors may also withdraw their bills from consideration."
-      },
-      {
-        "type": "text",
-        "value": "Senators can also introduce resolutions, which are used for proposing legislative studies and miscellaneous tasks like adopting procedural rules. Senate resolutions are passed by the Senate alone and joint resolutions must be passed by both the Senate and House. Lawmakers can also propose voter referendums, or ballot measures for future elections. Referendum proposals must be passed by both the Senate and House, but don’t face review by the governor."
       }
     ]
   },
@@ -107,9 +99,88 @@
       }
     ]
   },
+  "participation": {
+    "ledeIn": [
+      {
+        "type": "text",
+        "value": "The COVID-19 pandemic has changed several aspects of how both lawmakers and the public are able to participate in the 2021 legislative session."
+      },
+      {
+        "type": "text",
+        "value": "For the first time in the state’s history, the public has the opportunity to testify remotely via Zoom, meaning citizens who want to speak before a committee don’t have to travel to Helena to do so. As has been the case in past years, streaming audio and video is available for House and Senate floor sessions, in addition to legislative committee meetings."
+      },
+      {
+        "type": "text",
+        "value": "<a href=\"https://leg.mt.gov/content/Committees/Administration/Legislative-Council/2019-20/2021session-calendar-adopted.pdf\">This link includes the calendar for the 67th Legislature</a>, including breaks and important deadlines. The Legislature is set to meet for 90 days, the last of which is scheduled for April 28."
+      }
+    ],
+    "watchTitle": "Watching legislative proceedings",
+    "watchText": [
+      {
+        "type": "text",
+        "value": "The proceedings of <a href=\"http://sg001-harmony.sliq.net/00309/Haxrmony/en\">all committees are streamed live through the Montana Public Affairs Network, or MPAN, website</a>. You can tune in online to any committee, Senate or House hearing and select a video or audio-only format."
+      },
+      {
+        "type": "text",
+        "value": "You can also watch recorded proceedings by using the calendar at the left of the screen and selecting the day of a given hearing. Recordings are typically available shortly after a hearing has ended."
+      },
+      {
+        "type": "text",
+        "value": "As in the past, you can also watch proceedings on your television via MPAN broadcasts, which provide daily coverage of the Senate and House floor sessions as well as several committee meetings. It’s distributed to cable television subscribers in many communities in Montana. The specific TV channel for MPAN can be found on channel 191 on Charter Spectrum cable. More information on watching MPAN is available <a href=\"https://leg.mt.gov/audio-video/\">here</a>, and <a href=\"https://www.montanapbs.org/watch/\">here</a>."
+      }
+    ],
+    "testifyTitle": "Testifying on bills",
+    "testifyText": [
+      {
+        "type": "text",
+        "value": "In-person testimony at the Capitol is similar to years past, with the exception that committee rooms are set up to accommodate social distancing. <a href=\"https://montanafreepress.org/2021/01/08/legislature-to-get-dedicated-contact-tracer/\">In general, mask use has been “highly recommended” at the Capitol by the Legislature’s COVID-19 panel</a>, but its adoption is inconsistent."
+      },
+      {
+        "type": "text",
+        "value": "Particularly in smaller committee rooms, space constraints can mean the public is invited to watch committee proceedings on a screen in the hallway and may be allowed, one at a time, to enter the room and speak during the time reserved for public testimony."
+      },
+      {
+        "type": "text",
+        "value": "Testifying remotely via Zoom requires advance registration <a href=\"https://leg.mt.gov/public-testimony/\">via a form on the legislative website</a>, which also includes fields for submitting written comments and uploading documents for consideration by the relevant legislative committee."
+      },
+      {
+        "type": "text",
+        "value": "If you would like to testify, you must register by noon on the business day before the hearing. It’s important to note that not everyone who registers to testify will necessarily have the opportunity, particularly on bills that draw considerable public interest."
+      },
+      {
+        "type": "text",
+        "value": "If you register to testify, you’ll receive emailed confirmation and a Zoom link. A remote committee coordinator will facilitate the remote testimony the day of the hearing."
+      },
+      {
+        "type": "text",
+        "value": "Individual committee chairs decide how they want to direct public testimony, and divvy it up between in-person and online participation. Therefore, you’re advised to leave a brief comment stating your position on the registration form in the event that you’re unable to testify via Zoom."
+      },
+      {
+        "type": "text",
+        "value": "If you want to register to testify remotely but cannot use the Zoom platform, use the remote testimony link to register. You’ll receive a confirmation email. Reply to the confirmation email and Legislative Services staff will follow-up with details about how to testify before a committee using a phone connection."
+      }
+    ],
+    "trackingTitle": "Tracking bills and contacting lawmakers",
+    "trackingText": [
+      {
+        "type": "text",
+        "value": "The Legislature’s official bill-tracking tool, the <a href=\"https://leg.mt.gov/bill-info/look-up-bill/\">Legislative Automated Workflow System</a>, or LAWS, is a platform that acts as a clearinghouse for bills and bill drafts. It can be tricky to use, but there are <a href=\"https://leg.mt.gov/bills/demos/\">instructional videos</a> that can help you learn your way around the system. These videos include everything from the basics of navigating LAWS to more in-depth guidance on creating preference lists so you can be alerted when selected bills come up for a hearing."
+      },
+      {
+        "type": "text",
+        "value": "The <a href=\"https://apps.montanafreepress.org/capitol-tracker-2021/\">Montana Free Press Capitol Tracker guide</a> pulls data from LAWS and is intended in part to serve as a more modern, user-friendly way to track legislative proceedings. The Capitol Tracker includes tools for <a href=\"https://apps.montanafreepress.org/capitol-tracker-2021/#find-bill\">finding information on a specific bill</a>, <a href=\"https://apps.montanafreepress.org/capitol-tracker-2021/#find-lawmaker\">finding information on a specific lawmaker</a> and <a href=\"https://apps.montanafreepress.org/capitol-tracker-2021/#find-district\">looking up your legislators by typing in your address</a>."
+      },
+      {
+        "type": "text",
+        "value": "Phone numbers and email addresses for lawmakers are available on their individual pages in the MTFP Capitol Tracker, <a href=\"https://leg.mt.gov/legislator-information/\">as well as through the official legislative roster</a>. You can also call (406) 444-4800 and leave a message, and it will be delivered to the legislator you select."
+      }
+    ],
+    "credit": "Compiled by Amanda Eggert and Eric Dietrich"
+  },
   "bills": [
     {
       "key": "HB 2",
+      "category": "Governor’s budget",
       "isMajorBill": "True",
       "annotation": [
         {
@@ -124,6 +195,7 @@
     },
     {
       "key": "HB 13",
+      "category": "Governor’s budget",
       "isMajorBill": "False",
       "annotation": [
         {
@@ -133,45 +205,127 @@
       ]
     },
     {
-      "key": "SB 51",
+      "key": "HB 303",
+      "category": "Governor’s budget",
+      "label": "Exempts more businesses from paying equipment tax",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "SB 159",
+      "category": "Governor’s budget",
+      "label": "Reduces tax rate in the state’s top income bracket",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "SB 184",
+      "category": "Governor’s budget",
+      "label": "",
       "isMajorBill": "True"
     },
     {
       "key": "SB 65",
+      "category": "COVID-19 response",
       "isMajorBill": "True",
       "label": "Protects businesses from some COVID-19-related lawsuits"
     },
     {
-      "key": "SB 98",
-      "isMajorBill": "True"
+      "key": "SB 51",
+      "category": "Broadband internet access",
+      "isMajorBill": "True",
+      "label": "Tax incentives intended to spur rural broadband internet development"
     },
     {
       "key": "HB 102",
+      "category": "Firearm regulations",
       "isMajorBill": "True",
-      "label": "Expands concealed carry to college campuses"
+      "label": "Expands permitless concealed carry, limits gun regulations on college campuses"
+    },
+    {
+      "key": "HB 176",
+      "category": "Election administration",
+      "isMajorBill": "True",
+      "label": "Would end Election Day-voter registration"
+    },
+    {
+      "key": "HB 168",
+      "category": "Labor policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "SB 140",
+      "category": "Justice policy",
+      "isMajorBill": "True",
+      "label": "Would let the governor appoint judges directly"
+    },
+    {
+      "key": "SB 101",
+      "category": "Health care policy",
+      "isMajorBill": "True",
+      "label": "Would allow healthcare providers to negotiate payment agreements directly with patients"
+    },
+    {
+      "key": "SB 98",
+      "category": "Energy & natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "HB 224",
+      "category": "Energy & natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "HB225",
+      "category": "Energy & natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "SB 165",
+      "category": "Energy & natural resource policy",
+      "isMajorBill": "True",
+      "label": "Would transfer subdivision rulemaking authority to the Board of Environmental Review and transfer some subdivision sanitation permitting to local governments"
+    },
+    {
+      "key": "HB 273",
+      "category": "Energy & natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "HB 136",
+      "category": "Anti-abortion measures",
+      "label": "Would broadly restrict abortions after 20 weeks",
       "isMajorBill": "True"
     },
     {
       "key": "HB 171",
+      "category": "Anti-abortion measures",
+      "label": "Would require abortion-inducing medication to be distributed in person",
       "isMajorBill": "True"
     },
     {
       "key": "HB 140",
+      "category": "Anti-abortion measures",
+      "label": "Would require medical providers to offer patients an ultrasound before an abortion",
       "isMajorBill": "True"
     },
     {
       "key": "HB 167",
+      "category": "Anti-abortion measures",
+      "label": "",
       "isMajorBill": "True"
     },
     {
       "key": "HB 112",
+      "category": "Transgender restrictions",
       "isMajorBill": "True"
     },
     {
       "key": "HB 113",
+      "category": "Transgender restrictions",
       "label": "Would prohibit hormonal treatments and gender surgeries for transgender youth",
       "isMajorBill": "True"
     }
@@ -196,5 +350,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-02-02T00:24:15.461Z"
+  "lastUpdated": "2021-02-13T00:32:47.444Z"
 }

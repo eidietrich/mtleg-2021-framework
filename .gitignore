@@ -1,6 +1,8 @@
 # Tracked in separate repos
 app
 scrapers/openstates/*
+.ipynb_checkpoints
+scrapers/lawmakers/.ipynb_checkpoints/*
 
 
 .ipynb
