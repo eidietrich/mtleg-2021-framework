@@ -283,6 +283,7 @@ module.exports.ACTIONS = [
     { key: 'Committee Report--Bill Concurred as Amended', },
     { key: 'Committee Report--Bill Concurred', },
     { key: 'Committee Report--Resolution Adopted as Amended', },
+    { key: 'Committee Report--Resolution Not Adopted', },
     { key: 'Adverse Committee Report Adopted', },
     { key: 'Hearing Canceled', },
     { key: 'Amendments Available', },
