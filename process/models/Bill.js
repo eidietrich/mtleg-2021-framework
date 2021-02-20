@@ -25,9 +25,11 @@ class Bill {
             session: bill.legislative_session,
             
             
-
+            // old
             status: this.getStatus(bill),
             progress: this.getProgress(bill, this.actions),
+            // new 
+            progression: this.getProgression(bill, this.actions),
 
             sponsor: this.getSponsor(bill),
             requestor: this.getRequestor(bill),
@@ -63,10 +65,241 @@ class Bill {
         return {
             'H': 'house',
             'S': 'senate',
-            'J': 'joint',
+            // 'J': 'joint',
         }[letter]
     }
 
+    // NEW 
+    getProgression = (bill, actions) => {
+        /*
+        This is tricky logic. There are two sources of bill status/progression information available to us.
+        
+        1) A bill status line presented in the official LAWS system. This is limited b/c it defaults to a "Probably dead" label when a bill dies in process, which doesn't have any information on how far the bull made in the legislative progress before dying
+
+        2) A list actions taken on the bill. This function interprets that list to deduce how far a bill has gotten.  It relies on flags set via ACTIONS in config.js
+
+        */
+        const statusFromLAWSLabel = BILL_STATUSES.find(d => d.key === bill.extras.bill_status)
+        if (!statusFromLAWSLabel) {
+            throw 'Missing bill status match for', bill.extras.bill_status
+        }
+
+        const hasProgressFlag = (actions, flag) => actions.map(d => d[flag]).includes(true)
+        // const countProgressFlags = (actions, flag) => actions.filter(d => d[flag]).length
+        // const actionsWithFlag = (actions, flag) => actions.filter(d => d[flag])
+
+        // Note: Different bill types have different procedural paths
+        const type = this.type 
+        if (!['bill','resolution','joint resolution', 'referendum proposal'].includes(type)) {
+            console.log('Unhandled bill type', type)
+            // Should this throw a full-fledged error?
+        }
+        const chamberOfOrigin = this.getChamber(bill.identifier) // 'house' or 'senate'
+
+        let steps = []
+        
+        // initial chamber - relevant for all bill types
+        if (['bill','resolution','joint resolution', 'referendum proposal'].includes(type)) {
+            const firstChamber = chamberOfOrigin.replace('house', 'House').replace('senate', 'Senate')
+            const firstChamberActions = actions
+                .filter(d => d.chamber === firstChamber)
+            
+            const isIntroduced = hasProgressFlag(actions, 'introduction')
+            const isReferred = hasProgressFlag(firstChamberActions, 'sentToCommittee')
+
+            const passedInitialCommittee = hasProgressFlag(firstChamberActions, 'firstCommitteePassage')
+                || hasProgressFlag(firstChamberActions, 'blastMotionPassage')
+                // blast motions are a floor vote that pulls a bill out of committee
+            const failedInitialCommittee = hasProgressFlag(firstChamberActions, 'firstCommitteeFailed') // DOES NOT capture tabled bills
+            
+            const passedInitialFloorVote = hasProgressFlag(firstChamberActions, 'firstChamberInitialPassage')
+            const passedFirstChamber = hasProgressFlag(firstChamberActions, 'firstChamberPassage')
+            const failedFirstChamber = hasProgressFlag(firstChamberActions, 'firstChamberFailed')
+
+            let firstChamberStatus
+            let introductionStatus, initialCommitteeStatus, secondReadingStatus, thirdReadingStatus
+
+            if (!isIntroduced) firstChamberStatus = 'future'
+            if (isIntroduced && passedFirstChamber) firstChamberStatus = 'passed'
+            if (isIntroduced && !passedFirstChamber && !failedFirstChamber) firstChamberStatus = 'pending'
+            if (isIntroduced && !passedFirstChamber && failedFirstChamber) firstChamberStatus = 'failed'
+            if (firstChamberStatus === undefined) console.log('First chamber status logic error')
+
+            // substeps
+            if (!isIntroduced) introductionStatus = 'future'
+            if (isIntroduced && !isReferred) introductionStatus = 'pending'
+            if (isIntroduced && isReferred) introductionStatus = 'passed'
+            if (introductionStatus === undefined) console.log('Introduction status logic error')
+
+            if (!isReferred) initialCommitteeStatus = 'future'
+            if (isReferred && passedInitialCommittee) initialCommitteeStatus = 'passed'
+            if (isReferred && !passedInitialCommittee && !failedInitialCommittee) initialCommitteeStatus = 'pending'
+            // ADD logic for bills that have been tabled and not untabled in their initial committee
+            if (isReferred && !passedInitialCommittee && failedInitialCommittee) initialCommitteeStatus = 'failed'
+            if (initialCommitteeStatus === undefined) console.log('Initial committee status logic error')
+
+            if (!passedInitialCommittee) secondReadingStatus = 'future'
+            if (passedInitialCommittee && passedInitialFloorVote) secondReadingStatus = 'passed'
+            if (passedInitialCommittee && !passedInitialFloorVote && !failedFirstChamber) secondReadingStatus = 'pending'
+            if (passedInitialCommittee && !passedInitialFloorVote && failedFirstChamber) secondReadingStatus = 'failed'
+            if (secondReadingStatus === undefined) console.log('Second reading status logic error')
+
+            // TODO - add logic in here for bills passed to appropriation committees following second reading vote
+            if (!passedInitialFloorVote) thirdReadingStatus = 'future'
+            if (passedInitialFloorVote && passedFirstChamber) thirdReadingStatus = 'passed'
+            if (passedInitialFloorVote && !passedFirstChamber && !failedFirstChamber) thirdReadingStatus = 'pending'
+            if (passedInitialFloorVote && !passedFirstChamber && failedFirstChamber) thirdReadingStatus = 'failed'
+            if (thirdReadingStatus === undefined) console.log('Second reading status logic error')
+
+            const subSteps = [
+                {
+                    label: 'Introduced',
+                    show: true,
+                    status: introductionStatus
+                },
+                {
+                    label: 'Initial committee',
+                    show: true,
+                    status: initialCommitteeStatus
+                },
+                {
+                    label: '2nd reading',
+                    show: true,
+                    status: secondReadingStatus
+                },
+                // TODO - figure out how to work in appropriations committee referrals
+                {
+                    label: '3rd/final reading',
+                    show: true,
+                    status: thirdReadingStatus
+                },
+            ]
+            
+            steps.push({
+                step: 'First chamber',
+                chamber: firstChamber,
+                show: true,
+                status: firstChamberStatus,
+                subSteps,
+            })
+        }
+
+        // second chamber - all types except simple (single-chamber) resolutions
+        if (['bill', 'joint resolution', 'referendum proposal'].includes(type)) {
+            const secondChamber = chamberOfOrigin.replace('house', 'Senate').replace('senate', 'House')
+            const secondChamberActions = actions.filter(d => d.chamber === secondChamber)
+
+            const toSecondChamber = hasProgressFlag(secondChamberActions, 'introduction')
+            const passedSecondChamber = hasProgressFlag(secondChamberActions, 'secondChamberPassage')
+            const failedSecondChamber = hasProgressFlag(secondChamberActions, 'secondChamberFailure')
+
+            let secondChamberStatus
+
+            if (bill.identifier === 'SB 65') console.log(toSecondChamber)
+
+            if (!toSecondChamber) secondChamberStatus = 'xxx'
+            if (toSecondChamber && passedSecondChamber) secondChamberStatus = 'passed'
+            if (toSecondChamber && !passedSecondChamber && !failedSecondChamber) secondChamberStatus = 'pending'
+            if (toSecondChamber && !passedSecondChamber && failedSecondChamber) secondChamberStatus = 'failed'
+            if (secondChamberStatus === undefined) console.log('Second chamber status logic error')
+
+            // TODO - add subStep logic here after verifying concept works
+            const subSteps = []
+            steps.push({
+                step: 'Second chamber',
+                chamber: secondChamber,
+                show: true,
+                status: secondChamberStatus,
+                subSteps,
+            })
+
+        }
+
+        // reconciliation - measures passed by second chamber with amendments to first chamber bill text
+        if (['bill', 'joint resolution', 'referendum proposal'].includes(type)) {
+            const firstChamber = chamberOfOrigin.replace('house', 'House').replace('senate', 'Senate')
+            const secondChamber = chamberOfOrigin.replace('house', 'Senate').replace('senate', 'House')
+            const secondChamberActions = actions.filter(d => d.chamber === secondChamber)
+
+            const passedSecondChamber = hasProgressFlag(secondChamberActions, 'secondChamberPassage')
+            const amendedInSecondChamber = hasProgressFlag(secondChamberActions, 'secondChamberAmendments')
+
+            // This is inelegant - fix
+            const toGovernor = hasProgressFlag(actions, 'sentToGovernor')
+            const becameLaw = hasProgressFlag(actions, 'ultimatelyPassed')
+            
+            if (passedSecondChamber && amendedInSecondChamber) {
+                // TODO - flesh this logic out
+                // TODO - add subStep logic here after verifying concept works
+                let reconciliationStatus = 'pending'
+                if (toGovernor || becameLaw) reconciliationStatus = 'complete'
+
+                const subSteps = []
+                steps.push({
+                    step: 'Reconciliation',
+                    chamber: firstChamber,
+                    show: true,
+                    status: reconciliationStatus, // placeholder
+                    subSteps,
+                })
+            }
+        }
+        
+        // governor - for strict 'bill' bills only 
+        if (type === 'bill') {
+            
+            const toGovernor = hasProgressFlag(actions, 'sentToGovernor')
+            const signedByGovernor = hasProgressFlag(actions, 'signedByGovernor')
+            const vetoedByGovernor = hasProgressFlag(actions, 'vetoedByGovernor')
+            const becameLaw = hasProgressFlag(actions, 'ultimatelyPassed')
+            const letPassWithoutSignature = becameLaw && (!signedByGovernor && !vetoedByGovernor)
+
+            let governorStatus
+
+            if (!toGovernor) governorStatus = 'future'
+            if (!toGovernor && !signedByGovernor && !vetoedByGovernor && !letPassWithoutSignature) governorStatus = 'pending'
+            if (toGovernor && signedByGovernor) governorStatus = 'signed'
+            if (toGovernor && vetoedByGovernor) governorStatus = 'vetoed'
+            if (toGovernor && letPassWithoutSignature) governorStatus = 'let pass'
+
+            const subSteps = []
+            steps.push({
+                step: 'Governor',
+                chamber: null,
+                show: true,
+                status: governorStatus,
+                subSteps,
+            })
+            
+        } 
+
+
+        // console.log(steps) 
+        
+        // output
+        // {
+        //     type
+        //     statusFromLAWSLabel
+        //     statusFromActions
+        //     steps [
+        //         firstChamber 
+        //         secondChamber 
+        //         reconciliation
+        //         governor
+        //     ]
+        //     
+        // }
+
+        const output = {
+            type,
+            statusFromLAWSLabel,
+            steps,
+            statusFlags: {} // TK - flags for simple front-end filtering operations
+        }
+        return output
+    }
+
+    // OLD
     getStatus = (bill) => {
         // Status as pulled from LAWS status line
         const match = BILL_STATUSES.find(d => d.key === bill.extras.bill_status)
@@ -76,6 +309,7 @@ class Bill {
         return match
     }
 
+    // OLD
     getProgress = (bill, actions) => {
         // Status as calculated from actions
         const hasProgressFlag = (actions, flag) => actions.map(d => d[flag]).includes(true)

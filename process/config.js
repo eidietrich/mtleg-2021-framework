@@ -64,8 +64,11 @@ const committeeUntabled = true
 const missedDeadline = true
 
 const blastMotionPassage = true
+const firstChamberInitialPassage = true
 const firstChamberPassage = true
 const firstChamberFailure = true
+const secondChamberInitialPassage = true
+const secondChamberAmendments = true
 const secondChamberPassage = true
 const secondChamberFailure = true
 const signedByGovernor = true
@@ -78,15 +81,17 @@ module.exports.ACTIONS = [
     // omitting {flag: false} fields here for clarity
 
     // highlight actions
-    { key: 'Introduced', isMajor, isHighlight, introduction },
+    { key: 'Introduced', isMajor, isHighlight, introduction, },
 
     // RESOLUTION-SPECIFIC
     // Resolution commitee actions
     { key: 'Committee Executive Action--Resolution Adopted', isMajor, isHighlight, firstCommitteePassage },
     { key: 'Committee Executive Action--Resolution Adopted as Amended', isMajor, isHighlight, firstCommitteePassage },
     { key: 'Committee Executive Action--Resolution Not Adopted', isMajor, isHighlight, firstCommitteeFailed },
-    // Resolutuon floor actions
-    { key: 'Resolution Adopted', isMajor, isHighlight, ultimatelyPassed },
+    { key: 'Committee Executive Action--Resolution Not Adopted as Amended', isMajor, isHighlight, firstCommitteeFailed },
+    
+    // Resolution floor actions
+    { key: 'Resolution Adopted', isMajor, isHighlight, ultimatelyPassed, firstChamberPassage, secondChamberPassage },
 
     // general committee actions
     { key: 'Tabled in Committee', isMajor, isHighlight, committeeTabled },
@@ -101,22 +106,22 @@ module.exports.ACTIONS = [
 
     // second house committee actions
     { key: 'Committee Executive Action--Bill Concurred', isMajor, isHighlight, secondCommitteePassage, },
-    { key: 'Committee Executive Action--Bill Concurred as Amended', isMajor, isHighlight, secondCommitteePassage, },
+    { key: 'Committee Executive Action--Bill Concurred as Amended', isMajor, isHighlight, secondCommitteePassage, secondChamberAmendments},
     { key: 'Committee Executive Action--Bill Not Concurred', isMajor, isHighlight, secondCommitteeFailed, },
 
     // first house floor votes
-    { key: '2nd Reading Passed', isMajor, isHighlight, },
-    { key: '2nd Reading Not Passed', isMajor, isHighlight, },
+    { key: '2nd Reading Passed', isMajor, isHighlight, firstChamberInitialPassage},
+    { key: '2nd Reading Not Passed', isMajor, isHighlight, firstChamberFailure},
     { key: '2nd Reading Not Passed as Amended', isMajor, isHighlight, firstChamberFailure },
-    { key: '2nd Reading Pass as Amended Motion Failed', isMajor, },
+    { key: '2nd Reading Pass as Amended Motion Failed', isMajor, firstChamberFailure},
     { key: '2nd Reading Pass Motion Failed', isMajor, firstChamberFailure },
-    { key: '2nd Reading Passed as Amended', isMajor, isHighlight, },
+    { key: '2nd Reading Passed as Amended', isMajor, isHighlight, firstChamberInitialPassage},
     { key: '3rd Reading Passed', isMajor, isHighlight, firstChamberPassage },
 
     // second house floor votes
-    { key: '2nd Reading Concurred', isMajor, isHighlight, },
+    { key: '2nd Reading Concurred', isMajor, isHighlight, secondChamberInitialPassage},
     { key: '2nd Reading Not Concurred', isMajor, isHighlight, secondChamberFailure, },
-    { key: '2nd Reading Concurred as Amended', isMajor, isHighlight, },
+    { key: '2nd Reading Concurred as Amended', isMajor, isHighlight, secondChamberInitialPassage, secondChamberAmendments},
     { key: '2nd Reading Concur Motion Failed', isMajor, secondChamberFailure, },
     { key: '2nd Reading Concur as Amended Motion Failed', isMajor, secondChamberFailure, },
     { key: '3rd Reading Concurred', isMajor, isHighlight, secondChamberPassage },
@@ -158,7 +163,7 @@ module.exports.ACTIONS = [
     { key: 'Reconsidered Previous Action; Remains in 3rd Reading Process', isMajor, },
     { key: 'Rules Suspended to Accept Late Return of Amended Bill', isMajor, },
     { key: 'Segregated from Committee of the Whole Report', isMajor, },
-    { key: 'Taken from 2nd Reading; Rereferred to Committee', isMajor, },
+    
 
     // Transmittal milestones
     { key: 'Transmitted to House', isMajor, sentToSecondChamber },
@@ -170,10 +175,11 @@ module.exports.ACTIONS = [
 
     // Committee referrals
     { key: 'Referred to Committee', isMajor, sentToCommittee },
-    { key: 'Rereferred to Committee', isMajor, },
+    { key: 'Rereferred to Committee', isMajor, sentToCommittee},
+    { key: 'Taken from 2nd Reading; Rereferred to Committee', isMajor, sentToCommittee},
 
     // Other major, no votes expected
-    { key: 'First Reading', isMajor, },
+    { key: 'First Reading', isMajor, introduction},
     { key: 'Bill Not Heard at Sponsor\'s Request', isMajor, },
     { key: 'Bill Withdrawn per House Rule H30-50(3)(b)', isMajor, },
     { key: 'Taken from 3rd Reading; Placed on 2nd Reading', isMajor, },
@@ -275,6 +281,7 @@ module.exports.ACTIONS = [
     { key: 'Conference Committee Dissolved', },
     { key: 'Free Conference Committee Dissolved', },
     { key: 'Special Note', },
+    // Committee reports redundant w/ Executive Action
     { key: 'Committee Report--Resolution Adopted', },
     { key: 'Committee Report--Bill Not Passed', },
     { key: 'Committee Report--Bill Not Concurred', },
@@ -288,8 +295,6 @@ module.exports.ACTIONS = [
     { key: 'Hearing Canceled', },
     { key: 'Amendments Available', },
     { key: 'Draft Canceled', },
-
-
 ]
 
 module.exports.NAME_CLEANING = {
