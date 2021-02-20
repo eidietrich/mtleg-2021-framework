@@ -181,6 +181,7 @@
     {
       "key": "HB 2",
       "category": "Governor’s budget",
+      "label": "Primary state budget bill",
       "isMajorBill": "True",
       "annotation": [
         {
@@ -211,15 +212,39 @@
       "isMajorBill": "True"
     },
     {
+      "key": "HB 252",
+      "category": "Governor’s budget",
+      "label": "Tax credits to encourage employer-funded trade education",
+      "isMajorBill": "True"
+    },
+    {
       "key": "SB 159",
       "category": "Governor’s budget",
-      "label": "Reduces tax rate in the state’s top income bracket",
+      "label": "Reduces rate in the state’s top income tax bracket",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "SB 182",
+      "category": "Governor’s budget",
+      "label": "Enacts future tax cuts in the event of budget surpluses",
       "isMajorBill": "True"
     },
     {
       "key": "SB 184",
       "category": "Governor’s budget",
-      "label": "",
+      "label": "Exempts shareholders of Montana-grown businesses from paying capital gains taxes on stock options",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "SB 181",
+      "category": "Governor’s budget",
+      "label": "Adjusts how income tax is calculated for multi-state corporations",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "SB 10",
+      "category": "Democratic alternatives",
+      "label": "Creates a property tax “circuit breaker” credit to lighten tax burden on lower-income residents",
       "isMajorBill": "True"
     },
     {
@@ -244,72 +269,102 @@
       "key": "HB 176",
       "category": "Election administration",
       "isMajorBill": "True",
-      "label": "Would end Election Day-voter registration"
+      "label": "Ends Election Day-voter registration"
     },
     {
       "key": "HB 168",
       "category": "Labor policy",
       "isMajorBill": "True",
-      "label": ""
+      "label": "Requires annual worker consent for union membership"
+    },
+    {
+      "key": "HB 251",
+      "category": "Labor policy",
+      "isMajorBill": "True",
+      "label": "Requires written consent for union due paycheck deductions"
     },
     {
       "key": "SB 140",
       "category": "Justice policy",
       "isMajorBill": "True",
-      "label": "Would let the governor appoint judges directly"
+      "label": "Lets the governor appoint judges directly"
+    },
+    {
+      "key": "HB 143",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "HB 246",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": "Makes K-12 education requirements more flexible"
     },
     {
       "key": "SB 101",
       "category": "Health care policy",
       "isMajorBill": "True",
-      "label": "Would allow healthcare providers to negotiate payment agreements directly with patients"
+      "label": "Allows healthcare providers to negotiate payment agreements directly with patients"
     },
     {
       "key": "SB 98",
-      "category": "Energy & natural resource policy",
+      "category": "Natural resource policy",
       "isMajorBill": "True",
       "label": ""
     },
     {
       "key": "HB 224",
-      "category": "Energy & natural resource policy",
+      "category": "Natural resource policy",
       "isMajorBill": "True",
       "label": ""
     },
     {
-      "key": "HB225",
-      "category": "Energy & natural resource policy",
+      "key": "HB 225",
+      "category": "Natural resource policy",
       "isMajorBill": "True",
       "label": ""
     },
     {
-      "key": "SB 165",
-      "category": "Energy & natural resource policy",
+      "key": "HB 320",
+      "category": "Natural resource policy",
       "isMajorBill": "True",
-      "label": "Would transfer subdivision rulemaking authority to the Board of Environmental Review and transfer some subdivision sanitation permitting to local governments"
+      "label": ""
+    },
+    {
+      "key": "SB 115",
+      "category": "Natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "HB 273",
-      "category": "Energy & natural resource policy",
+      "category": "Energy policy",
       "isMajorBill": "True",
-      "label": ""
+      "Label": ""
+    },
+    {
+      "key": "SB 160",
+      "category": "Energy policy",
+      "isMajorBill": "True",
+      "label": "Shifts elected utility board to three-member commission appointed by governor"
     },
     {
       "key": "HB 136",
       "category": "Anti-abortion measures",
-      "label": "Would broadly restrict abortions after 20 weeks",
+      "label": "Broadly restricts abortions after 20 weeks",
       "isMajorBill": "True"
     },
     {
       "key": "HB 171",
       "category": "Anti-abortion measures",
-      "label": "Would require abortion-inducing medication to be distributed in person",
+      "label": "Requires abortion-inducing medication to be distributed in person",
       "isMajorBill": "True"
     },
     {
       "key": "HB 140",
       "category": "Anti-abortion measures",
-      "label": "Would require medical providers to offer patients an ultrasound before an abortion",
+      "label": "Requires medical providers to offer patients an ultrasound before an abortion",
       "isMajorBill": "True"
     },
     {
@@ -326,7 +381,7 @@
     {
       "key": "HB 113",
       "category": "Transgender restrictions",
-      "label": "Would prohibit hormonal treatments and gender surgeries for transgender youth",
+      "label": "Prohibits hormonal treatments and gender surgeries for transgender youth",
       "isMajorBill": "True"
     }
   ],
@@ -350,5 +405,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-02-13T00:32:47.444Z"
+  "lastUpdated": "2021-02-20T00:39:38.701Z"
 }
