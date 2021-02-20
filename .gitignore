@@ -1,10 +1,9 @@
 # Tracked in separate repos
 app
-scrapers/openstates/*
+scrapers/openstates
+
+
 .ipynb_checkpoints
-scrapers/lawmakers/.ipynb_checkpoints/*
-
-
 .ipynb
 NOTES.md
 token-mtfp.json
