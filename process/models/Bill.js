@@ -163,21 +163,21 @@ class Bill {
                     status: initialCommitteeStatus
                 },
                 {
-                    label: '2nd reading',
+                    label: 'Second reading',
                     show: true,
                     status: secondReadingStatus
                 },
                 // TODO - figure out how to work in appropriations committee referrals
                 {
-                    label: '3rd/final reading',
+                    label: 'Final reading',
                     show: true,
                     status: thirdReadingStatus
                 },
             ]
             
             steps.push({
-                step: 'First chamber',
-                chamber: firstChamber,
+                step: firstChamber,
+                label: 'First chamber',
                 show: true,
                 status: firstChamberStatus,
                 subSteps,
@@ -195,9 +195,7 @@ class Bill {
 
             let secondChamberStatus
 
-            if (bill.identifier === 'SB 65') console.log(toSecondChamber)
-
-            if (!toSecondChamber) secondChamberStatus = 'xxx'
+            if (!toSecondChamber) secondChamberStatus = 'future'
             if (toSecondChamber && passedSecondChamber) secondChamberStatus = 'passed'
             if (toSecondChamber && !passedSecondChamber && !failedSecondChamber) secondChamberStatus = 'pending'
             if (toSecondChamber && !passedSecondChamber && failedSecondChamber) secondChamberStatus = 'failed'
@@ -206,8 +204,8 @@ class Bill {
             // TODO - add subStep logic here after verifying concept works
             const subSteps = []
             steps.push({
-                step: 'Second chamber',
-                chamber: secondChamber,
+                step: secondChamber,
+                label: 'Second chamber',
                 show: true,
                 status: secondChamberStatus,
                 subSteps,
@@ -228,7 +226,7 @@ class Bill {
             const toGovernor = hasProgressFlag(actions, 'sentToGovernor')
             const becameLaw = hasProgressFlag(actions, 'ultimatelyPassed')
             
-            if (passedSecondChamber && amendedInSecondChamber) {
+            if (passedSecondChamber && amendedInSecondChamber && !toGovernor) {
                 // TODO - flesh this logic out
                 // TODO - add subStep logic here after verifying concept works
                 let reconciliationStatus = 'pending'
@@ -237,7 +235,8 @@ class Bill {
                 const subSteps = []
                 steps.push({
                     step: 'Reconciliation',
-                    chamber: firstChamber,
+                    label: null,
+                    chamber: null,
                     show: true,
                     status: reconciliationStatus, // placeholder
                     subSteps,
@@ -257,38 +256,21 @@ class Bill {
             let governorStatus
 
             if (!toGovernor) governorStatus = 'future'
-            if (!toGovernor && !signedByGovernor && !vetoedByGovernor && !letPassWithoutSignature) governorStatus = 'pending'
+            if (toGovernor && !signedByGovernor && !vetoedByGovernor && !letPassWithoutSignature) governorStatus = 'pending'
             if (toGovernor && signedByGovernor) governorStatus = 'signed'
             if (toGovernor && vetoedByGovernor) governorStatus = 'vetoed'
             if (toGovernor && letPassWithoutSignature) governorStatus = 'let pass'
 
             const subSteps = []
             steps.push({
-                step: 'Governor',
-                chamber: null,
+                step: 'Gov.',
+                label: null,
                 show: true,
                 status: governorStatus,
                 subSteps,
             })
             
         } 
-
-
-        // console.log(steps) 
-        
-        // output
-        // {
-        //     type
-        //     statusFromLAWSLabel
-        //     statusFromActions
-        //     steps [
-        //         firstChamber 
-        //         secondChamber 
-        //         reconciliation
-        //         governor
-        //     ]
-        //     
-        // }
 
         const output = {
             type,
