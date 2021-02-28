@@ -248,10 +248,28 @@
       "isMajorBill": "True"
     },
     {
+      "key": "HB 424",
+      "category": "Democratic alternatives",
+      "label": "Creates new top income tax bracket, expands Earned Income Tax Credit for working families",
+      "isMajorBill": "True"
+    },
+    {
       "key": "SB 65",
       "category": "COVID-19 response",
       "isMajorBill": "True",
       "label": "Protects businesses from some COVID-19-related lawsuits"
+    },
+    {
+      "key": "HB 121",
+      "category": "COVID-19 response",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "HB 230",
+      "category": "COVID-19 response",
+      "isMajorBill": "True",
+      "label": "Lets Legislature weigh in on governor’s emergency declarations"
     },
     {
       "key": "SB 51",
@@ -272,6 +290,12 @@
       "label": "Ends Election Day-voter registration"
     },
     {
+      "key": "HB 613",
+      "category": "Election administration",
+      "isMajorBill": "True",
+      "label": "Seeks to protect voting rights on reservations"
+    },
+    {
       "key": "HB 168",
       "category": "Labor policy",
       "isMajorBill": "True",
@@ -290,10 +314,22 @@
       "label": "Lets the governor appoint judges directly"
     },
     {
+      "key": "HB 355",
+      "category": "Justice policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
       "key": "HB 143",
       "category": "Education policy",
       "isMajorBill": "True",
       "label": ""
+    },
+    {
+      "key": "HB 15",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": "Major school funding measure"
     },
     {
       "key": "HB 246",
@@ -306,6 +342,18 @@
       "category": "Health care policy",
       "isMajorBill": "True",
       "label": "Allows healthcare providers to negotiate payment agreements directly with patients"
+    },
+    {
+      "key": "HB 332",
+      "category": "Health care policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "HB 415",
+      "category": "Health care policy",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "SB 98",
@@ -383,6 +431,12 @@
       "category": "Transgender restrictions",
       "label": "Prohibits hormonal treatments and gender surgeries for transgender youth",
       "isMajorBill": "True"
+    },
+    {
+      "key": "HB 427",
+      "category": "Transgender restrictions",
+      "label": "A slightly narrower version of HB 113",
+      "isMajorBill": "True"
     }
   ],
   "lawmakers": [
@@ -405,5 +459,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-02-20T17:01:02.599Z"
+  "lastUpdated": "2021-02-28T02:50:50.977Z"
 }

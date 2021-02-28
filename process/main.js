@@ -6,6 +6,9 @@ const {
     writeJson,
 } = require('./utils.js')
 
+const {
+    COMMITTEES
+} = require('./config.js')
 
 const {
     checkArticleMatches
@@ -15,6 +18,7 @@ const {
 const Vote = require('./models/Vote.js')
 const Bill = require('./models/Bill.js')
 const Lawmaker = require('./models/Lawmaker.js')
+const Committee = require('./models/Committee.js')
 const House = require('./models/House.js')
 const Senate = require('./models/Senate.js')
 const Governor = require('./models/Governor.js')
@@ -22,8 +26,10 @@ const Overview = require('./models/Overview.js')
 
 const Article = require('./models/MTFPArticle.js')
 
+const Analysis = require('./models/Analysis.js')
+
 // INPUTS
-// 2019 LAWS Data
+// 2021 LAWS Data
 const BILLS_GLOB = './scrapers/openstates/_data/mt/bill_*.json'
 const VOTES_GLOB = './scrapers/openstates/_data/mt/vote_event_*.json'
 // const LEG_ROSTER_PATH_2019 = './scrapers/lawmakers/2019.json'
@@ -39,6 +45,7 @@ const ARTICLES_PATH = './scrapers/mtfp-articles/articles.json'
 // OUTPUTS
 const LAWMAKERS_OUTPUT_PATH = './app/src/data/lawmakers.json'
 const BILLS_OUTPUT_PATH = './app/src/data/bills.json'
+const COMMITTEE_OUTPUT_PATH = './app/src/data/committees.json'
 const HOUSE_OUTPUT_PATH = './app/src/data/house.json'
 const SENATE_OUTPUT_PATH = './app/src/data/senate.json'
 const GOVERNOR_OUTPUT_PATH = './app/src/data/governor.json'
@@ -83,11 +90,23 @@ const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
     })
 )
 
+const committees = COMMITTEES
+.filter(committee => !committee.name.includes('Joint Appropriations Subcommittee'))
+.map(committee => new Committee({
+    committee,
+    bills,
+    lawmakers
+}))
+
 const summaryData = new Overview({
     bills,
     votes,
     annotations
 }).export()
+
+const analysis = new Analysis({
+    bills
+})
 
 // Tests
 // TODO - create better framework for this
@@ -96,7 +115,7 @@ const summaryData = new Overview({
 // Export these as arrays so they play nicely w/ Gatsby graphql engine
 const billsData = bills.map(bill => bill.export())
 const lawmakersData = lawmakers.map(lawmaker => lawmaker.export())
-// Votes don't need a separate file?
+const committeeData = committees.map(committee => committee.export())
 
 // Export these as dicts for direct import to relevant pages
 
@@ -108,15 +127,20 @@ const governorData = new Governor({annotations, articles}).export()
 writeJson('./process/logs/lawmaker.json', lawmakersData[45])
 writeJson('./process/logs/bill.json', billsData.find(d => d.identifier === 'SB 65'))
 
+// analysis outputs
+writeJson('./analysis/bill-progression.json', analysis.billProgression)
+
 // Data output
 writeJson(LAWMAKERS_OUTPUT_PATH, lawmakersData)
 writeJson(BILLS_OUTPUT_PATH, billsData)
+writeJson(COMMITTEE_OUTPUT_PATH, committeeData)
+
 writeJson(HOUSE_OUTPUT_PATH, houseData)
 writeJson(SENATE_OUTPUT_PATH, senateData)
 writeJson(GOVERNOR_OUTPUT_PATH, governorData)
 writeJson(SUMMARY_OUTPUT_PATH, summaryData)
 
-// analysis outputs
+// analysis outputs -- old
 // writeJson('./analysis/districts.json', lawmakersData.map(d => d.district))
 
 // // How mean of each action type have been recorded?

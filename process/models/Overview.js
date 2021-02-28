@@ -3,11 +3,16 @@ const {
 } = require('d3-time-format')
 
 const {
-    COMMITTEES
+    COMMITTEES,
+    startOfToday,
 } = require('../config.js')
 
-const actionsThatCanBeFuture = ['Scheduled for Executive Action', 'Hearing', 'Scheduled for 2nd Reading', 'Scheduled for 3rd Reading']
-const startOfToday = new Date(new Date().setHours(-7, 0, 0, 0)) // -7 is time zone fudge factor
+const actionsThatCanBeFuture = [
+    'Scheduled for Executive Action', 
+    'Hearing', 'Scheduled for 2nd Reading',
+    'Scheduled for 3rd Reading',
+    'Fiscal Note Requested' // really?
+]
 
 class Overview {
     constructor({ bills, votes, annotations }) {

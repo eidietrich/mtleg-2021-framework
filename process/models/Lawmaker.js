@@ -32,7 +32,7 @@ class Lawmaker {
             phone: lawmaker.phone,
             email: lawmaker.email,
 
-            committees: lawmaker.committees_19, // TODO - change to 2021
+            committees: lawmaker.committees_19, // Actually 2021 committees - label needs updating
             leadershipRoles: [], // TODO (annotate Speaker of the House etc.)
 
             legislativeHistory: this.getHistory(lawmaker.sessions),

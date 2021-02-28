@@ -34,4 +34,12 @@ module.exports.filterToFloorVotes = (votes) => {
     return votes.filter(d => (d.votes.length >= 99) || (d.votes.length === 50))
 }
 
+module.exports.committeeKey = (name) => name.replace(/\s/g,'-').replace(/\,/g,'')
 module.exports.billKey = (identifier) => identifier.substring(0, 2).toLowerCase() + '-' + identifier.substring(3,)
+
+// bill status parsing helpers
+module.exports.hasProgressFlag = (actions, flag) => actions.map(d => d[flag]).includes(true)
+module.exports.countProgressFlags = (actions, flag) => actions.filter(d => d[flag]).length
+module.exports.actionsWithFlag = (actions, flag) => actions.filter(d => d[flag])
+module.exports.firstActionWithFlag = (actions, flag) => actions.find(d => d[flag])
+module.exports.lastActionWithFlag = (actions, flag) => actions.reverse().find(d => d[flag])

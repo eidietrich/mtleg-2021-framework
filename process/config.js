@@ -1,3 +1,5 @@
+module.exports.startOfToday = new Date(new Date().setHours(-7, 0, 0, 0)) // -7 is time zone fudge factor
+
 module.exports.LAWMAKER_REPLACEMENTS = [
     { district: 'SD 48', note: 'Shane Morigeau appointed to fill seat after Nov. 2020 resignation of Sen. Nate McConnell.' }
 ]
@@ -48,11 +50,15 @@ const isHighlight = true
 // Resolution flags
 
 // Bill progression flags
+const draftRequest = true
+const draftReady = true
 const introduction = true
 const sentToCommittee = true
 const sentToSecondChamber = true
 const sentToGovernor = true
 
+const hearing = true
+const committeeVote = true
 const firstCommitteePassage = true
 const firstCommitteeFailed = true
 const secondCommitteePassage = true // second chamber committee
@@ -60,8 +66,14 @@ const secondCommitteeFailed = true
 
 const committeeTabled = true
 const committeeUntabled = true
+const committeeFailed = true
+const committeePassed = true
 
+const withdrawn = true
 const missedDeadline = true
+
+const secondReading = true
+const thirdReading = true
 
 const blastMotionPassage = true
 const firstChamberInitialPassage = true
@@ -85,53 +97,53 @@ module.exports.ACTIONS = [
 
     // RESOLUTION-SPECIFIC
     // Resolution commitee actions
-    { key: 'Committee Executive Action--Resolution Adopted', isMajor, isHighlight, firstCommitteePassage },
-    { key: 'Committee Executive Action--Resolution Adopted as Amended', isMajor, isHighlight, firstCommitteePassage },
-    { key: 'Committee Executive Action--Resolution Not Adopted', isMajor, isHighlight, firstCommitteeFailed },
-    { key: 'Committee Executive Action--Resolution Not Adopted as Amended', isMajor, isHighlight, firstCommitteeFailed },
+    { key: 'Committee Executive Action--Resolution Adopted', isMajor, isHighlight, committeeVote, committeePassed, firstCommitteePassage },
+    { key: 'Committee Executive Action--Resolution Adopted as Amended', isMajor, isHighlight, committeeVote, committeePassed, firstCommitteePassage },
+    { key: 'Committee Executive Action--Resolution Not Adopted', isMajor, isHighlight, committeeVote, committeeFailed, firstCommitteeFailed },
+    { key: 'Committee Executive Action--Resolution Not Adopted as Amended', isMajor, isHighlight, committeeVote, committeeFailed, firstCommitteeFailed },
     
     // Resolution floor actions
     { key: 'Resolution Adopted', isMajor, isHighlight, ultimatelyPassed, firstChamberPassage, secondChamberPassage },
 
     // general committee actions
-    { key: 'Tabled in Committee', isMajor, isHighlight, committeeTabled },
-    { key: 'Taken from Table in Committee', isMajor, committeeUntabled },
-    { key: 'Committee Vote Failed; Remains in Committee', isMajor, },
-    { key: 'Reconsidered Previous Action; Remains in Committee', isMajor, },
+    { key: 'Tabled in Committee', isMajor, isHighlight, committeeVote, committeeTabled, committeeVote },
+    { key: 'Taken from Table in Committee', isMajor, committeeVote, committeeUntabled, committeeVote },
+    { key: 'Committee Vote Failed; Remains in Committee', isMajor, committeeVote},
+    { key: 'Reconsidered Previous Action; Remains in Committee', isMajor, committeeVote},
 
     // first house committee actions
-    { key: 'Committee Executive Action--Bill Passed', isMajor, isHighlight, firstCommitteePassage },
-    { key: 'Committee Executive Action--Bill Passed as Amended', isMajor, isHighlight, firstCommitteePassage },
-    { key: 'Committee Executive Action--Bill Not Passed', isMajor, isHighlight, firstCommitteeFailed },
+    { key: 'Committee Executive Action--Bill Passed', isMajor, isHighlight, committeeVote, committeePassed, firstCommitteePassage },
+    { key: 'Committee Executive Action--Bill Passed as Amended', isMajor, isHighlight, committeeVote, committeePassed, firstCommitteePassage },
+    { key: 'Committee Executive Action--Bill Not Passed', isMajor, isHighlight, committeeVote, committeeFailed, firstCommitteeFailed },
 
     // second house committee actions
-    { key: 'Committee Executive Action--Bill Concurred', isMajor, isHighlight, secondCommitteePassage, },
-    { key: 'Committee Executive Action--Bill Concurred as Amended', isMajor, isHighlight, secondCommitteePassage, secondChamberAmendments},
-    { key: 'Committee Executive Action--Bill Not Concurred', isMajor, isHighlight, secondCommitteeFailed, },
+    { key: 'Committee Executive Action--Bill Concurred', isMajor, isHighlight, committeeVote, committeePassed, secondCommitteePassage, },
+    { key: 'Committee Executive Action--Bill Concurred as Amended', isMajor, isHighlight, committeeVote, committeePassed, secondCommitteePassage, secondChamberAmendments},
+    { key: 'Committee Executive Action--Bill Not Concurred', isMajor, isHighlight, committeeVote, committeeFailed, secondCommitteeFailed, },
 
     // first house floor votes
-    { key: '2nd Reading Passed', isMajor, isHighlight, firstChamberInitialPassage},
-    { key: '2nd Reading Not Passed', isMajor, isHighlight, firstChamberFailure},
-    { key: '2nd Reading Not Passed as Amended', isMajor, isHighlight, firstChamberFailure },
-    { key: '2nd Reading Pass as Amended Motion Failed', isMajor, firstChamberFailure},
-    { key: '2nd Reading Pass Motion Failed', isMajor, firstChamberFailure },
-    { key: '2nd Reading Passed as Amended', isMajor, isHighlight, firstChamberInitialPassage},
-    { key: '3rd Reading Passed', isMajor, isHighlight, firstChamberPassage },
+    { key: '2nd Reading Passed', isMajor, isHighlight, secondReading, firstChamberInitialPassage},
+    { key: '2nd Reading Not Passed', isMajor, isHighlight, secondReading, firstChamberFailure},
+    { key: '2nd Reading Not Passed as Amended', isMajor, isHighlight, secondReading, firstChamberFailure },
+    { key: '2nd Reading Pass as Amended Motion Failed', isMajor, secondReading, firstChamberFailure},
+    { key: '2nd Reading Pass Motion Failed', isMajor, secondReading, firstChamberFailure },
+    { key: '2nd Reading Passed as Amended', isMajor, isHighlight, secondReading, firstChamberInitialPassage},
+    { key: '3rd Reading Passed', isMajor, isHighlight, thirdReading, firstChamberPassage },
 
     // second house floor votes
-    { key: '2nd Reading Concurred', isMajor, isHighlight, secondChamberInitialPassage},
-    { key: '2nd Reading Not Concurred', isMajor, isHighlight, secondChamberFailure, },
-    { key: '2nd Reading Concurred as Amended', isMajor, isHighlight, secondChamberInitialPassage, secondChamberAmendments},
-    { key: '2nd Reading Concur Motion Failed', isMajor, secondChamberFailure, },
-    { key: '2nd Reading Concur as Amended Motion Failed', isMajor, secondChamberFailure, },
-    { key: '3rd Reading Concurred', isMajor, isHighlight, secondChamberPassage },
+    { key: '2nd Reading Concurred', isMajor, isHighlight, secondReading, secondChamberInitialPassage},
+    { key: '2nd Reading Not Concurred', isMajor, isHighlight, secondReading, secondChamberFailure, },
+    { key: '2nd Reading Concurred as Amended', isMajor, isHighlight, secondReading, secondChamberInitialPassage, secondChamberAmendments},
+    { key: '2nd Reading Concur Motion Failed', isMajor, secondReading, secondChamberFailure, },
+    { key: '2nd Reading Concur as Amended Motion Failed', isMajor, secondReading, secondChamberFailure, },
+    { key: '3rd Reading Concurred', isMajor, isHighlight, thirdReading, secondChamberPassage },
 
     // amendment votes
     { key: '2nd Reading Motion to Amend Carried', isMajor, },
     { key: '2nd Reading Motion to Amend Failed', isMajor, },
 
     // either house floor votes
-    { key: '3rd Reading Failed', isMajor, isHighlight, },
+    { key: '3rd Reading Failed', isMajor, isHighlight, thirdReading},
     { key: '2nd Reading Indefinitely Postponed', isMajor, },
 
     // Reconciliation votes
@@ -171,7 +183,7 @@ module.exports.ACTIONS = [
     { key: 'Transmitted to Governor', isMajor, sentToGovernor },
 
     // Major w/out votes
-    { key: 'Hearing', isMajor, },
+    { key: 'Hearing', isMajor, hearing},
 
     // Committee referrals
     { key: 'Referred to Committee', isMajor, sentToCommittee },
@@ -180,8 +192,8 @@ module.exports.ACTIONS = [
 
     // Other major, no votes expected
     { key: 'First Reading', isMajor, introduction},
-    { key: 'Bill Not Heard at Sponsor\'s Request', isMajor, },
-    { key: 'Bill Withdrawn per House Rule H30-50(3)(b)', isMajor, },
+    { key: 'Bill Not Heard at Sponsor\'s Request', isMajor, withdrawn},
+    { key: 'Bill Withdrawn per House Rule H30-50(3)(b)', isMajor, withdrawn},
     { key: 'Taken from 3rd Reading; Placed on 2nd Reading', isMajor, },
     { key: 'Returned to House', isMajor, },
     { key: 'Returned to Senate', isMajor, },
@@ -221,12 +233,16 @@ module.exports.ACTIONS = [
 
 
     // Minor actions (exclude from default bill table view)
+
+    // committee reports
+
+    { key: 'Draft Request Received', draftRequest},
+    { key: 'Bill Draft Text Available Electronically', draftReady},
+    { key: 'Draft Delivered to Requester'},
     { key: 'Draft Back for Redo', },
     { key: 'Draft Back for Requester Changes', },
-    { key: 'Draft Delivered to Requester', },
     { key: 'Draft On Hold', },
     { key: 'Draft Ready for Delivery', },
-    { key: 'Draft Request Received', },
     { key: 'Draft Taken Off Hold', },
     { key: 'Draft Taken by Drafter', },
     { key: 'Draft in Assembly', },
@@ -274,27 +290,28 @@ module.exports.ACTIONS = [
     { key: 'Sponsor Rebuttal to Fiscal Note Signed', },
     { key: 'Sponsors Engrossed', },
     { key: 'Legal Review Note', },
-    { key: 'Bill Draft Text Available Electronically', },
     { key: 'Introduced Bill Text Available Electronically', },
     { key: 'Clerical Corrections Made - New Version Available', },
     { key: 'Veto Override Vote Mail Poll Letter Being Prepared', },
     { key: 'Conference Committee Dissolved', },
     { key: 'Free Conference Committee Dissolved', },
     { key: 'Special Note', },
-    // Committee reports redundant w/ Executive Action
-    { key: 'Committee Report--Resolution Adopted', },
-    { key: 'Committee Report--Bill Not Passed', },
-    { key: 'Committee Report--Bill Not Concurred', },
-    { key: 'Committee Report--Bill Passed', },
-    { key: 'Committee Report--Bill Passed as Amended', },
-    { key: 'Committee Report--Bill Concurred as Amended', },
-    { key: 'Committee Report--Bill Concurred', },
-    { key: 'Committee Report--Resolution Adopted as Amended', },
-    { key: 'Committee Report--Resolution Not Adopted', },
-    { key: 'Adverse Committee Report Adopted', },
     { key: 'Hearing Canceled', },
     { key: 'Amendments Available', },
     { key: 'Draft Canceled', },
+    // Committee reports redundant w/ Executive Action
+    // flagged here for reasons
+    { key: 'Committee Report--Resolution Adopted', committeePassed},
+    { key: 'Committee Report--Bill Not Passed', committeeFailed},
+    { key: 'Committee Report--Bill Not Concurred', committeeFailed},
+    { key: 'Committee Report--Bill Passed', committeePassed},
+    { key: 'Committee Report--Bill Passed as Amended', committeePassed},
+    { key: 'Committee Report--Bill Concurred as Amended', committeePassed},
+    { key: 'Committee Report--Bill Concurred', committeePassed},
+    { key: 'Committee Report--Resolution Adopted as Amended', committeePassed},
+    { key: 'Committee Report--Resolution Not Adopted', committeeFailed},
+    { key: 'Adverse Committee Report Adopted', committeeFailed},
+    
 ]
 
 module.exports.NAME_CLEANING = {
@@ -800,7 +817,9 @@ module.exports.COMMITTEES = [
     { name: 'Senate Highways and Transportation', daysOfWeek: 'T/Th', time: '3 p.m.', type: 'policy', },
 
     { name: 'Senate Committee on Committees', daysOfWeek: 'on call', time: '', type: 'special', },
-    { name: 'Senate Ethics Committee', daysOfWeek: 'on call', time: '', type: 'special', },
-    { name: 'Senate Rules Committee', daysOfWeek: 'on call', time: '', type: 'special', },
-
+    { name: 'Senate Ethics', daysOfWeek: 'on call', time: '', type: 'special', },
+    { name: 'Senate Rules', daysOfWeek: 'on call', time: '', type: 'special', },
+    { name: 'Senate Legislative Administration', daysOfWeek: 'on call', time: '', type: 'special',}
 ]
+
+module.exports.FINANCE_COMMITTEES = ['Senate Finance and Claims','House Appropriations']
