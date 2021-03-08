@@ -1,22 +1,23 @@
 // script for merging app data into single JSON fed to gatsby-node
 
 const {
-    getJson,
-    collectJsons,
-    writeJson,
+  getJson,
+  collectJsons,
+  writeJson,
 } = require('./utils.js')
 
 const {
-    COMMITTEES
+  COMMITTEES
 } = require('./config.js')
 
 const {
-    checkArticleMatches
+  checkArticleMatches
 } = require('./tests.js')
 
 // Data models
 const Vote = require('./models/Vote.js')
 const Bill = require('./models/Bill.js')
+const Action = require('./models/Action.js')
 const Lawmaker = require('./models/Lawmaker.js')
 const Committee = require('./models/Committee.js')
 const House = require('./models/House.js')
@@ -65,47 +66,73 @@ const rawArticles = getJson(ARTICLES_PATH) // TODO Add
 const legalNotes = getJson(LEGAL_NOTE_PATH)
 
 const articles = rawArticles
-    .filter(d => d.status === 'publish')
-    .map(article => new Article({article}))
-const votes = rawVotes.map(vote => new Vote({vote}))
-
+  .filter(d => d.status === 'publish')
+  .map(article => new Article({ article }))
+const votes = rawVotes.map(vote => new Vote({ vote }))
 const keyBillIds = annotations.bills.filter(d => d.isMajorBill === 'True').map(d => d.key)
-const bills = rawBills.map(bill => new Bill({
-        bill,
-        votes,
-        annotations,
-        articles, 
-        legalNotes,
-        keyBillIds,
-    })
-)
 
-const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
-        lawmaker,
-        districts: rawDistricts,
-        bills,
-        votes,
-        annotations,
-        articles,
-    })
-)
+billFactory = (bill) => {
+  const annotation = annotations.bills.find(d => d.key === bill.identifier)
+  const billArticles = articles.filter(article => article.data.billTags.includes(bill.identifier)).map(d => d.export())
+  const legalNoteMatch = legalNotes.find(d => d.bill === bill.identifier)
+  const legalNoteUrl = legalNoteMatch ? legalNoteMatch.url : null;
+  const isMajorBill = keyBillIds.includes(bill.identifier);
+  const actions = bill.actions.map(action => {
+    const vote = votes.find(d => d.data.voteUrl === action.description.split('|')[2])
+    return new Action({ action, vote }).export()
+  })
+
+  return new Bill({
+    bill,
+    actions,
+    annotation,
+    articles: billArticles,
+    legalNoteUrl,
+    isMajorBill,
+  })
+}
+
+const bills = rawBills.map(billFactory)
+
+lawmakerFactory = (lawmaker) => {
+  const district = rawDistricts.find(d => d.key === lawmaker.district)
+  const sponsoredBills = bills.filter(bill => bill.data.sponsor.name === lawmaker.name)
+  const lawmakerVotes = votes.filter(vote => {
+    const voters = vote.votes.map(d => d.name)
+    return voters.includes(lawmaker.name)
+  })
+  const annotationMatch = annotations.lawmakers.find(d => d.key === lawmaker.name)
+  const annotation = (annotationMatch && annotationMatch.annotation) || []
+  const articlesAboutLawmaker = articles.filter(article => article.data.lawmakerTags.includes(lawmaker.name)).map(d => d.export())
+
+  return new Lawmaker({
+    lawmaker,
+    district,
+    sponsoredBills,
+    votes: lawmakerVotes,
+    annotation,
+    articles: articlesAboutLawmaker,
+  })
+}
+
+const lawmakers = rawLawmakers.map(lawmakerFactory)
 
 const committees = COMMITTEES
-.filter(committee => !committee.name.includes('Joint Appropriations Subcommittee'))
-.map(committee => new Committee({
+  .filter(committee => !committee.name.includes('Joint Appropriations Subcommittee'))
+  .map(committee => new Committee({
     committee,
     bills,
     lawmakers
-}))
+  }))
 
 const summaryData = new Overview({
-    bills,
-    votes,
-    annotations
+  bills,
+  votes,
+  annotations
 }).export()
 
 const analysis = new Analysis({
-    bills
+  bills
 })
 
 // Tests
@@ -119,9 +146,9 @@ const committeeData = committees.map(committee => committee.export())
 
 // Export these as dicts for direct import to relevant pages
 
-const houseData = new House({annotations}).export()
-const senateData = new Senate({annotations}).export()
-const governorData = new Governor({annotations, articles}).export()
+const houseData = new House({ annotations }).export()
+const senateData = new Senate({ annotations }).export()
+const governorData = new Governor({ annotations, articles }).export()
 
 // Log output
 writeJson('./process/logs/lawmaker.json', lawmakersData[45])

@@ -11,10 +11,14 @@ module.exports.collectJsons = (glob_path) => {
 }
 
 module.exports.writeJson = (path, data) => {
-    fs.writeFile (path, JSON.stringify(data), function(err) {
-        if (err) throw err;
-        console.log('Written to', path);
+    // Should we throw err if no data?
+    if (data) {
+        fs.writeFile(path, JSON.stringify(data), function (err) {
+            if (err) throw err;
+            console.log('Written to', path);
         }
-    );
+        );
+    }
+
 }
 
