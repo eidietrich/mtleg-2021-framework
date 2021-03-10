@@ -66,37 +66,37 @@ const legalNotes = getJson(LEGAL_NOTE_PATH)
 
 const articles = rawArticles
     .filter(d => d.status === 'publish')
-    .map(article => new Article({article}))
-const votes = rawVotes.map(vote => new Vote({vote}))
+    .map(article => new Article({ article }))
+const votes = rawVotes.map(vote => new Vote({ vote }))
 
 const keyBillIds = annotations.bills.filter(d => d.isMajorBill === 'True').map(d => d.key)
 const bills = rawBills.map(bill => new Bill({
-        bill,
-        votes,
-        annotations,
-        articles, 
-        legalNotes,
-        keyBillIds,
-    })
+    bill,
+    votes,
+    annotations,
+    articles,
+    legalNotes,
+    keyBillIds,
+})
 )
 
-const lawmakers =  rawLawmakers.map(lawmaker => new Lawmaker({
-        lawmaker,
-        districts: rawDistricts,
-        bills,
-        votes,
-        annotations,
-        articles,
-    })
-)
-
-const committees = COMMITTEES
-.filter(committee => !committee.name.includes('Joint Appropriations Subcommittee'))
-.map(committee => new Committee({
-    committee,
+const lawmakers = rawLawmakers.map(lawmaker => new Lawmaker({
+    lawmaker,
+    districts: rawDistricts,
     bills,
-    lawmakers
-}))
+    votes,
+    annotations,
+    articles,
+})
+)
+
+const committees = COMMITTEES.filter(d => !d.suppress)
+    .filter(committee => !committee.name.includes('Joint Appropriations Subcommittee'))
+    .map(committee => new Committee({
+        committee,
+        bills,
+        lawmakers
+    }))
 
 const summaryData = new Overview({
     bills,
@@ -119,9 +119,15 @@ const committeeData = committees.map(committee => committee.export())
 
 // Export these as dicts for direct import to relevant pages
 
-const houseData = new House({annotations}).export()
-const senateData = new Senate({annotations}).export()
-const governorData = new Governor({annotations, articles}).export()
+const houseData = new House({
+    annotations,
+    committees: committees.filter(d => d.data.chamber === 'house')
+}).export()
+const senateData = new Senate({
+    annotations,
+    committees: committees.filter(d => d.data.chamber === 'senate')
+}).export()
+const governorData = new Governor({ annotations, articles }).export()
 
 // Log output
 writeJson('./process/logs/lawmaker.json', lawmakersData[45])

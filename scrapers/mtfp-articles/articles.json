@@ -1,5 +1,526 @@
 [
   {
+    "title": "The Session podcast",
+    "date": "2021-03-08T09:51:12",
+    "link": "https://montanafreepress.org/2021/03/08/the-session-podcast-week-10/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "broadband"
+        },
+        {
+          "name": "COVID-19"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "House Bill 102"
+        },
+        {
+          "name": "House Bill 113"
+        },
+        {
+          "name": "House Bill 121"
+        },
+        {
+          "name": "House Bill 176"
+        },
+        {
+          "name": "House Bill 2"
+        },
+        {
+          "name": "House Bill 230"
+        },
+        {
+          "name": "House Bill 303"
+        },
+        {
+          "name": "House Bill 424"
+        },
+        {
+          "name": "House Bill 427"
+        },
+        {
+          "name": "Income Tax"
+        },
+        {
+          "name": "Llew Jones"
+        },
+        {
+          "name": "minimum wage"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "pandemic"
+        },
+        {
+          "name": "podcast-player"
+        },
+        {
+          "name": "Senate Bill 10"
+        },
+        {
+          "name": "Senate Bill 140"
+        },
+        {
+          "name": "Senate Bill 159"
+        },
+        {
+          "name": "Senate Bill 184"
+        },
+        {
+          "name": "Senate Bill 215"
+        },
+        {
+          "name": "Senate Bill 280"
+        },
+        {
+          "name": "Senate Bill 65"
+        },
+        {
+          "name": "Taxes"
+        },
+        {
+          "name": "The Session"
+        },
+        {
+          "name": "transmittal deadline"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "Podcast"
+        },
+        {
+          "name": "Politics"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/01/25/the-session-podcast/the-session-podcast_for-post_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "MTFP Staff"
+      }
+    },
+    "excerpt": "<p>Week 10: What made it, and what didn’t, through the halfway point of the Montana Legislature</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Halfway home in Helena",
+    "date": "2021-03-05T16:15:31",
+    "link": "https://montanafreepress.org/2021/03/05/halfway-home-in-helena/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/01/04/2021-legislature-convenes-in-a-crowded-capitol/house-floor-on-day-1/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Mara Silvers"
+      }
+    },
+    "excerpt": "<p>MTFP’s roundup of key action in the first two months of the 67th Montana Legislature.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Solutions status",
+    "date": "2021-03-05T14:05:32",
+    "link": "https://montanafreepress.org/2021/03/05/solutions-status/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Brad Tschida"
+        },
+        {
+          "name": "David Bedey"
+        },
+        {
+          "name": "Frank Garner"
+        },
+        {
+          "name": "Geraldine Custer"
+        },
+        {
+          "name": "Jeff Welborn"
+        },
+        {
+          "name": "Llew Jones"
+        },
+        {
+          "name": "Solutions Caucus"
+        },
+        {
+          "name": "Wylie Galt"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/01/06/gianforte-signals-support-for-state-pay-plan-proposal/capitol-dome_-adobe-stock/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>The Solutions Caucus has been a defining aspect of recent legislative sessions. But with stronger GOP majorities and a Republican governor, is that intra-party dynamic still alive in the 2021 Legislature?</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Nuclear on the radar: Part II",
+    "date": "2021-03-04T15:32:11",
+    "link": "https://montanafreepress.org/2021/03/04/nuclear-on-the-radar-part-ii/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "House Bill 273"
+        },
+        {
+          "name": "nuclear energy"
+        },
+        {
+          "name": "Senate Joint Resolution 3"
+        },
+        {
+          "name": "SJ 3"
+        },
+        {
+          "name": "terry gauthier"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Energy"
+        },
+        {
+          "name": "Environment"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/04/nuclear-on-the-radar-part-ii/modular-nuclear-facility_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Amanda Eggert"
+      }
+    },
+    "excerpt": "<p>Montana legislators want to explore a new horizon for carbon-free nuclear energy in the state. Some environmental organizations and labor groups are on board. </p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "How are Republicans spending their mandate?",
+    "date": "2021-03-04T10:51:45",
+    "link": "https://montanafreepress.org/2021/03/04/how-are-republicans-spending-their-mandate/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Cary Smith"
+        },
+        {
+          "name": "Democrats"
+        },
+        {
+          "name": "Economy"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "Jeff Welborn"
+        },
+        {
+          "name": "Jill Cohenour"
+        },
+        {
+          "name": "Kim Abbott"
+        },
+        {
+          "name": "LGBTQ Rights"
+        },
+        {
+          "name": "Republicans"
+        },
+        {
+          "name": "Steve Fitzpatrick"
+        },
+        {
+          "name": "tax policy"
+        },
+        {
+          "name": "Tom McGillvray"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Governor Gianforte"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "Politics"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/04/how-are-republicans-spending-their-mandate/state-of-the-state-21__26_-1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Mara Silvers"
+      }
+    },
+    "excerpt": "<p>At the Legislature’s halfway point, lawmakers take stock and assess next steps.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Right-to-work fails muster",
+    "date": "2021-03-02T16:10:12",
+    "link": "https://montanafreepress.org/2021/03/02/right-to-work-fails-muster/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Caleb Hinkle"
+        },
+        {
+          "name": "House Bill 251"
+        },
+        {
+          "name": "Montana AFL-CIO"
+        },
+        {
+          "name": "Right to Work"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Labor"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "Unions"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/02/right-to-work-fails-muster/labor-opposes-right-to-work-at-the-capitol_-1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>Scores of union members kept watch as the Legislature killed two high-profile bills aimed at changing Montana labor laws.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Nuclear on the radar: Part I",
+    "date": "2021-03-02T14:23:14",
+    "link": "https://montanafreepress.org/2021/03/02/nuclear-on-the-radar-part-i/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Department of Environmental Quality"
+        },
+        {
+          "name": "DEQ"
+        },
+        {
+          "name": "Derek Skees"
+        },
+        {
+          "name": "House Bill 273"
+        },
+        {
+          "name": "Major Facility Siting Act"
+        },
+        {
+          "name": "nuclear energy"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Energy"
+        },
+        {
+          "name": "Environment"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/02/nuclear-on-the-radar-part-i/modular-nuclear-facility-1200x675-2/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Amanda Eggert"
+      }
+    },
+    "excerpt": "<p>House Bill 273 would lay the groundwork for nuclear development in Montana — and take voters out of the mix. </p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "House passes bills limiting authority of local health officials and governor",
+    "date": "2021-03-01T17:55:00",
+    "link": "https://montanafreepress.org/2021/03/01/house-passes-bills-limiting-authority-of-local-health-officials-and-governor/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "David Bedey"
+        },
+        {
+          "name": "House Bill 121"
+        },
+        {
+          "name": "House Bill 230"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Coronavirus"
+        },
+        {
+          "name": "Local Government"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "Public Health"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/01/05/whitefish-takes-action-as-gianforte-prepares-to-roll-back-mask-mandate/wear-a-mask-sign/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Chris Aadland"
+      }
+    },
+    "excerpt": "<p>House Bills 121 and 230 would give elected officials and legislators more oversight in emergency situations like the COVID-19 pandemic. </p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
     "title": "Lawmaker reports ‘threatening’ texts",
     "date": "2021-02-27T19:29:27",
     "link": "https://montanafreepress.org/2021/02/27/lawmaker-reports-threatening-texts/",
@@ -349,7 +870,7 @@
     },
     "featuredImage": {
       "node": {
-        "link": "https://montanafreepress.org/2021/02/25/defining-immunization-vaccination-homeoprophylaxis/pxfuel-com-6/"
+        "link": "https://montanafreepress.org/2021/02/25/defining-immunization-vaccination-homeoprophylaxis/vaccine-shot-in-the-arm-1200x675/"
       }
     },
     "author": {

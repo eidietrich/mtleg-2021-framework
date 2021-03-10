@@ -15,6 +15,7 @@ class Committee {
         this.data = {
             name,
             key: committeeKey(name),
+            chamber: this.chamberFromName(name),
             members: this.getLawmakersOnCommittee(name, lawmakers),
             bills: commiteeBills,
             upcomingHearings: commiteeBills.filter(b => b.hearingSet).map(b => b.hearingSet),
@@ -22,6 +23,12 @@ class Committee {
         }
         // console.log(name, this.data.overview)
     }
+    chamberFromName(name) {
+        if (name.includes('Joint')) return 'joint'
+        if (name.includes('House')) return 'house'
+        if (name.includes('Senate')) return 'senate'
+    }
+
     getBillsThroughCommittee(committee, bills){
 
         const billsThroughThisCommittee = bills
@@ -63,7 +70,7 @@ class Committee {
 
                     // And other information
                     referral,
-                    committeeActions,
+                    // committeeActions, // involves a lot of data, possibly unnecessarily
                     lastAction,
                     hasBeenHeard,
                     committeeStatus,
@@ -78,11 +85,25 @@ class Committee {
     }
 
     getLawmakersOnCommittee(name, lawmakers){
-        const lawmakersOnCommittee = lawmakers.filter(l => l.data.committees.map(c => c.committee).includes(name))
+        const clean = name => 
+            name
+                .replace('Joint Judicial Branch, Law Enforcement and Justice', 'House Joint Approps Subcom on Judicial Branch, Law Enforcement, and Justice')
+                .replace('Telecommunications','Technology')
+                .replace(/\,/g,'')
+                // b/c the Legislature isn't consistent with certain committee names
+
+        const key = clean(name)
+        const lawmakersOnCommittee = lawmakers.filter(l => l.data.committees.map(c => clean(c.committee)).includes(key))
+        
+        if (lawmakersOnCommittee.length === 0) {
+            console.log('No lawmaker matches for committee', name)
+            // console.log(lawmakers.map(d => d.data.committees))
+        }
+
         return lawmakersOnCommittee.map(l => ({
             key: l.data.key,
             name: l.data.name,
-            role: l.data.committees.find(d => d.committee === name).role,
+            role: l.data.committees.find(d => clean(d.committee) === key).role,
             district: l.data.district.key,
             locale: l.data.district.locale,
             title: l.data.title,

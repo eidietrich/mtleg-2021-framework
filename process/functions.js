@@ -12,8 +12,8 @@ module.exports.lawmakerFromLawsName = (laws_name) => {
     const lookupName = NAME_CLEANING[laws_name] || laws_name
     const lawmaker = lawmakers.find(d => d.name === lookupName)
     if (!lawmaker) {
-        // console.log(`Missing match name: ${lookupName}`)
-        throw `Can't match voter name: ${lookupName}`
+        console.log(`Missing match name: ${lookupName}`)
+        // throw `Can't match voter name: ${lookupName}`
     }
     return lawmaker
 }

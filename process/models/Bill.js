@@ -102,7 +102,6 @@ class Bill {
             //     if (actionsBetweenReferrals.map(d => d.description).includes('Hearing')) return true
             //     else return false
             // })
-            // .map(action => action.committee)
             .map((referral, i) => {
                 return {
                     committee: referral.committee,
@@ -186,7 +185,7 @@ class Bill {
             const secondReadingActionDate = (secondReadingAction && secondReadingAction.date) || null
             const thirdReadingAction = firstActionWithFlag(firstChamberActions, 'thirdReading')
             const thirdReadingActionDate = (thirdReadingAction && thirdReadingAction.date) || null
-            
+
             dates.initialHearing = initialHearingDate
             dates.firstCommitteeVote = firstCommitteeVoteDate
             dates.firstChamberSecondReading = secondReadingActionDate
@@ -460,6 +459,10 @@ class Bill {
 
     getSponsor = (bill) => {
         const sponsor = lawmakerFromLawsName(bill.sponsorships[0].name)
+        if (!sponsor) {
+            console.log('No sponsor found', bill.identifier)
+            return {}
+        }
         return {
             name: sponsor.name,
             district: sponsor.district,
