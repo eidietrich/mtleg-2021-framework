@@ -8,7 +8,7 @@ const {
 } = require('../config.js')
 
 const actionsThatCanBeFuture = [
-    'Scheduled for Executive Action', 
+    'Scheduled for Executive Action',
     'Hearing', 'Scheduled for 2nd Reading',
     'Scheduled for 3rd Reading',
     'Fiscal Note Requested' // really?

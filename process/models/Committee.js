@@ -9,7 +9,7 @@ const {
 } = require('../config')
 
 class Committee {
-    constructor({committee, bills, lawmakers}) {
+    constructor({ committee, bills, lawmakers }) {
         const name = committee.name
         const commiteeBills = this.getBillsThroughCommittee(name, bills)
         this.data = {
@@ -29,7 +29,7 @@ class Committee {
         if (name.includes('Senate')) return 'senate'
     }
 
-    getBillsThroughCommittee(committee, bills){
+    getBillsThroughCommittee(committee, bills) {
 
         const billsThroughThisCommittee = bills
             .filter(bill => bill.data.committees.map(d => d.committee).includes(committee))
@@ -43,19 +43,19 @@ class Committee {
                 const hearing = firstActionWithFlag(committeeActions, 'hearing')
                 const hasBeenHeard = hearing && (new Date(hearing.date) < startOfToday)
                 const hasUpcomingHearing = hearing && (new Date(hearing.date) >= startOfToday)
-                
+
                 let committeeStatus = 'pending'
                 if (hasUpcomingHearing) committeeStatus = 'hearing-set'
                 if (hasBeenHeard) committeeStatus = 'heard'
                 if (lastAction.committeePassed) committeeStatus = 'passed'
                 if (lastAction.committeeTabled || lastAction.committeeFailed) committeeStatus = 'stalled'
-                
+
                 return {
                     // filter to categories needed by Bill Table
-                    key: bill.data.key ,
-                    identifier: bill.data.identifier ,
-                    title: bill.data.title ,
-                    status: bill.data.status ,
+                    key: bill.data.key,
+                    identifier: bill.data.identifier,
+                    title: bill.data.title,
+                    status: bill.data.status,
                     label: bill.data.label,
                     majorBillCategory: bill.data.majorBillCategory,
                     textUrl: bill.data.textUrl,
@@ -84,17 +84,17 @@ class Committee {
         return billsThroughThisCommittee
     }
 
-    getLawmakersOnCommittee(name, lawmakers){
-        const clean = name => 
+    getLawmakersOnCommittee(name, lawmakers) {
+        const clean = name =>
             name
                 .replace('Joint Judicial Branch, Law Enforcement and Justice', 'House Joint Approps Subcom on Judicial Branch, Law Enforcement, and Justice')
-                .replace('Telecommunications','Technology')
-                .replace(/\,/g,'')
-                // b/c the Legislature isn't consistent with certain committee names
+                .replace('Telecommunications', 'Technology')
+                .replace(/\,/g, '')
+        // b/c the Legislature isn't consistent with certain committee names
 
         const key = clean(name)
         const lawmakersOnCommittee = lawmakers.filter(l => l.data.committees.map(c => clean(c.committee)).includes(key))
-        
+
         if (lawmakersOnCommittee.length === 0) {
             console.log('No lawmaker matches for committee', name)
             // console.log(lawmakers.map(d => d.data.committees))
@@ -110,7 +110,7 @@ class Committee {
             party: l.data.party,
         }))
     }
-    calculateSummaryStats(committeeBills){
+    calculateSummaryStats(committeeBills) {
         const billsHeard = committeeBills.filter(d => d.hasBeenHeard)
         const billsPassed = committeeBills.filter(d => d.committeeStatus === 'passed')
 
@@ -137,7 +137,7 @@ class Committee {
         }
     }
 
-    export = () => ({...this.data})
+    export = () => ({ ...this.data })
 
 }
 

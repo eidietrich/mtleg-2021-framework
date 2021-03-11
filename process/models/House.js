@@ -1,5 +1,5 @@
 class House {
-    constructor({annotations, committees}) {
+    constructor({ annotations, committees }) {
         this.data = {
             updateDate: annotations.updateDate,
             text: annotations.house,
@@ -13,7 +13,7 @@ class House {
             })),
         }
     }
-    export = () => ({...this.data})
+    export = () => ({ ...this.data })
 
 }
 

@@ -4,29 +4,29 @@ const {
     getJson,
     collectJsons,
     writeJson,
-} = require('./utils.js')
+} = require('../process/utils.js')
 
 const {
     COMMITTEES
-} = require('./config.js')
+} = require('../process/config.js')
 
 const {
     checkArticleMatches
-} = require('./tests.js')
+} = require('../process/tests.js')
 
 // Data models
-const Vote = require('./models/Vote.js')
-const Bill = require('./models/Bill.js')
-const Lawmaker = require('./models/Lawmaker.js')
-const Committee = require('./models/Committee.js')
-const House = require('./models/House.js')
-const Senate = require('./models/Senate.js')
-const Governor = require('./models/Governor.js')
-const Overview = require('./models/Overview.js')
+const Vote = require('../process/models/Vote.js')
+const Bill = require('../process/models/Bill.js')
+const Lawmaker = require('../process/models/Lawmaker.js')
+const Committee = require('../process/models/Committee.js')
+const House = require('../process/models/House.js')
+const Senate = require('../process/models/Senate.js')
+const Governor = require('../process/models/Governor.js')
+const Overview = require('../process/models/Overview.js')
 
-const Article = require('./models/MTFPArticle.js')
+const Article = require('../process/models/MTFPArticle.js')
 
-const Analysis = require('./models/Analysis.js')
+const Analysis = require('../process/models/Analysis.js')
 
 // INPUTS
 

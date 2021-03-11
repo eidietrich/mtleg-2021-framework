@@ -11,10 +11,10 @@ module.exports.collectJsons = (glob_path) => {
 }
 
 module.exports.writeJson = (path, data) => {
-    fs.writeFile (path, JSON.stringify(data), function(err) {
+    fs.writeFile(path, JSON.stringify(data), function (err) {
         if (err) throw err;
         console.log('Written to', path);
-        }
+    }
     );
 }
 

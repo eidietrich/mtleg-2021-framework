@@ -3,14 +3,14 @@ const {
 } = require('../functions.js')
 
 class Vote {
-    constructor({vote}) {
-        
+    constructor({ vote }) {
+
         this.votes = this.cleanVotes(vote.votes)
         this.count = this.cleanCount(vote.counts) // reformatting
         this.gopCount = this.getGopCount(this.votes),
-        this.demCount = this.getDemCount(this.votes),
+            this.demCount = this.getDemCount(this.votes),
 
-        this.motion = vote.motion_text
+            this.motion = vote.motion_text
 
         // TODO -- work out how to set threshold as a function of motion text
         // Need to reference bill
@@ -32,13 +32,13 @@ class Vote {
             motionPassed: this.didMotionPass(this.count, threshold),
             gopSupported: this.didMotionPass(this.gopCount, threshold),
             demSupported: this.didMotionPass(this.demCount, threshold),
-            
+
             voteUrl: this.getSource(vote),
 
             // TODO - figure out how to remove this from export
             votes: this.votes,
         }
-        
+
     }
 
     getSource = (vote) => vote.sources[0].url
@@ -71,7 +71,7 @@ class Vote {
             no: gopVotes.filter(d => d.option === 'no').length,
             absent: gopVotes.filter(d => d.option === 'absent').length,
             excused: gopVotes.filter(d => d.option === 'excused').length,
-            other: gopVotes.filter(d => !['yes','no','absent','excused'].includes(d.option)).length
+            other: gopVotes.filter(d => !['yes', 'no', 'absent', 'excused'].includes(d.option)).length
         }
     }
 
@@ -82,12 +82,12 @@ class Vote {
             no: gopVotes.filter(d => d.option === 'no').length,
             absent: gopVotes.filter(d => d.option === 'absent').length,
             excused: gopVotes.filter(d => d.option === 'excused').length,
-            other: gopVotes.filter(d => !['yes','no','absent','excused'].includes(d.option)).length
+            other: gopVotes.filter(d => !['yes', 'no', 'absent', 'excused'].includes(d.option)).length
         }
     }
 
-    didMotionPass = (count, threshold='Simple') => {
-       // TODO --> Account for non-simple-majority votes
+    didMotionPass = (count, threshold = 'Simple') => {
+        // TODO --> Account for non-simple-majority votes
         if (threshold === 'simple') {
             return (count.yes > count.no)
         } else {
@@ -104,12 +104,12 @@ class Vote {
     getVoteDemCaucusText = (vote) => `${vote.demCaucus.yes}-${vote.demCaucus.no}`
     getAbsentLawmakers = (vote) => {
         const absentCounts = vote.counts
-            .filter(d => ['excused','absent','other'].includes(d.option))
+            .filter(d => ['excused', 'absent', 'other'].includes(d.option))
         const count = absentCounts.reduce((acc, cur) => acc + cur.value, 0)
         return count
     }
 
-    export = () => ({...this.data})
+    export = () => ({ ...this.data })
 
 }
 

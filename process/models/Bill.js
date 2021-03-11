@@ -13,7 +13,7 @@ const {
 
 class Bill {
     /* Translates bill data from openstates format (w/ added data modifications) to schema used for app */
-    constructor({bill, annotations, articles, votes, keyBillIds, legalNotes}) {
+    constructor({ bill, annotations, articles, votes, keyBillIds, legalNotes }) {
         // console.log(bill)
 
         this.type = this.getType(bill)
@@ -28,8 +28,8 @@ class Bill {
             chamber: this.getChamber(bill.identifier),
             title: bill.title,
             session: bill.legislative_session,
-            
-            
+
+
             // old
             status: this.getStatus(bill),
             progress: this.getProgress(bill, this.actions),
@@ -63,7 +63,7 @@ class Bill {
             actions: this.actions,
         }
         // console.log(this.data)
-        
+
     }
 
     getChamber = identifer => {
@@ -111,7 +111,7 @@ class Bill {
                     referralDate: referral.date,
                 }
             })
-            return committees
+        return committees
     }
 
     // NEW 
@@ -129,7 +129,7 @@ class Bill {
             throw 'Missing bill status match for', bill.extras.bill_status
         }
 
-        const stepStatus = (hasArrived, hasPassed, hasFailed=false) => {
+        const stepStatus = (hasArrived, hasPassed, hasFailed = false) => {
             let status
             if (!hasArrived) status = 'future'
             if (hasArrived && hasPassed) status = 'passed'
@@ -142,11 +142,11 @@ class Bill {
         const chamberOfOrigin = this.getChamber(bill.identifier) // 'house' or 'senate'
         const type = this.type // Different bill types have different procedural paths
 
-        if (!['bill','resolution','joint resolution', 'referendum proposal'].includes(type)) {
+        if (!['bill', 'resolution', 'joint resolution', 'referendum proposal'].includes(type)) {
             console.log('Unhandled bill type', type)
             // Should this throw a full-fledged error?
         }
-        
+
         let steps = []
         let status = {}
         let dates = {}
@@ -156,15 +156,15 @@ class Bill {
         const introductionAction = firstActionWithFlag(actions, 'introduction')
 
         dates.draftRequest = (draftRequestAction && draftRequestAction.date) || null
-        dates.draftDelivery =(draftReadyAction && draftReadyAction.date) || null
+        dates.draftDelivery = (draftReadyAction && draftReadyAction.date) || null
         dates.introduction = (introductionAction && introductionAction.date) || null
 
         // initial chamber - relevant for all bill types
-        if (['bill','resolution','joint resolution', 'referendum proposal'].includes(type)) {
+        if (['bill', 'resolution', 'joint resolution', 'referendum proposal'].includes(type)) {
             const firstChamber = chamberOfOrigin.replace('house', 'House').replace('senate', 'Senate')
             const firstChamberActions = actions.filter(d => d.chamber === firstChamber)
             const firstChamberCommittees = committees.filter(d => d.chamber === 'first')
-            
+
             // Code gets messy from here --> Essentially two tracks of logic (one to parse statuses and one to parse action dates)
             // This spaghetti needs to be untangled
 
@@ -176,7 +176,7 @@ class Bill {
             const initialHearing = firstActionWithFlag(firstChamberActions, 'hearing')
             const initialHearingDate = (initialHearing && initialHearing.date) || null
 
-            
+
             const firstCommitteeVote = lastActionWithFlag(firstCommitteeActions, 'committeeVote')
             // lastAction instead of firstAction here to work around tabled/untabled bills
             const firstCommitteeVoteDate = (firstCommitteeVote && firstCommitteeVote.date) || null
@@ -190,7 +190,7 @@ class Bill {
             dates.firstCommitteeVote = firstCommitteeVoteDate
             dates.firstChamberSecondReading = secondReadingActionDate
             dates.firstChamberThirdReading = thirdReadingActionDate
-            
+
             status.firstCommitteeName = initialCommitteeName
             status.firstCommitteeAction = (firstCommitteeVote && firstCommitteeVote.description) || null
             status.firstChamberSecondReading = (secondReadingAction && secondReadingAction.description) || null
@@ -200,19 +200,19 @@ class Bill {
 
             // TODO - bills w/ fiscal impact are routinely rereferred to approps committees
             // const financeCommittee = firstChamberCommittees.find(d => ['House Appropriations','Senate Finance and Claims'].includes(d))
-            
+
             const isIntroduced = hasProgressFlag(actions, 'introduction')
             const isReferred = hasProgressFlag(firstChamberActions, 'sentToCommittee')
             const passedInitialCommittee = hasProgressFlag(firstChamberActions, 'firstCommitteePassage')
                 || hasProgressFlag(firstChamberActions, 'blastMotionPassage')
-                // blast motions are a floor vote that pulls a bill out of committee
+            // blast motions are a floor vote that pulls a bill out of committee
             const failedInitialCommittee = hasProgressFlag(firstChamberActions, 'firstCommitteeFailed') // DOES NOT capture tabled bills
             const passedInitialFloorVote = hasProgressFlag(firstChamberActions, 'firstChamberInitialPassage')
             const passedFirstChamber = hasProgressFlag(firstChamberActions, 'firstChamberPassage')
             const failedFirstChamber = hasProgressFlag(firstChamberActions, 'firstChamberFailed')
 
             const firstChamberStatus = stepStatus(isIntroduced, passedFirstChamber, failedFirstChamber)
-            
+
             //substeps
             const introductionStatus = stepStatus(isIntroduced, isReferred)
 
@@ -228,7 +228,7 @@ class Bill {
             const secondReadingStatus = stepStatus(passedInitialCommittee, passedInitialFloorVote, failedFirstChamber)
 
             // TODO - add logic in here for bills passed to appropriation committees following second reading vote
-            
+
             const thirdReadingStatus = stepStatus(passedInitialFloorVote, passedFirstChamber, failedFirstChamber)
 
             const subSteps = [
@@ -261,7 +261,7 @@ class Bill {
                     status: thirdReadingStatus
                 },
             ]
-            
+
             steps.push({
                 step: firstChamber,
                 label: 'First chamber',
@@ -304,7 +304,7 @@ class Bill {
             // This is inelegant - fix
             const toGovernor = hasProgressFlag(actions, 'sentToGovernor')
             const becameLaw = hasProgressFlag(actions, 'ultimatelyPassed')
-            
+
             if (passedSecondChamber && amendedInSecondChamber && !toGovernor) {
                 // TODO - flesh this logic out
                 // TODO - add subStep logic here after verifying concept works
@@ -322,10 +322,10 @@ class Bill {
                 })
             }
         }
-        
+
         // governor - for strict 'bill' bills only 
         if (type === 'bill') {
-            
+
             const toGovernor = hasProgressFlag(actions, 'sentToGovernor')
             const signedByGovernor = hasProgressFlag(actions, 'signedByGovernor')
             const vetoedByGovernor = hasProgressFlag(actions, 'vetoedByGovernor')
@@ -347,10 +347,10 @@ class Bill {
                 status: governorStatus,
                 subSteps,
             })
-            
-        } 
 
-        
+        }
+
+
 
         const output = {
             type,
@@ -395,25 +395,25 @@ class Bill {
 
         if (ultimatelyFailed) progress.finalOutcome = 'failed'
         if (ultimatelyPassed) progress.finalOutcome = 'passed'
-        
+
         // Resolutions
         if (this.type === 'resolution') {
             if (hasProgressFlag(actions, 'introduction')) progress.toFirstChamber = true
         }
         if (['bill', 'joint resolution', 'referendum proposal'].includes(this.type)) {
-            const firstChamberActions = (bill.identifier[0] === 'H') ? 
+            const firstChamberActions = (bill.identifier[0] === 'H') ?
                 actions.filter(d => d.chamber === 'House') :
                 actions.filter(d => d.chamber === 'Senate')
-            const secondChamberActions = (bill.identifier[0] === 'H') ? 
+            const secondChamberActions = (bill.identifier[0] === 'H') ?
                 actions.filter(d => d.chamber === 'Senate') :
                 actions.filter(d => d.chamber === 'House')
-            
+
             // Introduction
             if (hasProgressFlag(actions, 'introduction')) progress.toFirstChamber = true
 
             // Initial committee
             // TODO enhance first chamber
-            
+
             // First chamber 
             const introduced = hasProgressFlag(actions, 'introduction')
             const passedFirstChamberCommittee = hasProgressFlag(firstChamberActions, 'firstCommitteePassage')
@@ -429,11 +429,11 @@ class Bill {
             if (!passedFirstChamber && missedDeadline) progress.firstChamberStatus = 'missed deadline'
             if (!passedFirstChamber && ultimatelyFailed) progress.firstChamberStatus = 'failed'
             if (passedFirstChamber) progress.firstChamberStatus = 'passed'
-            
+
             // Second chamber
             if (hasProgressFlag(actions, 'sentToSecondChamber')) progress.toSecondChamber = true
             if (hasProgressFlag(secondChamberActions, 'secondChamberPassage')) progress.secondChamberStatus = 'passed'
-            
+
         }
         if (this.type === 'bill') {
             // Logic for bills that doesn't apply to joint resolutions, referendum proposals
@@ -446,10 +446,10 @@ class Bill {
             else if (vetoedByGovernor) progress.governorStatus = 'vetoed'
             else if (toGovernor && ultimatelyPassed && (!signedByGovernor && !vetoedByGovernor)) progress.governorStatus = 'became law unsigned'
             else progress.governorStatus = 'pending'
-            
-        } 
-        
-        if (!['bill','resolution','joint resolution', 'referendum proposal'].includes(this.type)) {
+
+        }
+
+        if (!['bill', 'resolution', 'joint resolution', 'referendum proposal'].includes(this.type)) {
             console.log('Unhandled bill type', this.type)
         }
 
@@ -526,7 +526,7 @@ class Bill {
 
     getMajorBillCategory = (bill, annotations) => {
         const match = annotations.bills.find(d => d.key === bill.identifier)
-         // TODO - aggregate w/ get annotations
+        // TODO - aggregate w/ get annotations
         return (match && match.category) || null
     }
 
@@ -535,7 +535,7 @@ class Bill {
     }
 
     getActions = (bill, votes) => {
-        const actions = bill.actions.map(action => new Action({action, votes}).export())
+        const actions = bill.actions.map(action => new Action({ action, votes }).export())
         // sorting by date here screws with order b/c of same-day actions
         return actions
     }
@@ -568,7 +568,7 @@ class Bill {
         }
     }
 
-    export = () => ({...this.data})
+    export = () => ({ ...this.data })
 }
 
 module.exports = Bill

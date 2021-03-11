@@ -33,7 +33,7 @@ class Action {
             vote: (matchingVote && matchingVote.export()) || null,
             voteUrl,
             watchListenUrls,
-             // Flags
+            // Flags
             ...this.getActionFlags(descriptionItems[0])
         }
     }

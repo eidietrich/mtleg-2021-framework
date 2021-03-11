@@ -34,7 +34,7 @@ module.exports.filterToFloorVotes = (votes) => {
     return votes.filter(d => (d.votes.length >= 99) || (d.votes.length === 50))
 }
 
-module.exports.committeeKey = (name) => name.replace(/\s/g,'-').replace(/\,/g,'')
+module.exports.committeeKey = (name) => name.replace(/\s/g, '-').replace(/\,/g, '')
 module.exports.billKey = (identifier) => identifier.substring(0, 2).toLowerCase() + '-' + identifier.substring(3,)
 
 // bill status parsing helpers

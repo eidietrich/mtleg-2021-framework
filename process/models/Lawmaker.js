@@ -9,13 +9,13 @@ const {
 } = require('../functions.js')
 
 class Lawmaker {
-    constructor({lawmaker, annotations, articles, votes, bills, districts}) {
+    constructor({ lawmaker, annotations, articles, votes, bills, districts }) {
         this.sponsoredBills = this.getSponsoredBills(lawmaker, bills),
-        this.votes = this.getVotes(lawmaker, votes),
+            this.votes = this.getVotes(lawmaker, votes),
 
-        // console.log(lawmaker.name, this.votes.length)
+            // console.log(lawmaker.name, this.votes.length)
 
-        lawmaker.chamber = this.getChamber(lawmaker.district)
+            lawmaker.chamber = this.getChamber(lawmaker.district)
 
 
         this.data = {
@@ -39,7 +39,7 @@ class Lawmaker {
 
             articles: this.getArticles(lawmaker, articles),
             annotation: this.getAnnotation(lawmaker, annotations),
-            
+
             imageSlug: this.getImageSlug(lawmaker),
 
             votingSummary: this.getVotingSummary(lawmaker, this.votes),
@@ -65,7 +65,7 @@ class Lawmaker {
         if (lawmaker.chamber === 'house') return 'Representative'
     }
 
-    getDistrictNum = key => +key.replace('HD ','').replace('SD ','')
+    getDistrictNum = key => +key.replace('HD ', '').replace('SD ', '')
 
     getDistrictInfo = (lawmaker, districts) => {
         const district = districts.find(d => d.key === lawmaker.district)
@@ -93,7 +93,7 @@ class Lawmaker {
         }
     }
 
-    getImageSlug = (lawmaker) => lawmaker.image_path.replace('images/','')
+    getImageSlug = (lawmaker) => lawmaker.image_path.replace('images/', '')
 
     getSponsoredBills = (lawmaker, bills) => {
         const sponsoredBills = bills.filter(bill => bill.data.sponsor.name === lawmaker.name)
@@ -139,11 +139,11 @@ class Lawmaker {
         return lawmakerVotes.map(vote => {
             return {
                 billKey: billKey(vote.data.bill),
-                lawmakerVote: vote.votes.find(d => d.name === lawmaker.name).option, 
+                lawmakerVote: vote.votes.find(d => d.name === lawmaker.name).option,
                 bill: vote.data.bill,
                 action: vote.data.action,
                 date: vote.data.date,
-                keyVote: true, 
+                keyVote: true,
                 count: vote.data.count,
                 motionPassed: vote.data.motionPassed,
                 gopCount: vote.data.gopCount,
@@ -154,22 +154,22 @@ class Lawmaker {
         })
     }
     getVotingSummary = (lawmaker, lawmakerVotes) => {
-        
+
         const floorVotes = filterToFloorVotes(lawmakerVotes)
         const voteTabulation = this.getVoteTabulation(lawmaker, floorVotes)
 
         const numVotesRecorded = floorVotes.length
-        const numVotesNotPresent = voteTabulation.filter(d => !['yes','no'].includes(d.lawmakerVote)).length
+        const numVotesNotPresent = voteTabulation.filter(d => !['yes', 'no'].includes(d.lawmakerVote)).length
         const numVotesCast = numVotesRecorded - numVotesNotPresent
-        const votesWithMajority = voteTabulation.filter(d => 
+        const votesWithMajority = voteTabulation.filter(d =>
             ((d.lawmakerVote === 'yes') && d.motionPassed)
             || ((d.lawmakerVote === 'no') && !d.motionPassed)
         ).length
-        const votesWithGopMajority = voteTabulation.filter(d => 
+        const votesWithGopMajority = voteTabulation.filter(d =>
             ((d.lawmakerVote === 'yes') && d.gopSupported)
             || ((d.lawmakerVote === 'no') && !d.gopSupported)
         ).length
-        const votesWithDemMajority = voteTabulation.filter(d => 
+        const votesWithDemMajority = voteTabulation.filter(d =>
             ((d.lawmakerVote === 'yes') && d.demSupported)
             || ((d.lawmakerVote === 'no') && !d.demSupported)
         ).length
@@ -187,7 +187,7 @@ class Lawmaker {
             fractionVotesWithDemMajority: (votesWithDemMajority / numVotesCast) || 0,
         }
         return votingSummary
-        
+
     }
 
     getArticles = (lawmaker, articles) => {
@@ -205,7 +205,7 @@ class Lawmaker {
 
     lawmakerKey = (lawmaker) => lawmaker.name.replace(/\s/g, '-')
 
-    export = () => ({...this.data})
+    export = () => ({ ...this.data })
 
 }
 

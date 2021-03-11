@@ -31,18 +31,18 @@ const annotations = getJson(TEXT_PATH)
 const rawArticles = getJson(ARTICLES_PATH) // TODO Add
 
 const articles = rawArticles
-.filter(d => d.status === 'publish')
-.map(article => new Article({article}))
-const votes = rawVotes.map(vote => new Vote({vote}))
+    .filter(d => d.status === 'publish')
+    .map(article => new Article({ article }))
+const votes = rawVotes.map(vote => new Vote({ vote }))
 
 const keyBillIds = annotations.bills.filter(d => d.isMajorBill === 'True').map(d => d.key)
-const bills = rawBills.slice(100,101).map(bill => new Bill({
-        bill,
-        votes,
-        annotations,
-        articles, 
-        keyBillIds,
-    })
+const bills = rawBills.slice(100, 101).map(bill => new Bill({
+    bill,
+    votes,
+    annotations,
+    articles,
+    keyBillIds,
+})
 )
 
 const bill = bills[0].data
