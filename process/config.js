@@ -812,7 +812,7 @@ module.exports.COMMITTEES = [
     { name: 'House Joint Appropriations Subcommittee on Education', daysOfWeek: 'daily', time: '8:30 a.m.', type: 'fiscal', },
     { name: 'House Joint Appropriations Subcommittee on Long-Range Planning', daysOfWeek: 'daily', time: '8:30 a.m.', type: 'fiscal', },
     { name: 'House Joint Appropriations Subcommittee on Health and Human Services', daysOfWeek: 'daily', time: '8 a.m.', type: 'fiscal', },
-
+    { name: 'House Select Committee on HB 632', daysOfWeek: 'on call', time: '', type: 'fiscal', }, // 2021 covid stimulus committee
     // SENATE
     { name: 'Senate Finance and Claims', daysOfWeek: 'daily', time: '8 a.m.', type: 'fiscal', },
 

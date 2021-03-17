@@ -1,5 +1,438 @@
 [
   {
+    "title": "Public ed and the Pledge",
+    "date": "2021-03-16T15:00:57",
+    "link": "https://montanafreepress.org/2021/03/16/public-ed-and-the-pledge/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Bob Phalen"
+        },
+        {
+          "name": "House Bill 543"
+        },
+        {
+          "name": "U.S. Constitution"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Education"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/16/public-ed-and-the-pledge/13584982795_1e3da48fe5_k/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>HB 543 would require schools to instruct students in grades 3-12 about the U.S. Constitution, and  mandate daily recitation of the Pledge of Allegiance. </p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "The Session podcast",
+    "date": "2021-03-15T10:54:40",
+    "link": "https://montanafreepress.org/2021/03/15/the-session-podcast-week-11/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "American Rescue Plan Act"
+        },
+        {
+          "name": "Budget"
+        },
+        {
+          "name": "cannabis"
+        },
+        {
+          "name": "cannabis legalization"
+        },
+        {
+          "name": "federal stimulus"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "House Bill 2"
+        },
+        {
+          "name": "House Bill 379"
+        },
+        {
+          "name": "House Bill 631"
+        },
+        {
+          "name": "I-190"
+        },
+        {
+          "name": "Income Tax"
+        },
+        {
+          "name": "Joe Biden"
+        },
+        {
+          "name": "marijuana legalization"
+        },
+        {
+          "name": "Mike Hopkins"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "podcast-player"
+        },
+        {
+          "name": "Senate Bill 159"
+        },
+        {
+          "name": "stimulus"
+        },
+        {
+          "name": "Taxes"
+        },
+        {
+          "name": "The Session"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "Podcast"
+        },
+        {
+          "name": "Politics"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/01/25/the-session-podcast/the-session-podcast_for-post_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "MTFP Staff"
+      }
+    },
+    "excerpt": "<p>Week 11: The state budget takes shape, and marijuana regulation is coming soon.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "This week in Helena, March 8-12",
+    "date": "2021-03-12T18:18:09",
+    "link": "https://montanafreepress.org/2021/03/12/this-week-in-helena-march-8-12/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "House Bill 170"
+        },
+        {
+          "name": "House Bill 302"
+        },
+        {
+          "name": "House Bill 303"
+        },
+        {
+          "name": "House Bill 35"
+        },
+        {
+          "name": "House Bill 36"
+        },
+        {
+          "name": "House Bill 384"
+        },
+        {
+          "name": "House Bill 385"
+        },
+        {
+          "name": "house bill 418"
+        },
+        {
+          "name": "House Bill 98"
+        },
+        {
+          "name": "Religious freedom restoration act"
+        },
+        {
+          "name": "Senate Bill 159"
+        },
+        {
+          "name": "Senate Bill 181"
+        },
+        {
+          "name": "Senate Bill 215"
+        },
+        {
+          "name": "Senate Bill 4"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/02/19/this-week-in-helena-feb-15-19/montana-capitol-with-tribal-flags_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Chris Aadland"
+      }
+    },
+    "excerpt": "<p>MTFP’s roundup of the week’s key action in the 67th Montana Legislature, March 8-12, from initiatives to taxes to tribal affairs.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "House Republicans push for bigger income tax cut",
+    "date": "2021-03-12T17:28:36",
+    "link": "https://montanafreepress.org/2021/03/12/house-republicans-push-for-bigger-income-tax-cut/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Montana Comeback Plan"
+        },
+        {
+          "name": "Rhonda Knudsen"
+        },
+        {
+          "name": "Senate Bill 159"
+        },
+        {
+          "name": "tax policy"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Economy"
+        },
+        {
+          "name": "Governor Gianforte"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "Taxes"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/12/house-republicans-push-for-bigger-income-tax-cut/taxes-concept-with-word-on-folder/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Eric Dietrich"
+      }
+    },
+    "excerpt": "<p>The Republican majority on Montana’s House Taxation Committee voted Friday to increase the amount of an income tax cut proposed by Gov. Greg Gianforte, more than doubling a reduction proposed for the state&#8217;s top tax bracket.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Raising the ballot initiative bar",
+    "date": "2021-03-12T11:39:06",
+    "link": "https://montanafreepress.org/2021/03/12/raising-the-ballot-initiative-bar/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Ballot Initiatives"
+        },
+        {
+          "name": "constitutional amendment"
+        },
+        {
+          "name": "House Bill 384"
+        },
+        {
+          "name": "House Bill 385"
+        },
+        {
+          "name": "Steve Gunderson"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Elections"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/12/raising-the-ballot-initiative-bar/ballot-petition_-1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Amanda Eggert"
+      }
+    },
+    "excerpt": "<p>Two bills that would double the signature requirements to qualify initiatives for the ballot pass committee on party-line vote.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Gianforte administration signals support for religious expression bill",
+    "date": "2021-03-11T16:45:48",
+    "link": "https://montanafreepress.org/2021/03/11/gianforte-administration-signals-support-for-religious-expression-bill/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Carl Glimm"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "kristen juras"
+        },
+        {
+          "name": "LGBTQ Rights"
+        },
+        {
+          "name": "religion"
+        },
+        {
+          "name": "Senate Bill 215"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Governor Gianforte"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        },
+        {
+          "name": "State Government"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/screen-shot-2021-03-11-at-3-31-44-pm/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Mara Silvers"
+      }
+    },
+    "excerpt": "<p>The Gianforte administration is backing a controversial religious freedom bill strongly opposed by LGBTQ advocates.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Shifting gears with an education omnibus",
+    "date": "2021-03-11T15:21:42",
+    "link": "https://montanafreepress.org/2021/03/11/shifting-gears-with-an-education-omnibus/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "House BIll 246"
+        },
+        {
+          "name": "Marta Bertoglio"
+        },
+        {
+          "name": "trade education"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Education"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "News"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/11/shifting-gears-with-an-education-omnibus/training-center/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>HB 46 proposes to enhance local control, strengthen work-based learning and address Montana’s teacher shortage, all at the same time.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
     "title": "Extending eligibility",
     "date": "2021-03-10T17:43:56",
     "link": "https://montanafreepress.org/2021/03/10/extending-eligibility/",

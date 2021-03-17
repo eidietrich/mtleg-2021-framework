@@ -92,6 +92,7 @@ const lawmakers = rawLawmakers.map(lawmaker => new Lawmaker({
 
 const committees = COMMITTEES.filter(d => !d.suppress)
     .filter(committee => !committee.name.includes('Joint Appropriations Subcommittee'))
+    .filter(committee => !committee.name.includes('House Select Committee on HB 632'))
     .map(committee => new Committee({
         committee,
         bills,

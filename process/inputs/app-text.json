@@ -180,7 +180,7 @@
   "bills": [
     {
       "key": "HB 2",
-      "category": "Governor’s budget",
+      "category": "Major budget bills",
       "label": "Primary state budget bill",
       "isMajorBill": "True",
       "annotation": [
@@ -195,8 +195,26 @@
       ]
     },
     {
+      "key": "HB 2",
+      "category": "Major budget bills",
+      "label": "Primary state budget bill",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 630",
+      "category": "Major budget bills",
+      "label": "Allocates funding provided by Dec. 2020 COVID-19 stimulus bill",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 632",
+      "category": "Major budget bills",
+      "label": "Allocates funding provided by March 2021 American Rescue Plan Act",
+      "isMajorBill": "True"
+    },
+    {
       "key": "HB 13",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "isMajorBill": "False",
       "annotation": [
         {
@@ -207,50 +225,56 @@
     },
     {
       "key": "HB 303",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "label": "Exempts more businesses from paying equipment tax",
       "isMajorBill": "True"
     },
     {
       "key": "HB 252",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "label": "Tax credits to encourage employer-funded trade education",
       "isMajorBill": "True"
     },
     {
       "key": "SB 159",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "label": "Reduces rate in the state’s top income tax bracket",
       "isMajorBill": "True"
     },
     {
       "key": "SB 182",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "label": "Enacts future tax cuts in the event of budget surpluses",
       "isMajorBill": "True"
     },
     {
       "key": "SB 184",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "label": "Exempts shareholders of Montana-grown businesses from paying capital gains taxes on stock options",
       "isMajorBill": "True"
     },
     {
       "key": "SB 181",
-      "category": "Governor’s budget",
+      "category": "Governor-backed GOP tax bills",
       "label": "Adjusts how income tax is calculated for multi-state corporations",
       "isMajorBill": "True"
     },
     {
       "key": "SB 10",
-      "category": "Democratic alternatives",
+      "category": "Democratic tax alternatives",
       "label": "Creates a property tax “circuit breaker” credit to lighten tax burden on lower-income residents",
       "isMajorBill": "True"
     },
     {
       "key": "HB 424",
-      "category": "Democratic alternatives",
+      "category": "Democratic tax alternatives",
       "label": "Creates new top income tax bracket, expands Earned Income Tax Credit for working families",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 631",
+      "category": "Democratic tax alternatives",
+      "label": "Expands Earned Income Tax Credit for working families",
       "isMajorBill": "True"
     },
     {
@@ -276,6 +300,24 @@
       "category": "Broadband internet access",
       "isMajorBill": "True",
       "label": "Tax incentives intended to spur rural broadband internet development"
+    },
+    {
+      "key": "SB 297",
+      "category": "Broadband internet access",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "HB 494",
+      "category": "Broadband internet access",
+      "isMajorBill": "True",
+      "label": "Requires MDT to coordinate with telecom companies about installing broadband during highway projects"
+    },
+    {
+      "key": "HB 422",
+      "category": "Broadband internet access",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "HB 102",
@@ -327,6 +369,12 @@
     },
     {
       "key": "HB 355",
+      "category": "Justice policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "SB 215",
       "category": "Justice policy",
       "isMajorBill": "True",
       "label": ""
@@ -404,6 +452,12 @@
       "label": ""
     },
     {
+      "key": "HB 302",
+      "category": "Natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
       "key": "SB 115",
       "category": "Natural resource policy",
       "isMajorBill": "True",
@@ -432,6 +486,12 @@
       "category": "Energy policy",
       "isMajorBill": "True",
       "label": "Shifts elected utility board to three-member commission appointed by governor"
+    },
+    {
+      "key": "HB 170",
+      "category": "Energy policy",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "HB 136",
@@ -495,5 +555,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-03-11T01:41:33.181Z"
+  "lastUpdated": "2021-03-16T23:18:36.330Z"
 }
