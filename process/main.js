@@ -146,8 +146,14 @@ const committeeData = committees.map(committee => committee.export())
 
 // Export these as dicts for direct import to relevant pages
 
-const houseData = new House({ annotations }).export()
-const senateData = new Senate({ annotations }).export()
+const houseData = new House({
+  annotations,
+  committees: committees.filter(d => d.data.chamber === 'house')
+}).export()
+const senateData = new Senate({
+  annotations,
+  committees: committees.filter(d => d.data.chamber === 'senate')
+}).export()
 const governorData = new Governor({ annotations, articles }).export()
 
 // Log output

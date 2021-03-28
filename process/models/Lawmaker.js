@@ -187,7 +187,6 @@ class Lawmaker {
     }
 
     export = () => ({ ...this.data })
-
 }
 
 module.exports = Lawmaker

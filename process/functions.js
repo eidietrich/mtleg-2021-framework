@@ -12,8 +12,8 @@ module.exports.lawmakerFromLawsName = (laws_name) => {
     const lookupName = NAME_CLEANING[laws_name] || laws_name
     const lawmaker = lawmakers.find(d => d.name === lookupName)
     if (!lawmaker) {
-        // console.log(`Missing match name: ${lookupName}`)
-        throw `Can't match voter name: ${lookupName}`
+        console.log(`Missing match name: ${lookupName}`)
+        // throw `Can't match voter name: ${lookupName}`
     }
     return lawmaker
 }
@@ -34,7 +34,7 @@ module.exports.filterToFloorVotes = (votes) => {
     return votes.filter(d => (d.votes.length >= 99) || (d.votes.length === 50))
 }
 
-module.exports.committeeKey = (name) => name.replace(/\s/g,'-').replace(/\,/g,'')
+module.exports.committeeKey = (name) => name.replace(/\s/g, '-').replace(/\,/g, '')
 module.exports.billKey = (identifier) => identifier.substring(0, 2).toLowerCase() + '-' + identifier.substring(3,)
 
 // bill status parsing helpers

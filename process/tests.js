@@ -9,7 +9,7 @@ module.exports.checkArticleMatches = (bills, articles) => {
             tag,
             rawCount: allLawmakerTagsRaw.filter(d => d === tag).length,
         }
-    }).sort((a,b) => b.rawCount - a.rawCount)
+    }).sort((a, b) => b.rawCount - a.rawCount)
     console.log('## Lawmakers in coverage')
     console.table(lawmakerCounts)
 
@@ -19,7 +19,7 @@ module.exports.checkArticleMatches = (bills, articles) => {
             tag,
             rawCount: allBillTagsRaw.filter(d => d === tag).length,
         }
-    }).sort((a,b) => b.rawCount - a.rawCount)
+    }).sort((a, b) => b.rawCount - a.rawCount)
     console.log('## Bills in coverage')
     console.table(billCounts)
 

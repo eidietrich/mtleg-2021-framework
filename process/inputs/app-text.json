@@ -290,10 +290,22 @@
       "label": "Ends Election Day-voter registration"
     },
     {
+      "key": "SB 169",
+      "category": "Election administration",
+      "isMajorBill": "True",
+      "label": "Requires photo ID for voter registration"
+    },
+    {
       "key": "HB 613",
       "category": "Election administration",
       "isMajorBill": "True",
       "label": "Seeks to protect voting rights on reservations"
+    },
+    {
+      "key": "SB 89",
+      "category": "Labor policy",
+      "isMajorBill": "True",
+      "label": "Bars public employers from collecting dues for unions via paycheck withholding"
     },
     {
       "key": "HB 168",
@@ -330,6 +342,18 @@
       "category": "Education policy",
       "isMajorBill": "True",
       "label": "Major school funding measure"
+    },
+    {
+      "key": "HB 46",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": "Adds special ed inflationary increases to routine state education budget"
+    },
+    {
+      "key": "HB 179",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": "Makes it easier to set up community college districts"
     },
     {
       "key": "HB 246",
@@ -389,7 +413,19 @@
       "key": "HB 273",
       "category": "Energy policy",
       "isMajorBill": "True",
-      "Label": ""
+      "label": ""
+    },
+    {
+      "key": "SJ 3",
+      "category": "Energy policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "SB 176",
+      "category": "Energy policy",
+      "isMajorBill": "True",
+      "label": "Discourages utilities from exiting coal plant operations"
     },
     {
       "key": "SB 160",
@@ -459,5 +495,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-02-28T02:50:50.977Z"
+  "lastUpdated": "2021-03-11T01:41:33.181Z"
 }
