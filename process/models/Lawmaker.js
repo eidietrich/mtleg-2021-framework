@@ -25,7 +25,7 @@ class Lawmaker {
             name: lawmaker.name,
             lastName: lawmakerLastName(lawmaker.name),
             district: updatedDistrict,
-            districtNum: this.getDistrictNum(updatedDistrict),
+            districtNum: this.getDistrictNum(lawmaker.district),
             locale: this.getLocale(updatedDistrict),
             title: this.getTitle(lawmaker),
             fullTitle: this.getFullTitle(lawmaker),
@@ -69,7 +69,7 @@ class Lawmaker {
         if (lawmaker.chamber === houseChamber) return houseRepFullTitle
     }
 
-    getDistrictNum = district => district.key.replace('HD ', '').replace('SD ', '')
+    getDistrictNum = district => +district.replace('HD ', '').replace('SD ', '')
 
     getLocale = (district) => {
         return {
