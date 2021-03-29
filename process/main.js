@@ -82,7 +82,8 @@ billFactory = (bill) => {
     const legalNoteUrl = legalNoteMatch ? legalNoteMatch.url : null;
     const isMajorBill = keyBillIds.includes(bill.identifier) ? yes : no;
     const actions = bill.actions.map(action => {
-        const vote = votes.find(d => d.data.voteUrl === action.description.split('|')[2])
+        const voteUrl = action.description.split('|')[2]
+        const vote = votes.find(d => d.data.voteUrl === voteUrl)
         return new Action({ action, vote }).export()
     })
 
