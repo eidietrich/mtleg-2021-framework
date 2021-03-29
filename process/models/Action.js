@@ -27,7 +27,7 @@ class Action {
             chamber: chamber,
             classification: action.classification[0] || null,
             vote: (vote && vote.export()) || null,
-            voteUrl: (vote && vote.voteUrl) || null,
+            voteUrl: (vote && vote.data.voteUrl) || null,
             watchListenUrls,
             // Flags
             ...this.getActionFlags(descriptionItems[0])
