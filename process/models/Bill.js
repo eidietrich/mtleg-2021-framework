@@ -48,7 +48,7 @@ class Bill {
             fiscalNoteUrl: this.getFiscalNoteUrl(bill),
             legalNoteUrl: legalNoteUrl,
 
-            annotation: (annotation && annotation.annotation) || null,
+            annotation: (annotation && annotation.annotation) || [],
             label: (annotation && annotation.label) || null,
             isMajorBill: isMajorBill,
             majorBillCategory: (annotation && annotation.category) || null,

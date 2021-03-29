@@ -9,3 +9,5 @@ module.exports.houseRepFullTitle = 'Representative'
 
 module.exports.yes = 'yes'
 module.exports.no = 'no'
+
+module.exports.publishStatus = 'publish'
