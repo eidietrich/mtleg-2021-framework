@@ -1,5 +1,3 @@
-const Action = require('./Action.js')
-
 const { BILL_STATUSES, FINANCE_COMMITTEES } = require('../config.js')
 
 const {
@@ -13,14 +11,13 @@ const {
 
 class Bill {
     /* Translates bill data from openstates format (w/ added data modifications) to schema used for app */
-    constructor({ bill, annotations, articles, votes, keyBillIds, legalNotes }) {
+    constructor({ bill, annotation, articles, actions, legalNoteUrl, isMajorBill }) {
         // console.log(bill)
 
         this.type = this.getType(bill)
-        this.actions = this.getActions(bill, votes)
+        this.actions = actions
 
         const committees = this.getCommittees(bill, this.actions)
-        const billArticles = this.getArticles(bill, articles) // Media coverage
 
         this.data = {
             key: billKey(bill.identifier),
@@ -28,8 +25,6 @@ class Bill {
             chamber: this.getChamber(bill.identifier),
             title: bill.title,
             session: bill.legislative_session,
-
-
             // old
             status: this.getStatus(bill),
             progress: this.getProgress(bill, this.actions),
@@ -51,16 +46,16 @@ class Bill {
             lawsUrl: this.getLawsUrl(bill),
             textUrl: this.getTextUrl(bill),
             fiscalNoteUrl: this.getFiscalNoteUrl(bill),
-            legalNoteUrl: this.getLegalNoteUrl(bill, legalNotes),
+            legalNoteUrl: legalNoteUrl,
 
-            annotation: this.getAnnotations(bill, annotations),
-            label: this.getLabel(bill, annotations),
-            isMajorBill: this.getMajorStatus(bill, keyBillIds),
-            majorBillCategory: this.getMajorBillCategory(bill, annotations),
-            articles: billArticles,
-            numArticles: billArticles.length,
+            annotation: (annotation && annotation.annotation) || [],
+            label: (annotation && annotation.label) || null,
+            isMajorBill: isMajorBill,
+            majorBillCategory: (annotation && annotation.category) || null,
+            articles: articles,
+            numArticles: articles.length,
 
-            actions: this.actions,
+            actions: this.actions, // Is there any reason actions are stored here again?
         }
         // console.log(this.data)
 
@@ -114,7 +109,8 @@ class Bill {
         return committees
     }
 
-    // NEW 
+
+    // NEW replaces getProgress and getStatus
     getProgression = (bill, committees, actions) => {
         /*
         This is tricky logic. There are two sources of bill status/progression information available to us.
@@ -504,46 +500,6 @@ class Bill {
         // Hacky - verify this works on bills w/ multiple fiscal notes
         const fiscalNote = bill.documents.find(d => d.note === 'Fiscal Note(s)')
         return fiscalNote && fiscalNote.links[0].url
-    }
-
-    getLegalNoteUrl = (bill, legalNotes) => {
-        const match = legalNotes.find(d => d.bill === bill.identifier)
-        if (match) return match.url
-        else return null
-    }
-
-    getAnnotations = (bill, annotations) => {
-        const match = annotations.bills.find(d => d.key === bill.identifier)
-        // if (match) console.log('Bill annotation found for', bill.identifier)
-        return (match && match.annotation) || []
-    }
-    getLabel = (bill, annotations) => {
-        // title annotation
-        // TODO - aggregate w/ get annotations
-        const match = annotations.bills.find(d => d.key === bill.identifier)
-        return (match && match.label) || null
-    }
-
-    getMajorBillCategory = (bill, annotations) => {
-        const match = annotations.bills.find(d => d.key === bill.identifier)
-        // TODO - aggregate w/ get annotations
-        return (match && match.category) || null
-    }
-
-    getMajorStatus = (bill, keyBillIds) => {
-        return keyBillIds.includes(bill.identifier) ? 'yes' : 'no'
-    }
-
-    getActions = (bill, votes) => {
-        const actions = bill.actions.map(action => new Action({ action, votes }).export())
-        // sorting by date here screws with order b/c of same-day actions
-        return actions
-    }
-
-    getArticles = (bill, articles) => {
-        const articlesAboutBill = articles.filter(article => article.data.billTags.includes(bill.identifier)).map(d => d.export())
-        // if (articlesAboutBill.length > 0) console.log(bill.identifier, articlesAboutBill.length)
-        return articlesAboutBill
     }
 
     determineVoteThreshold = (thresholds) => {

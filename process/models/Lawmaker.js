@@ -1,6 +1,7 @@
 const {
     LAWMAKER_REPLACEMENTS
 } = require('../config.js')
+const { yes, no, senateChamber, houseChamber, senatorFullTitle, houseRepFullTitle, houseRepTitle, senatorTitle, senateKey, houseKey } = require('../constants.js')
 
 const {
     filterToFloorVotes,
@@ -9,22 +10,23 @@ const {
 } = require('../functions.js')
 
 class Lawmaker {
-    constructor({ lawmaker, annotations, articles, votes, bills, districts }) {
-        this.sponsoredBills = this.getSponsoredBills(lawmaker, bills),
-            this.votes = this.getVotes(lawmaker, votes),
+    constructor({ lawmaker, district, annotation, articles, votes, sponsoredBills }) {
+        const updatedDistrict = this.updateDistrictReplacementNote(district)
 
-            // console.log(lawmaker.name, this.votes.length)
+        this.sponsoredBills = this.getSponsoredBills(sponsoredBills)
+        this.votes = votes
 
-            lawmaker.chamber = this.getChamber(lawmaker.district)
+        // console.log(lawmaker.name, this.votes.length)
 
+        lawmaker.chamber = this.getChamber(district.key)
 
         this.data = {
             key: this.lawmakerKey(lawmaker),
             name: lawmaker.name,
             lastName: lawmakerLastName(lawmaker.name),
-            district: this.getDistrictInfo(lawmaker, districts),
+            district: updatedDistrict,
             districtNum: this.getDistrictNum(lawmaker.district),
-            locale: this.getLocales(lawmaker, districts),
+            locale: this.getLocale(updatedDistrict),
             title: this.getTitle(lawmaker),
             fullTitle: this.getFullTitle(lawmaker),
             chamber: lawmaker.chamber,
@@ -37,44 +39,39 @@ class Lawmaker {
 
             legislativeHistory: this.getHistory(lawmaker.sessions),
 
-            articles: this.getArticles(lawmaker, articles),
-            annotation: this.getAnnotation(lawmaker, annotations),
+            articles: articles,
+            annotation: annotation,
 
             imageSlug: this.getImageSlug(lawmaker),
 
             votingSummary: this.getVotingSummary(lawmaker, this.votes),
             // voteTabulation: this.getVoteTabulation(lawmaker, filterToFloorVotes(this.votes)), // BIG DATA
             votes: [], // TODO,
-            sponsoredBills: this.sponsoredBills,
+            sponsoredBills: this.sponsoredBills, // Is there any reason this is stored here too? 
             // votes: this.votes.map(vote => vote.data)
         }
+
+
     }
 
     getChamber = (districtKey) => {
-        if (districtKey.includes('SD')) return 'senate'
-        if (districtKey.includes('HD')) return 'house'
+        if (districtKey.includes(senateKey)) return senateChamber
+        if (districtKey.includes(houseKey)) return houseChamber
     }
 
     getTitle = (lawmaker) => {
-        if (lawmaker.chamber === 'senate') return 'Sen.'
-        if (lawmaker.chamber === 'house') return 'Rep.'
+        if (lawmaker.chamber === senateChamber) return senatorTitle
+        if (lawmaker.chamber === houseChamber) return houseRepTitle
     }
 
     getFullTitle = (lawmaker) => {
-        if (lawmaker.chamber === 'senate') return 'Senator'
-        if (lawmaker.chamber === 'house') return 'Representative'
+        if (lawmaker.chamber === senateChamber) return senatorFullTitle
+        if (lawmaker.chamber === houseChamber) return houseRepFullTitle
     }
 
-    getDistrictNum = key => +key.replace('HD ', '').replace('SD ', '')
+    getDistrictNum = district => +district.replace('HD ', '').replace('SD ', '')
 
-    getDistrictInfo = (lawmaker, districts) => {
-        const district = districts.find(d => d.key === lawmaker.district)
-        const replacement = LAWMAKER_REPLACEMENTS.find(d => d.district === district.key)
-        if (replacement) district.replacementNote = replacement.note
-        return district
-    }
-    getLocales = (lawmaker, districts) => {
-        const district = districts.find(d => d.key === lawmaker.district)
+    getLocale = (district) => {
         return {
             short: district.locale,
             long: district.locale_description
@@ -82,8 +79,8 @@ class Lawmaker {
     }
 
     getHistory = sessions => {
-        const houseSessions = sessions.filter(d => d.chamber === 'house')
-        const senateSessions = sessions.filter(d => d.chamber === 'senate')
+        const houseSessions = sessions.filter(d => d.chamber === houseChamber)
+        const senateSessions = sessions.filter(d => d.chamber === senateChamber)
 
         return {
             houseSessions,
@@ -95,8 +92,7 @@ class Lawmaker {
 
     getImageSlug = (lawmaker) => lawmaker.image_path.replace('images/', '')
 
-    getSponsoredBills = (lawmaker, bills) => {
-        const sponsoredBills = bills.filter(bill => bill.data.sponsor.name === lawmaker.name)
+    getSponsoredBills = (sponsoredBills) => {
         // TODO - decide whether to export *ALL* bill data and filter into app via GraphQL
         return sponsoredBills.map(bill => {
             const {
@@ -126,13 +122,6 @@ class Lawmaker {
         })
     }
 
-    getVotes = (lawmaker, votes) => {
-        const lawmakerVotes = votes.filter(vote => {
-            const voters = vote.votes.map(d => d.name)
-            return voters.includes(lawmaker.name)
-        })
-        return lawmakerVotes
-    }
     getVoteTabulation = (lawmaker, lawmakerVotes) => {
         // TODO: Fine-tune this to floor votes (currently done w/ inputs), one per bill
         // Display will need an 'is this a key vote' filter
@@ -159,19 +148,19 @@ class Lawmaker {
         const voteTabulation = this.getVoteTabulation(lawmaker, floorVotes)
 
         const numVotesRecorded = floorVotes.length
-        const numVotesNotPresent = voteTabulation.filter(d => !['yes', 'no'].includes(d.lawmakerVote)).length
+        const numVotesNotPresent = voteTabulation.filter(d => ![yes, no].includes(d.lawmakerVote)).length
         const numVotesCast = numVotesRecorded - numVotesNotPresent
         const votesWithMajority = voteTabulation.filter(d =>
-            ((d.lawmakerVote === 'yes') && d.motionPassed)
-            || ((d.lawmakerVote === 'no') && !d.motionPassed)
+            ((d.lawmakerVote === yes) && d.motionPassed)
+            || ((d.lawmakerVote === no) && !d.motionPassed)
         ).length
         const votesWithGopMajority = voteTabulation.filter(d =>
-            ((d.lawmakerVote === 'yes') && d.gopSupported)
-            || ((d.lawmakerVote === 'no') && !d.gopSupported)
+            ((d.lawmakerVote === yes) && d.gopSupported)
+            || ((d.lawmakerVote === no) && !d.gopSupported)
         ).length
         const votesWithDemMajority = voteTabulation.filter(d =>
-            ((d.lawmakerVote === 'yes') && d.demSupported)
-            || ((d.lawmakerVote === 'no') && !d.demSupported)
+            ((d.lawmakerVote === yes) && d.demSupported)
+            || ((d.lawmakerVote === no) && !d.demSupported)
         ).length
 
         const votingSummary = {
@@ -187,26 +176,20 @@ class Lawmaker {
             fractionVotesWithDemMajority: (votesWithDemMajority / numVotesCast) || 0,
         }
         return votingSummary
-
-    }
-
-    getArticles = (lawmaker, articles) => {
-        const articlesAboutLawmaker = articles.filter(article => article.data.lawmakerTags.includes(lawmaker.name)).map(d => d.export())
-        // if (articlesAboutLawmaker.length > 0) console.log(lawmaker.name, articlesAboutLawmaker.length)
-        return articlesAboutLawmaker
-    }
-
-    getAnnotation = (lawmaker, annotations) => {
-        const match = annotations.lawmakers.find(d => d.key === lawmaker.name)
-        // if (match) console.log('Lawmaker annotation found for', lawmaker.name)
-        const annotation = (match && match.annotation) || []
-        return annotation
     }
 
     lawmakerKey = (lawmaker) => lawmaker.name.replace(/\s/g, '-')
 
-    export = () => ({ ...this.data })
+    updateDistrictReplacementNote = (district) => {
+        const replacement = LAWMAKER_REPLACEMENTS.find(d => d.district === district.key)
+        if (replacement) {
+            const districtCopy = { ...district }
+            districtCopy.replacementNote = replacement.note
+            return districtCopy
+        } else return district
+    }
 
+    export = () => ({ ...this.data })
 }
 
 module.exports = Lawmaker

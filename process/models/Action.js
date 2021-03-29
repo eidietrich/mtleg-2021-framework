@@ -4,12 +4,10 @@ const {
 } = require('../config.js')
 
 class Action {
-    constructor({ action, votes }) {
+    constructor({ action, vote }) {
         // This mess is necessary b/c we're using a hack to pull additional action info
         // through the openstates scraper w/out modifing the action schema
         const descriptionItems = action.description.split('|')
-
-        const voteUrl = descriptionItems[2] || null
 
         let watchListenUrls = []
         if (descriptionItems.length > 3) {
@@ -22,16 +20,14 @@ class Action {
 
         // console.log(action.classification[0])
 
-        const matchingVote = votes.find(d => d.data.voteUrl === voteUrl)
-
         this.data = {
             date: action.date,
             description: descriptionItems[0],
             committee: committee,
             chamber: chamber,
             classification: action.classification[0] || null,
-            vote: (matchingVote && matchingVote.export()) || null,
-            voteUrl,
+            vote: (vote && vote.export()) || null,
+            voteUrl: (vote && vote.data.voteUrl) || null,
             watchListenUrls,
             // Flags
             ...this.getActionFlags(descriptionItems[0])
