@@ -1,6 +1,7 @@
 const {
     LAWMAKER_REPLACEMENTS
 } = require('../config.js')
+const { yes, no, senateChamber, houseChamber, senatorFullTitle, houseRepFullTitle, houseRepTitle, senatorTitle, senateKey, houseKey } = require('../constants.js')
 
 const {
     filterToFloorVotes,
@@ -49,21 +50,23 @@ class Lawmaker {
             sponsoredBills: this.sponsoredBills, // Is there any reason this is stored here too? 
             // votes: this.votes.map(vote => vote.data)
         }
+
+
     }
 
     getChamber = (districtKey) => {
-        if (districtKey.includes('SD')) return 'senate'
-        if (districtKey.includes('HD')) return 'house'
+        if (districtKey.includes(senateKey)) return senateChamber
+        if (districtKey.includes(houseKey)) return houseChamber
     }
 
     getTitle = (lawmaker) => {
-        if (lawmaker.chamber === 'senate') return 'Sen.'
-        if (lawmaker.chamber === 'house') return 'Rep.'
+        if (lawmaker.chamber === senateChamber) return senatorTitle
+        if (lawmaker.chamber === houseChamber) return houseRepTitle
     }
 
     getFullTitle = (lawmaker) => {
-        if (lawmaker.chamber === 'senate') return 'Senator'
-        if (lawmaker.chamber === 'house') return 'Representative'
+        if (lawmaker.chamber === senateChamber) return senatorFullTitle
+        if (lawmaker.chamber === houseChamber) return houseRepFullTitle
     }
 
     getDistrictNum = district => district.key.replace('HD ', '').replace('SD ', '')
@@ -76,8 +79,8 @@ class Lawmaker {
     }
 
     getHistory = sessions => {
-        const houseSessions = sessions.filter(d => d.chamber === 'house')
-        const senateSessions = sessions.filter(d => d.chamber === 'senate')
+        const houseSessions = sessions.filter(d => d.chamber === houseChamber)
+        const senateSessions = sessions.filter(d => d.chamber === senateChamber)
 
         return {
             houseSessions,
@@ -145,19 +148,19 @@ class Lawmaker {
         const voteTabulation = this.getVoteTabulation(lawmaker, floorVotes)
 
         const numVotesRecorded = floorVotes.length
-        const numVotesNotPresent = voteTabulation.filter(d => !['yes', 'no'].includes(d.lawmakerVote)).length
+        const numVotesNotPresent = voteTabulation.filter(d => ![yes, no].includes(d.lawmakerVote)).length
         const numVotesCast = numVotesRecorded - numVotesNotPresent
         const votesWithMajority = voteTabulation.filter(d =>
-            ((d.lawmakerVote === 'yes') && d.motionPassed)
-            || ((d.lawmakerVote === 'no') && !d.motionPassed)
+            ((d.lawmakerVote === yes) && d.motionPassed)
+            || ((d.lawmakerVote === no) && !d.motionPassed)
         ).length
         const votesWithGopMajority = voteTabulation.filter(d =>
-            ((d.lawmakerVote === 'yes') && d.gopSupported)
-            || ((d.lawmakerVote === 'no') && !d.gopSupported)
+            ((d.lawmakerVote === yes) && d.gopSupported)
+            || ((d.lawmakerVote === no) && !d.gopSupported)
         ).length
         const votesWithDemMajority = voteTabulation.filter(d =>
-            ((d.lawmakerVote === 'yes') && d.demSupported)
-            || ((d.lawmakerVote === 'no') && !d.demSupported)
+            ((d.lawmakerVote === yes) && d.demSupported)
+            || ((d.lawmakerVote === no) && !d.demSupported)
         ).length
 
         const votingSummary = {

@@ -109,7 +109,8 @@ class Bill {
         return committees
     }
 
-    // NEW 
+
+    // NEW replaces getProgress and getStatus
     getProgression = (bill, committees, actions) => {
         /*
         This is tricky logic. There are two sources of bill status/progression information available to us.
