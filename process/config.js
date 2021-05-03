@@ -76,6 +76,9 @@ const secondReading = true
 const thirdReading = true
 const resolutionVote = true // since these are only voted on once?
 
+const senateVetoOverride = true
+const houseVetoOverride = true
+
 const blastMotionPassage = true
 const firstChamberInitialPassage = true
 const firstChamberPassage = true
@@ -93,6 +96,8 @@ const resolutionFailed = true
 
 const ultimatelyFailed = true
 const ultimatelyPassed = true
+
+const doLog = true
 
 module.exports.ACTIONS = [
     // omitting {flag: false} fields here for clarity
@@ -118,6 +123,8 @@ module.exports.ACTIONS = [
     { key: 'Committee Vote Failed; Remains in Committee', isMajor, committeeVote },
     { key: 'Reconsidered Previous Action; Remains in Committee', isMajor, committeeVote },
 
+
+
     // first house committee actions
     { key: 'Committee Executive Action--Bill Passed', isMajor, isHighlight, committeeVote, committeePassed, firstCommitteePassage },
     { key: 'Committee Executive Action--Bill Passed as Amended', isMajor, isHighlight, committeeVote, committeePassed, firstCommitteePassage },
@@ -132,6 +139,7 @@ module.exports.ACTIONS = [
     { key: '2nd Reading Passed', isMajor, isHighlight, secondReading, firstChamberInitialPassage },
     { key: '2nd Reading Not Passed', isMajor, isHighlight, secondReading, firstChamberFailure },
     { key: '2nd Reading Not Passed as Amended', isMajor, isHighlight, secondReading, firstChamberFailure },
+    { key: '2nd Reading Not Passed; 3rd Reading Vote Required', isMajor, isHighlight, secondReading, firstChamberFailure },
     { key: '2nd Reading Pass as Amended Motion Failed', isMajor, secondReading, firstChamberFailure },
     { key: '2nd Reading Pass Motion Failed', isMajor, secondReading, firstChamberFailure },
     { key: '2nd Reading Passed as Amended', isMajor, isHighlight, secondReading, firstChamberInitialPassage },
@@ -146,6 +154,8 @@ module.exports.ACTIONS = [
     { key: '2nd Reading Concurred', isMajor, isHighlight, secondReading, secondChamberInitialPassage },
     { key: '2nd Reading Not Concurred', isMajor, isHighlight, secondReading, secondChamberFailure, },
     { key: '2nd Reading Concurred as Amended', isMajor, isHighlight, secondReading, secondChamberInitialPassage, secondChamberAmendments },
+    { key: '2nd Reading Senate Amendments Not Concur Motion Failed', isMajor, isHighlight, secondReading, secondChamberInitialPassage, secondChamberAmendments }, // One-off; See 2021 HB 63
+    { key: '2nd Reading Not Concurred as Amended', isMajor, isHighlight, secondReading, secondChamberFailure, secondChamberAmendments },
     { key: '2nd Reading Concur Motion Failed', isMajor, secondReading, secondChamberFailure, },
     { key: '2nd Reading Concur as Amended Motion Failed', isMajor, secondReading, secondChamberFailure, },
     { key: '3rd Reading Concurred', isMajor, isHighlight, thirdReading, secondChamberPassage },
@@ -160,6 +170,8 @@ module.exports.ACTIONS = [
     // either house floor votes
     { key: '3rd Reading Failed', isMajor, isHighlight, thirdReading },
     { key: '2nd Reading Indefinitely Postponed', isMajor, },
+
+
 
     // Reconciliation votes
     { key: '2nd Reading Senate Amendments Concurred', isMajor, isHighlight },
@@ -188,6 +200,7 @@ module.exports.ACTIONS = [
     { key: 'Reconsidered Previous Action; Placed on 2nd Reading', isMajor, },
     { key: 'Reconsidered Previous Action; Remains in 2nd Reading Process', isMajor, },
     { key: 'Reconsidered Previous Action; Remains in 3rd Reading Process', isMajor, },
+    { key: 'Reconsidered Previous Act; Remains in 2nd Reading FCC Process', isMajor, },
     { key: 'Rules Suspended to Accept Late Return of Amended Bill', isMajor, },
     { key: 'Segregated from Committee of the Whole Report', isMajor, },
 
@@ -226,12 +239,17 @@ module.exports.ACTIONS = [
     // Governor
     { key: 'Vetoed by Governor', isMajor, isHighlight, vetoedByGovernor, },
     { key: 'Signed by Governor', isMajor, isHighlight, signedByGovernor, },
+    { key: 'Veto Overridden in Senate', isMajor, isHighlight, senateVetoOverride },
+    { key: 'Veto Overridden in House', isMajor, isHighlight, houseVetoOverride },
     { key: 'Veto Override Vote Mail Poll in Progress', isMajor, },
     { key: 'Veto Override Failed in Legislature', isMajor, },
+    { key: 'Veto Override Motion Failed in House', isMajor, },
 
     // Deadlines
     { key: 'Missed Deadline for General Bill Transmittal', isMajor, missedDeadline },
     { key: 'Missed Deadline for Revenue Bill Transmittal', isMajor, missedDeadline },
+    { key: 'Missed Deadline for Appropriation Bill Transmittal', isMajor, missedDeadline },
+    { key: 'Missed Deadline for Referendum Proposal Transmittal', isMajor, missedDeadline },
     { key: 'Missed Deadline for Revenue Estimating Resolution Transmittal', isMajor, missedDeadline },
 
     // Ultimate outcomes
@@ -245,6 +263,9 @@ module.exports.ACTIONS = [
     { key: 'Free Conference Committee Report Received', isMajor, },
     { key: 'Conference Committee Appointed', isMajor, },
     { key: 'Conference Committee Report Received', isMajor, },
+    { key: '2nd Reading Free Conference Committee Report Adopt Motion Failed', isMajor },
+
+
 
 
     // Minor actions (exclude from default bill table view)
@@ -813,6 +834,7 @@ module.exports.COMMITTEES = [
     { name: 'House Joint Appropriations Subcommittee on Long-Range Planning', daysOfWeek: 'daily', time: '8:30 a.m.', type: 'fiscal', },
     { name: 'House Joint Appropriations Subcommittee on Health and Human Services', daysOfWeek: 'daily', time: '8 a.m.', type: 'fiscal', },
     { name: 'House Select Committee on HB 632', daysOfWeek: 'on call', time: '', type: 'fiscal', }, // 2021 covid stimulus committee
+
     // SENATE
     { name: 'Senate Finance and Claims', daysOfWeek: 'daily', time: '8 a.m.', type: 'fiscal', },
 
@@ -834,7 +856,15 @@ module.exports.COMMITTEES = [
     { name: 'Senate Committee on Committees', daysOfWeek: 'on call', time: '', type: 'special', suppress: true },
     { name: 'Senate Ethics', daysOfWeek: 'on call', time: '', type: 'special', suppress: true },
     { name: 'Senate Rules', daysOfWeek: 'on call', time: '', type: 'special', },
-    { name: 'Senate Legislative Administration', daysOfWeek: 'on call', time: '', type: 'special', }
+    { name: 'Senate Legislative Administration', daysOfWeek: 'on call', time: '', type: 'special', },
+
+    { name: 'Senate Select Committee on Marijuana Law', daysOfWeek: 'on call', time: '', type: 'policy', },
+
+    // conference committees
+    { name: 'Senate Conference', daysOfWeek: 'on call', time: '', type: 'conference', },
+    { name: 'Senate Free Conference', daysOfWeek: 'on call', time: '', type: 'conference', },
+    { name: 'House Conference', daysOfWeek: 'on call', time: '', type: 'conference', },
+    { name: 'House Free Conference', daysOfWeek: 'on call', time: '', type: 'conference', },
 ]
 
 module.exports.FINANCE_COMMITTEES = ['Senate Finance and Claims', 'House Appropriations']

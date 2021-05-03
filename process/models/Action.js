@@ -36,6 +36,10 @@ class Action {
             // Flags
             ...this.getActionFlags(descriptionItems[0])
         }
+
+        if (this.data.doLog) {
+            console.log(this.data)
+        }
     }
 
     determineChamber = (organization_id) => {

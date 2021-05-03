@@ -6,8 +6,33 @@ class Analysis {
         // this.billProgression = bills.map(bill => this.getBillProgress(bill))
         this.hearings = this.getBillHearings(bills)
         this.floorDebates = this.getFloorDebates(bills)
+        this.conferences = this.getConferenceCommittees(bills)
 
         // console.log(this.billProgression.find(d => d.identifier === 'SB 65'))
+    }
+
+    getConferenceCommittees(bills) {
+        const conferences = bills
+            .filter(bill => {
+                return bill.actions.map(d => d.description).includes('Conference Committee Appointed') ||
+                    bill.actions.map(d => d.description).includes('Free Conference Committee Appointed')
+            })
+            .map(bill => {
+                const actions = bill.actions
+                const identifier = bill.data.identifier
+                const session = bill.data.session
+                const sponsor = bill.sponsor
+
+                const hasNormalConference = actions.map(d => d.description).includes('Conference Committee Appointed')
+                const hasFreeConference = actions.map(d => d.description).includes('Free Conference Committee Appointed')
+
+                return {
+                    identifier,
+                    session,
+                    type: hasNormalConference ? 'normal' : 'free'
+                }
+            })
+        return conferences
     }
 
     getBillHearings(bills) {

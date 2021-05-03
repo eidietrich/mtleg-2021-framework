@@ -48,6 +48,7 @@ class Lawmaker {
             sponsoredBills: this.sponsoredBills,
             // votes: this.votes.map(vote => vote.data)
         }
+        // console.log(lawmaker.name, this.sponsoredBills.length)
     }
 
     getChamber = (districtKey) => {

@@ -260,6 +260,30 @@
       "isMajorBill": "True"
     },
     {
+      "key": "SB 376",
+      "category": "Governor-backed GOP tax bills",
+      "label": "A scaled-back version of SB 181",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "SB 399",
+      "category": "Other GOP tax bills",
+      "label": "Major rewrite of Montana income tax code",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 340",
+      "category": "Other GOP tax bills",
+      "label": "Expand tax credits encouraging Montana film productions",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 372",
+      "category": "Other GOP tax bills",
+      "label": "",
+      "isMajorBill": "True"
+    },
+    {
       "key": "SB 10",
       "category": "Democratic tax alternatives",
       "label": "Creates a property tax “circuit breaker” credit to lighten tax burden on lower-income residents",
@@ -279,21 +303,33 @@
     },
     {
       "key": "SB 65",
-      "category": "COVID-19 response",
+      "category": "COVID-19 liability",
       "isMajorBill": "True",
       "label": "Protects businesses from some COVID-19-related lawsuits"
     },
     {
       "key": "HB 121",
-      "category": "COVID-19 response",
+      "category": "Emergency power",
       "isMajorBill": "True",
       "label": ""
     },
     {
       "key": "HB 230",
-      "category": "COVID-19 response",
+      "category": "Emergency power",
       "isMajorBill": "True",
       "label": "Lets Legislature weigh in on governor’s emergency declarations"
+    },
+    {
+      "key": "HB 159",
+      "category": "Emergency power",
+      "isMajorBill": "True",
+      "label": "Requires legislative involvement in spending large federal relief allocations"
+    },
+    {
+      "key": "HB 429",
+      "category": "Emergency power",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "SB 51",
@@ -344,6 +380,12 @@
       "label": "Seeks to protect voting rights on reservations"
     },
     {
+      "key": "SB 170",
+      "category": "Election administration",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
       "key": "SB 89",
       "category": "Labor policy",
       "isMajorBill": "True",
@@ -365,13 +407,25 @@
       "key": "SB 140",
       "category": "Justice policy",
       "isMajorBill": "True",
-      "label": "Lets the governor appoint judges directly"
+      "label": "Lets the governor appoint judges to vacancies directly"
+    },
+    {
+      "key": "HB 325",
+      "category": "Justice policy",
+      "isMajorBill": "True",
+      "label": "Voter referendum to shift away from statewide supreme court elections"
     },
     {
       "key": "HB 355",
       "category": "Justice policy",
       "isMajorBill": "True",
       "label": ""
+    },
+    {
+      "key": "HB 685",
+      "category": "Justice policy",
+      "isMajorBill": "True",
+      "label": "Constitutional referendum to give Judicial Standards Commission direct power to discipline judges and make a majority of members non-attorneys appointed by governor"
     },
     {
       "key": "SB 215",
@@ -410,6 +464,12 @@
       "label": "Makes K-12 education requirements more flexible"
     },
     {
+      "key": "HB 43",
+      "category": "Health care policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
       "key": "SB 101",
       "category": "Health care policy",
       "isMajorBill": "True",
@@ -422,10 +482,16 @@
       "label": ""
     },
     {
-      "key": "HB 415",
+      "key": "HB 702",
       "category": "Health care policy",
       "isMajorBill": "True",
       "label": ""
+    },
+    {
+      "key": "SB 374",
+      "category": "Health care policy",
+      "isMajorBill": "True",
+      "label": "Allows medical providers to dispense drugs to patients"
     },
     {
       "key": "SB 98",
@@ -440,7 +506,13 @@
       "label": ""
     },
     {
-      "key": "HB 225",
+      "key": "SB 314",
+      "category": "Natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
+      "key": "SB 267",
       "category": "Natural resource policy",
       "isMajorBill": "True",
       "label": ""
@@ -458,10 +530,16 @@
       "label": ""
     },
     {
-      "key": "SB 115",
+      "key": "SB 337",
       "category": "Natural resource policy",
       "isMajorBill": "True",
-      "label": ""
+      "label": "Prevents FWP from relocating grizzly bears into new areas"
+    },
+    {
+      "key": "SB 358",
+      "category": "Natural resource policy",
+      "isMajorBill": "True",
+      "label": "Loosens nutrient water quality regulations by replacing numeric standards with narrative ones"
     },
     {
       "key": "HB 273",
@@ -486,6 +564,12 @@
       "category": "Energy policy",
       "isMajorBill": "True",
       "label": "Shifts elected utility board to three-member commission appointed by governor"
+    },
+    {
+      "key": "SB 379",
+      "category": "Energy policy",
+      "isMajorBill": "True",
+      "label": "Guarantees NorthWestern Energy funding for coal plants by limiting PSC authority over power bills"
     },
     {
       "key": "HB 170",
@@ -533,6 +617,30 @@
       "category": "Transgender restrictions",
       "label": "A slightly narrower version of HB 113",
       "isMajorBill": "True"
+    },
+    {
+      "key": "SB 280",
+      "category": "Transgender restrictions",
+      "label": "Requires a person to obtain surgery and a court order in order to update the gender on their birth certificate",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 701",
+      "category": "Recreational marijuana implementation",
+      "label": "Rec. marijuana bill backed by governor’s office",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 670",
+      "category": "Recreational marijuana implementation",
+      "label": "",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 707",
+      "category": "Recreational marijuana implementation",
+      "label": "Treats rec. marijuana like alcohol",
+      "isMajorBill": "True"
     }
   ],
   "lawmakers": [
@@ -555,5 +663,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-03-16T23:18:36.330Z"
+  "lastUpdated": "2021-04-30T22:52:19.939Z"
 }
