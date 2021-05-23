@@ -154,10 +154,37 @@ class Lawmaker {
             }
         })
     }
+    getVoteAlignments = (lawmaker, floorVotes) => {
+        // % of times voting w/ peer lawmakers on floor
+        const lawmakerVotes = floorVotes.map(vote => vote.data.votes.find(d => d.name === lawmaker.name))
+        const peers = Array.from(new Set(floorVotes.map(vote => vote.data.votes.map(d => d.name)).flat()))
+        const alignments = peers.map(peerName => {
+            const alignmentArray = floorVotes.map(vote => {
+                const lawmakerVote = vote.data.votes.find(d => d.name === lawmaker.name)
+                const peerVote = vote.data.votes.find(d => d.name === peerName)
+                return (lawmakerVote.option === peerVote.option) ? 1 : 0
+            })
+            const alignmentScore = alignmentArray.reduce((i, acc) => i + acc, 0) / floorVotes.length
+
+            const peerFirstVote = floorVotes[0].data.votes.find(d => d.name === peerName)
+            const peerDistrict = peerFirstVote.district
+            const peerParty = peerFirstVote.party
+
+            return {
+                name: peerName,
+                district: peerDistrict,
+                party: peerParty,
+                alignment: alignmentScore,
+            }
+        })
+        return alignments
+
+    }
     getVotingSummary = (lawmaker, lawmakerVotes) => {
 
         const floorVotes = filterToFloorVotes(lawmakerVotes)
         const voteTabulation = this.getVoteTabulation(lawmaker, floorVotes)
+        // const voteAlignments = this.getVoteAlignments(lawmaker, floorVotes) // costly function
 
         const numVotesRecorded = floorVotes.length
         const numVotesNotPresent = voteTabulation.filter(d => !['yes', 'no'].includes(d.lawmakerVote)).length
@@ -186,6 +213,7 @@ class Lawmaker {
             fractionVotesWithGopMajority: (votesWithGopMajority / numVotesCast) || 0,
             votesWithDemMajority,
             fractionVotesWithDemMajority: (votesWithDemMajority / numVotesCast) || 0,
+            // voteAlignments,
         }
         return votingSummary
 

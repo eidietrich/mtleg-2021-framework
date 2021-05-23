@@ -41,6 +41,8 @@ const LAWMAKER_INFO_PATH = './scrapers/lawmakers/process/lawmakers.json'
 const TEXT_PATH = './process/inputs/app-text.json'
 const LEGAL_NOTE_PATH = './scrapers/legal-notes/legal-notes.json'
 const ARTICLES_PATH = './scrapers/mtfp-articles/articles.json'
+const PUBLIC_COMMENTS_PATH = './scrapers/public-comments/public-comments.json'
+const VETO_MEMOS_PATH = './scrapers/veto-memos/veto-memos.json'
 
 // OUTPUTS
 const LAWMAKERS_OUTPUT_PATH = './app/src/data/lawmakers.json'
@@ -63,6 +65,8 @@ const annotations = getJson(TEXT_PATH)
 const rawArticles = getJson(ARTICLES_PATH) // TODO Add
 
 const legalNotes = getJson(LEGAL_NOTE_PATH)
+const publicComments = getJson(PUBLIC_COMMENTS_PATH)
+const vetoMemos = getJson(VETO_MEMOS_PATH)
 
 const articles = rawArticles
     .filter(d => d.status === 'publish')
@@ -76,6 +80,8 @@ const bills = rawBills.map(bill => new Bill({
     annotations,
     articles,
     legalNotes,
+    publicComments,
+    vetoMemos,
     keyBillIds,
 })
 )
@@ -109,7 +115,8 @@ const summaryData = new Overview({
 }).export()
 
 const analysis = new Analysis({
-    bills
+    bills,
+    lawmakers,
 })
 
 // Tests
@@ -135,10 +142,12 @@ const governorData = new Governor({ annotations, articles }).export()
 
 // Log output
 writeJson('./process/logs/lawmaker.json', lawmakersData[45])
-writeJson('./process/logs/bill.json', billsData.find(d => d.identifier === 'SB 65'))
+writeJson('./process/logs/bill.json', billsData.find(d => d.identifier === 'HB 97'))
 
 // analysis outputs
 writeJson('./analysis/bill-progression.json', analysis.billProgression)
+writeJson('./analysis/bill-outcomes.json', analysis.outcomes)
+writeJson('./analysis/lawmaker-summaries.json', analysis.lawmakerSummaries)
 
 // Data output
 writeJson(LAWMAKERS_OUTPUT_PATH, lawmakersData)

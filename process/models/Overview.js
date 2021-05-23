@@ -56,6 +56,19 @@ class Overview {
             { key: 'referendum proposals', value: bills.filter(d => d.type === 'referendum proposal').length },
         ])
 
+        // status counts
+        const billStatusKey = 'statusAtSessionEnd' // b/c there are several end-points
+        const statuses = [... new Set(bills.map(bill => bill.data.status[billStatusKey]))]
+        const statusCounts = statuses.map(key => {
+            return {
+                key,
+                count: bills.filter(bill => bill.data.status[billStatusKey] === key).length,
+            }
+        }).sort((a, b) => b.count - a.count)
+
+        console.log(`Bill statuses (${billStatusKey})`)
+        console.table(statusCounts)
+
         const summary = {
             numBillsAndResolutions: bills.length,
             senateBills: {

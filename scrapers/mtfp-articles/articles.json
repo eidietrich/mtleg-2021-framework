@@ -1,5 +1,564 @@
 [
   {
+    "title": "Regents will take constitutional carry to court",
+    "date": "2021-05-19T15:29:35",
+    "link": "https://montanafreepress.org/2021/05/19/university-system-regents-challenge-constitutional-carry-law-in-court/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Board of Regents"
+        },
+        {
+          "name": "constitutional carry"
+        },
+        {
+          "name": "House Bill 102"
+        },
+        {
+          "name": "Montana Supreme Court"
+        },
+        {
+          "name": "Montana University System"
+        },
+        {
+          "name": "OCHE"
+        },
+        {
+          "name": "Office of the Commissioner of Higher Education"
+        },
+        {
+          "name": "Seth Berglee"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/04/15/getting-constitutional-carry-ready-for-class/gun-on-school-desk_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>The Montana Board of Regents announced Wednesday it will push for a judicial review of the state’s new “constitutional carry” law, which is poised to allow students and university staff to carry concealed weapons on campuses across Montana beginning June 1.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Lawsuit challenges new election laws",
+    "date": "2021-05-18T14:25:00",
+    "link": "https://montanafreepress.org/2021/05/18/montana-election-laws-challenged-in-court/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "ACLU of Montana"
+        },
+        {
+          "name": "Christi Jacobsen"
+        },
+        {
+          "name": "House Bill 176"
+        },
+        {
+          "name": "House Bill 530"
+        },
+        {
+          "name": "Western Native Voice"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Elections"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/05/18/montana-election-laws-challenged-in-court/heading-of-voter-registration-with-pen/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>Two voting law bills passed by the Legislature and signed into law by Gov. Greg Gianforte this spring are being challenged in Yellowstone County district court. </p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "The vaccine hesitancy hardline",
+    "date": "2021-05-14T17:50:45",
+    "link": "https://montanafreepress.org/2021/05/14/the-vaccine-hesitancy-hardline/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "coronavirus"
+        },
+        {
+          "name": "COVID-19"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "House Bill 334"
+        },
+        {
+          "name": "House Bill 415"
+        },
+        {
+          "name": "House Bill 702"
+        },
+        {
+          "name": "Jennifer Carlson"
+        },
+        {
+          "name": "Jolene Crum"
+        },
+        {
+          "name": "Montana Department of Public Health and Human Services"
+        },
+        {
+          "name": "Montanans for Health and Family Rights"
+        },
+        {
+          "name": "Montanans for Vaccine Choice"
+        },
+        {
+          "name": "Tiffany Weber"
+        },
+        {
+          "name": "vaccine"
+        },
+        {
+          "name": "vaccine hesitancy"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Coronavirus"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/05/14/the-vaccine-hesitancy-hardline/symbol-for-declining-vaccinations-hand-turns-dice-and-changes-the-word-vaccine-to-decline/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>As public health officials across the state struggle to boost vaccination rates, Montana’s staunchest vaccine skeptics are celebrating a major legislative win and drawing a firm line on COVID-19.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "The newest twist in the fight between the Legislature and the judiciary",
+    "date": "2021-05-13T10:58:02",
+    "link": "https://montanafreepress.org/2021/05/13/the-latest-twist-in-the-fight-between-the-legislature-and-the-judiciary/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Anthony Johnstone"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "Greg Hertz"
+        },
+        {
+          "name": "Laurie McKinnon"
+        },
+        {
+          "name": "Montana Supreme Court"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Law"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/03/26/a-court-divided-house-bill-325-supreme-cout-election-by-district/montana-supreme-court-entrance_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Mara Silvers"
+      }
+    },
+    "excerpt": "<p>The Montana Supreme Court has rejected a motion for the sitting justices to recuse themselves from the case concerning legislative subpoena power.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "The quiet bills",
+    "date": "2021-05-07T15:18:44",
+    "link": "https://montanafreepress.org/2021/05/07/the-quiet-bills/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/05/07/the-quiet-bills/screen-shot-2021-05-07-at-3-10-39-pm/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Eric Dietrich"
+      }
+    },
+    "excerpt": "<p>A few dozen of the 700-plus bills passed by the 2021 Montana Legislature grabbed headlines. Hundreds of others did not.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "5 things to know about health care changes in Montana",
+    "date": "2021-05-06T15:34:58",
+    "link": "https://montanafreepress.org/2021/05/06/5-things-to-know-about-health-care-changes-in-montana/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Health Care"
+        },
+        {
+          "name": "Medicaid"
+        },
+        {
+          "name": "Medicaid Expansion"
+        },
+        {
+          "name": "Public health"
+        },
+        {
+          "name": "telehealth"
+        },
+        {
+          "name": "vaccine"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Health Care"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/05/06/5-things-to-know-about-health-care-changes-in-montana/doctor-documenting-on-computer-1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Brad Tyer"
+      }
+    },
+    "excerpt": "<p>Telehealth regulations, local public health authority and easing vaccination requirements emerge from the 2021 Legislature.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "What’s next for water quality?",
+    "date": "2021-05-05T18:02:17",
+    "link": "https://montanafreepress.org/2021/05/05/whats-next-for-water-quality/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "DEQ"
+        },
+        {
+          "name": "John Esp"
+        },
+        {
+          "name": "Montana Department of Environmental Quality"
+        },
+        {
+          "name": "Senate Bill 358"
+        },
+        {
+          "name": "Water Quality"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Environment"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/05/05/whats-next-for-water-quality/nutrient-algae-bloom-in-water_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Amanda Eggert"
+      }
+    },
+    "excerpt": "<p>Montana is positioned to become the first state to strike numeric standards for nitrogen and phosphorus — just six years after becoming the first state to adopt them. How Montana will enforce water quality instead isn&#8217;t yet clear.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "Session yields mixed results for Native lawmakers",
+    "date": "2021-05-04T18:17:36",
+    "link": "https://montanafreepress.org/2021/05/04/session-yields-mixed-results-for-native-lawmakers/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "House Bill 311"
+        },
+        {
+          "name": "House Bill 312"
+        },
+        {
+          "name": "House Bill 403"
+        },
+        {
+          "name": "House Bill 487"
+        },
+        {
+          "name": "House Bill 613"
+        },
+        {
+          "name": "House Bill 644"
+        },
+        {
+          "name": "Jonathan Windy Boy"
+        },
+        {
+          "name": "Marvin Weatherwax"
+        },
+        {
+          "name": "Sharon Stewart Peregoy"
+        },
+        {
+          "name": "Tyson Running Wolf"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/02/05/this-week-in-helena-feb-1-5/state-capitol-with-flags_-1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Amanda Eggert"
+      }
+    },
+    "excerpt": "<p>Voting access, Indigenous languages and bison management were the big-ticket items for the Montana Legislature’s American Indian Caucus.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "What got signed, and what got vetoed",
+    "date": "2021-05-03T17:27:30",
+    "link": "https://montanafreepress.org/2021/05/03/final-steps-toward-law/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "House Bill 179"
+        },
+        {
+          "name": "House Bill 302"
+        },
+        {
+          "name": "House Bill 429"
+        },
+        {
+          "name": "House Bill 468"
+        },
+        {
+          "name": "House Bill 632"
+        },
+        {
+          "name": "House Bill 67"
+        },
+        {
+          "name": "Senate Bill 185"
+        },
+        {
+          "name": "Senate Bill 280"
+        },
+        {
+          "name": "Senate Bill 314"
+        },
+        {
+          "name": "Senate Bill 337"
+        },
+        {
+          "name": "Senate Bill 358"
+        },
+        {
+          "name": "Senate Bill 99"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/04/19/gianforte-approves-changes-to-montana-election-laws/gianforte-signing-bills-restricting-voting-access_-1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "Alex Sakariassen"
+      }
+    },
+    "excerpt": "<p>With the legislative session over, dozens of bills await a final decision from Gov. Greg Gianforte before they officially become state statute.</p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
+    "title": "The Session podcast",
+    "date": "2021-05-03T09:59:12",
+    "link": "https://montanafreepress.org/2021/05/03/the-session-podcast-sine-die-edition/",
+    "status": "publish",
+    "tags": {
+      "nodes": [
+        {
+          "name": "2021 Legislature"
+        },
+        {
+          "name": "abortion"
+        },
+        {
+          "name": "American Rescue Plan Act"
+        },
+        {
+          "name": "anti-abortion"
+        },
+        {
+          "name": "Budget"
+        },
+        {
+          "name": "cannabis legalization"
+        },
+        {
+          "name": "coronavirus"
+        },
+        {
+          "name": "Coronavirus Aid"
+        },
+        {
+          "name": "coronavirus relief"
+        },
+        {
+          "name": "Greg Gianforte"
+        },
+        {
+          "name": "Montana Legislature"
+        },
+        {
+          "name": "podcast-player"
+        },
+        {
+          "name": "Special Select Committee on Judicial Transparency and Accountability"
+        },
+        {
+          "name": "tax policy"
+        },
+        {
+          "name": "Taxes"
+        },
+        {
+          "name": "The Session"
+        },
+        {
+          "name": "transgender"
+        },
+        {
+          "name": "transgender rights"
+        }
+      ]
+    },
+    "categories": {
+      "nodes": [
+        {
+          "name": "Montana Legislature"
+        }
+      ]
+    },
+    "featuredImage": {
+      "node": {
+        "link": "https://montanafreepress.org/2021/01/25/the-session-podcast/the-session-podcast_for-post_1200x675/"
+      }
+    },
+    "author": {
+      "node": {
+        "name": "MTFP Staff"
+      }
+    },
+    "excerpt": "<p>The 67th Montana Legislature is over. What happened? Reporters from Montana Free Press, Yellowstone Public Radio and Montana Public Radio break it all down. </p>\n<div class=\"sharedaddy sd-sharing-enabled\"><div class=\"robots-nocontent sd-block sd-social sd-social-icon sd-sharing\"><div class=\"sd-content\"><amp-social-share type=\"twitter\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Twitter\" title=\"Click to share on Twitter\"></amp-social-share><amp-social-share type=\"facebook\" height=\"32px\" width=\"32px\" aria-label=\"Click to share on Facebook\" title=\"Click to share on Facebook\" data-param-app_id=\"249643311490\"></amp-social-share></div></div></div>"
+  },
+  {
     "title": "The 2021 Legislature’s last-minute laws",
     "date": "2021-04-30T16:08:22",
     "link": "https://montanafreepress.org/2021/04/30/the-2021-legislatures-last-minute-laws/",
@@ -56,7 +615,7 @@
     },
     "featuredImage": {
       "node": {
-        "link": "https://montanafreepress.org/2021/04/30/the-2021-legislatures-last-minute-laws/office-clock-about-to-show-midnight-few-seconds-to-new-year/"
+        "link": "https://montanafreepress.org/2021/04/30/the-2021-legislatures-last-minute-laws/clock-four-seconds-to-midnight-1200x675/"
       }
     },
     "author": {
@@ -153,7 +712,7 @@
     },
     "featuredImage": {
       "node": {
-        "link": "https://montanafreepress.org/2021/04/29/winners-losers-and-mixed-bags-of-the-67th-montana-legislature/blasdel/"
+        "link": "https://montanafreepress.org/2021/04/29/winners-losers-and-mixed-bags-of-the-67th-montana-legislature/senate-republicans-leadership-blasdale_1200x675/"
       }
     },
     "author": {

@@ -4,42 +4,54 @@ module.exports.LAWMAKER_REPLACEMENTS = [
     { district: 'SD 48', note: 'Shane Morigeau appointed to fill seat after Nov. 2020 resignation of Sen. Nate McConnell.' }
 ]
 
+module.exports.MANUAL_SIGNINGS = [
+    // For 2021 session, force bill statuses to 'Became Law'
+    // Necessary bc legislative database was lagging signing announcements from the governor's office
+    "SB 65", "SB 39", "SB 44", "SB 47", "SB 51", "SB 52", "SB 76", "SB 98", "SB 116", "SB 142", "SB 149", "SB 159", "SB 173", "SB 183", "SB 191", "SB 214", "SB 232", "SB 234", "SB 243", "SB 263", "SB 284", "SB 285", "SB 288", "SB 303", "SB 319", "SB 326", "SB 327", "SB 357", "SB 363", "SB 365", "SB 384", "SB 385", "SB 395", "SB 399", "SB 400",
+    "HB 701", "SB 155", "SB 308", "HB 2", "HB 92", "SB 388", "SB 224", "SB 316"
+]
+
+module.exports.MANUAL_VETOS = [
+    // For 2021 session, force bill statuses to 'Probably Dead'
+    "SB 108", "SB 165", "SB 231", "SB 278", "SB 306", "HB 691", "HB 188",
+]
+
 module.exports.BILL_STATUSES = [
-    { key: 'In Drafting Process', step: 'Drafting', label: 'In drafting', status: 'not introduced' },
+    { key: 'In Drafting Process', step: 'Drafting', label: 'In drafting', status: 'not introduced', statusAtSessionEnd: 'not introduced' },
 
     // first-house
-    { key: 'In First House--Introduced', step: 'First chamber', label: 'Introduced', status: 'live' },
-    { key: 'In First House Committee--Nontabled', step: 'First chamber', label: 'In committee', status: 'live' },
-    { key: 'In First House Committee--Tabled', step: 'First chamber', label: 'Tabled in committee', status: 'stalled' },
-    { key: 'In First House--Out of Committee', step: 'First chamber', label: 'Out of committee', status: 'live' },
-    { key: 'In First House--Through 2nd Reading', step: 'First chamber', label: 'Passed second reading vote', status: 'live' },
-    { key: 'In First House--Through 3rd Reading', step: 'First chamber', label: 'Passed chamber', status: 'live' },
+    { key: 'In First House--Introduced', step: 'First chamber', label: 'Introduced', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In First House Committee--Nontabled', step: 'First chamber', label: 'In committee', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In First House Committee--Tabled', step: 'First chamber', label: 'Tabled in committee', status: 'stalled', statusAtSessionEnd: 'failed' },
+    { key: 'In First House--Out of Committee', step: 'First chamber', label: 'Out of committee', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In First House--Through 2nd Reading', step: 'First chamber', label: 'Passed second reading vote', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In First House--Through 3rd Reading', step: 'First chamber', label: 'Passed chamber', status: 'live', statusAtSessionEnd: 'failed' },
 
     // second-house
-    { key: 'Transmitted to Second House', step: 'Second chamber', label: 'Transmitted', status: 'live' },
-    { key: 'In Second House Committee--Nontabled', step: 'Second chamber', label: 'In committee', status: 'live' },
-    { key: 'In Second House Committee--Tabled', step: 'Second chamber', label: 'Tabled', status: 'stalled' },
-    { key: 'In Second House--Out of Committee', step: 'Second chamber', label: 'On floor', status: 'live' },
-    { key: 'In Second House--Through 2nd Reading', step: 'Second chamber', label: 'Passed 2nd reading vote', status: 'live' },
-    { key: 'In Second House--Through 3rd Reading', step: 'Second chamber', label: 'Passed chamber', status: 'live' },
+    { key: 'Transmitted to Second House', step: 'Second chamber', label: 'Transmitted', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In Second House Committee--Nontabled', step: 'Second chamber', label: 'In committee', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In Second House Committee--Tabled', step: 'Second chamber', label: 'Tabled', status: 'stalled', statusAtSessionEnd: 'failed' },
+    { key: 'In Second House--Out of Committee', step: 'Second chamber', label: 'On floor', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In Second House--Through 2nd Reading', step: 'Second chamber', label: 'Passed 2nd reading vote', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In Second House--Through 3rd Reading', step: 'Second chamber', label: 'Passed chamber', status: 'live', statusAtSessionEnd: 'failed' },
 
     // reconciliation
-    { key: 'Returned to First House with Second House Amendments', step: 'Reconciliation', label: 'In reconciliation', status: 'live' },
-    { key: 'In Process to Consider Second House Amendments', step: 'Reconciliation', label: 'In reconciliation', status: 'live' },
-    { key: 'In Conference or Free Conference Committee Process', step: 'Reconciliation', label: 'In reconciliation', status: 'live' },
+    { key: 'Returned to First House with Second House Amendments', step: 'Reconciliation', label: 'In reconciliation', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In Process to Consider Second House Amendments', step: 'Reconciliation', label: 'In reconciliation', status: 'live', statusAtSessionEnd: 'failed' },
+    { key: 'In Conference or Free Conference Committee Process', step: 'Reconciliation', label: 'In reconciliation', status: 'live', statusAtSessionEnd: 'failed' },
 
     // Passed Legislature
-    { key: 'Passed By Legislature--Enrolling and Final Preparation Process', step: 'Through Legislature', label: 'Passed both chambers', status: 'live' },
+    { key: 'Passed By Legislature--Enrolling and Final Preparation Process', step: 'Through Legislature', label: 'Passed both chambers', status: 'live', statusAtSessionEnd: 'pending, passed legislature' },
 
     // governor's desk
-    { key: 'Transmitted to Governor', step: 'Governor', label: 'Before governor', status: 'live' },
-    { key: 'Returned With Governor\'s Proposed Amendments or Line Item Veto', step: 'Governor', label: 'Changes suggested', status: 'live' },
-    { key: 'In Process to Consider Governor\'s Proposed Amendments or Line Item Veto', step: 'Governor', label: 'Changes suggested', status: 'live' },
-    { key: 'In Process to Attempt Override of Governor \'s Veto', step: 'Governor', label: 'Veto override attempt', status: 'live' },
+    { key: 'Transmitted to Governor', step: 'Governor', label: 'Before governor', status: 'live', statusAtSessionEnd: 'pending, passed legislature' },
+    { key: 'Returned With Governor\'s Proposed Amendments or Line Item Veto', step: 'Governor', label: 'Changes suggested', status: 'live', statusAtSessionEnd: 'pending, passed legislature' },
+    { key: 'In Process to Consider Governor\'s Proposed Amendments or Line Item Veto', step: 'Governor', label: 'Changes suggested', status: 'live', statusAtSessionEnd: 'pending, passed legislature' },
+    { key: 'In Process to Attempt Override of Governor \'s Veto', step: 'Governor', label: 'Veto override attempt', status: 'live', statusAtSessionEnd: 'pending, passed legislature' },
 
     // Final markers --> complicate things
-    { key: 'Probably Dead', label: 'Probably Dead', step: 'Failed', status: 'stalled' },
-    { key: 'Became Law', label: 'Became Law', step: 'Passed', status: 'became-law' },
+    { key: 'Probably Dead', label: '', step: 'Failed', status: 'stalled', statusAtSessionEnd: 'failed' },
+    { key: 'Became Law', label: '', step: 'Passed', status: 'became-law', statusAtSessionEnd: 'became law' },
 
 ]
 
@@ -178,16 +190,16 @@ module.exports.ACTIONS = [
     { key: '2nd Reading Senate Amendments Not Concurred', isMajor, isHighlight },
     { key: '2nd Reading House Amendments Concurred', isMajor, isHighlight },
     { key: '2nd Reading House Amendments Not Concurred', isMajor, isHighlight },
-    { key: '3rd Reading Passed as Amended by House', isMajor, isHighlight },
-    { key: '3rd Reading Passed as Amended by Senate', isMajor, isHighlight },
+    { key: '3rd Reading Passed as Amended by House', isMajor, isHighlight, thirdReading },
+    { key: '3rd Reading Passed as Amended by Senate', isMajor, isHighlight, thirdReading },
     { key: '2nd Reading Conference Committee Report Adopted', isMajor, },
     { key: '2nd Reading Free Conference Committee Report Adopted', isMajor, },
     { key: "2nd Reading Governor's Proposed Amendments Adopted", isMajor, },
     { key: "2nd Reading Governor's Proposed Amendments Not Adopted", isMajor, },
-    { key: '3rd Reading Conference Committee Report Adopted', isMajor, },
+    { key: '3rd Reading Conference Committee Report Adopted', isMajor, thirdReading },
     { key: '3rd Reading Conference Committee Report Rejected', isMajor, },
-    { key: '3rd Reading Free Conference Committee Report Adopted', isMajor, },
-    { key: "3rd Reading Governor's Proposed Amendments Adopted", isMajor, },
+    { key: '3rd Reading Free Conference Committee Report Adopted', isMajor, thirdReading },
+    { key: "3rd Reading Governor's Proposed Amendments Adopted", isMajor, thirdReading },
 
     // Blast motions
     { key: 'Taken from Committee; Placed on 2nd Reading', isMajor, isHighlight, blastMotionPassage },
@@ -228,6 +240,7 @@ module.exports.ACTIONS = [
     { key: 'Returned to House with Amendments', isMajor, },
     { key: 'Returned to Senate with Amendments', isMajor, },
     { key: 'Returned with Governor\'s Proposed Amendments', isMajor, },
+    { key: 'Returned with Governor\'s Line-item Veto', isMajor, },
     { key: 'Transmitted to Senate for Consideration of Governor\'s Proposed Amendments', isMajor, },
     { key: 'Transmitted to House for Consideration of Governor\'s Proposed Amendments', isMajor, },
     { key: 'Returned to Senate Concurred in Governor\'s Proposed Amendments', isMajor, },

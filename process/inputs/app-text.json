@@ -214,7 +214,7 @@
     },
     {
       "key": "HB 13",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
       "isMajorBill": "False",
       "annotation": [
         {
@@ -225,61 +225,67 @@
     },
     {
       "key": "HB 303",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Exempts more businesses from paying equipment tax",
       "isMajorBill": "True"
     },
     {
       "key": "HB 252",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Tax credits to encourage employer-funded trade education",
       "isMajorBill": "True"
     },
     {
       "key": "SB 159",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Reduces rate in the state’s top income tax bracket",
       "isMajorBill": "True"
     },
     {
       "key": "SB 182",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Enacts future tax cuts in the event of budget surpluses",
-      "isMajorBill": "True"
+      "isMajorBill": "False"
     },
     {
       "key": "SB 184",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Exempts shareholders of Montana-grown businesses from paying capital gains taxes on stock options",
       "isMajorBill": "True"
     },
     {
       "key": "SB 181",
-      "category": "Governor-backed GOP tax bills",
+      "category": "GOP tax bills",
+      "label": "Adjusts how income tax is calculated for multi-state corporations",
+      "isMajorBill": "False"
+    },
+    {
+      "key": "SB 376",
+      "category": "GOP tax bills",
       "label": "Adjusts how income tax is calculated for multi-state corporations",
       "isMajorBill": "True"
     },
     {
-      "key": "SB 376",
-      "category": "Governor-backed GOP tax bills",
-      "label": "A scaled-back version of SB 181",
-      "isMajorBill": "True"
-    },
-    {
       "key": "SB 399",
-      "category": "Other GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Major rewrite of Montana income tax code",
       "isMajorBill": "True"
     },
     {
       "key": "HB 340",
-      "category": "Other GOP tax bills",
+      "category": "GOP tax bills",
       "label": "Expand tax credits encouraging Montana film productions",
       "isMajorBill": "True"
     },
     {
       "key": "HB 372",
-      "category": "Other GOP tax bills",
+      "category": "GOP tax bills",
+      "label": "",
+      "isMajorBill": "True"
+    },
+    {
+      "key": "HB 663",
+      "category": "GOP tax bills",
       "label": "",
       "isMajorBill": "True"
     },
@@ -308,6 +314,12 @@
       "label": "Protects businesses from some COVID-19-related lawsuits"
     },
     {
+      "key": "HB 435",
+      "category": "COVID-19 liability",
+      "isMajorBill": "True",
+      "label": "Protects public entities from some COVID-19-related lawsuits"
+    },
+    {
       "key": "HB 121",
       "category": "Emergency power",
       "isMajorBill": "True",
@@ -330,6 +342,12 @@
       "category": "Emergency power",
       "isMajorBill": "True",
       "label": ""
+    },
+    {
+      "key": "SB 108",
+      "category": "Emergency power",
+      "isMajorBill": "True",
+      "label": "Allows citizens to petition for repeal of local health board actions"
     },
     {
       "key": "SB 51",
@@ -362,6 +380,12 @@
       "label": "Expands permitless concealed carry, limits gun regulations on college campuses"
     },
     {
+      "key": "HB 258",
+      "category": "Firearm regulations",
+      "isMajorBill": "True",
+      "label": "Bars Montana officials from enforcing new federal firearm restrictions"
+    },
+    {
       "key": "HB 176",
       "category": "Election administration",
       "isMajorBill": "True",
@@ -380,10 +404,10 @@
       "label": "Seeks to protect voting rights on reservations"
     },
     {
-      "key": "SB 170",
+      "key": "SB 319",
       "category": "Election administration",
       "isMajorBill": "True",
-      "label": ""
+      "label": "Restricts signature gathering, voter registration and get-out-the-vote efforts on college campuses"
     },
     {
       "key": "SB 89",
@@ -434,6 +458,12 @@
       "label": ""
     },
     {
+      "key": "SB 278",
+      "category": "Justice policy",
+      "isMajorBill": "True",
+      "label": "In part, requires nonprofits challenging government actions to disclose their donor lists"
+    },
+    {
       "key": "HB 143",
       "category": "Education policy",
       "isMajorBill": "True",
@@ -462,6 +492,18 @@
       "category": "Education policy",
       "isMajorBill": "True",
       "label": "Makes K-12 education requirements more flexible"
+    },
+    {
+      "key": "HB 279",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": "Raises tax credit cap on private school scholarship donations to $200,000"
+    },
+    {
+      "key": "HB 252",
+      "category": "Education policy",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "HB 43",
@@ -530,6 +572,12 @@
       "label": ""
     },
     {
+      "key": "HB 468",
+      "category": "Natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
+    },
+    {
       "key": "SB 337",
       "category": "Natural resource policy",
       "isMajorBill": "True",
@@ -540,6 +588,12 @@
       "category": "Natural resource policy",
       "isMajorBill": "True",
       "label": "Loosens nutrient water quality regulations by replacing numeric standards with narrative ones"
+    },
+    {
+      "key": "SB 468",
+      "category": "Natural resource policy",
+      "isMajorBill": "True",
+      "label": ""
     },
     {
       "key": "HB 273",
@@ -627,19 +681,13 @@
     {
       "key": "HB 701",
       "category": "Recreational marijuana implementation",
-      "label": "Rec. marijuana bill backed by governor’s office",
+      "label": "Main rec. marijuana implementation bill",
       "isMajorBill": "True"
     },
     {
-      "key": "HB 670",
+      "key": "HB 640",
       "category": "Recreational marijuana implementation",
-      "label": "",
-      "isMajorBill": "True"
-    },
-    {
-      "key": "HB 707",
-      "category": "Recreational marijuana implementation",
-      "label": "Treats rec. marijuana like alcohol",
+      "label": "Became last-minute effort to shift rec. marijuana implementation",
       "isMajorBill": "True"
     }
   ],
@@ -663,5 +711,5 @@
       ]
     }
   ],
-  "lastUpdated": "2021-04-30T22:52:19.939Z"
+  "lastUpdated": "2021-05-20T22:29:18.925Z"
 }

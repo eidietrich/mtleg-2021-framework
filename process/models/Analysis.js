@@ -1,12 +1,14 @@
 // Model for app-independent analysis
 
 class Analysis {
-    constructor({ bills }) {
+    constructor({ bills, lawmakers }) {
         this.updateTime = new Date()
         // this.billProgression = bills.map(bill => this.getBillProgress(bill))
         this.hearings = this.getBillHearings(bills)
         this.floorDebates = this.getFloorDebates(bills)
         this.conferences = this.getConferenceCommittees(bills)
+        this.outcomes = this.getOutcomes(bills)
+        this.lawmakerSummaries = this.getLawmakerSummaries(lawmakers)
 
         // console.log(this.billProgression.find(d => d.identifier === 'SB 65'))
     }
@@ -122,6 +124,61 @@ class Analysis {
 
             // firstChamberOutcome: progression.steps.find(d => d.label === 'First chamber').status,
         }
+    }
+
+    getOutcomes(bills) {
+        // flatten bill data for what-has/hasn't passed analysis
+
+        const flat = bills.map(d => {
+            const bill = d.data
+            const lastHouseVote = bill.progression.lastVotes.find(d => d.chamber === 'house')
+            const lastSenateVote = bill.progression.lastVotes.find(d => d.chamber === 'senate')
+            return {
+                key: bill.key,
+                identifier: bill.identifier,
+                title: bill.title,
+                type: bill.type,
+                label: bill.label,
+
+                sponsorName: bill.sponsor.name,
+                sponsorParty: bill.sponsor.party,
+
+                lawsStatus: bill.status.key,
+                statusAtSessionEnd: bill.status.statusAtSessionEnd,
+
+                lastHouseVoteYeses: (lastHouseVote.count && lastHouseVote.count.yes) || null,
+                lastHouseVoteNos: (lastHouseVote.count && lastHouseVote.count.no) || null,
+                lastSenateVoteYeses: (lastSenateVote.count && lastSenateVote.count.yes) || null,
+                lastSenateVoteNos: (lastSenateVote.count && lastSenateVote.count.no) || null,
+
+                mtfpArticles: bill.numArticles,
+
+                publicCommentsTotal: bill.publicCommentCounts.total,
+                publicCommentsFor: bill.publicCommentCounts.for,
+                publicCommentsAgainst: bill.publicCommentCounts.against,
+            }
+        })
+        return flat
+    }
+
+    getLawmakerSummaries(lawmakers) {
+        // split lawmaker data for 'batting average' analysis
+        const portioned = lawmakers.map(l => {
+            const lawmaker = l.data
+            return {
+                key: lawmaker.key,
+                name: lawmaker.name,
+                title: lawmaker.title,
+                party: lawmaker.party,
+                district: lawmaker.district.key,
+                locale: lawmaker.district.locale,
+                chamber: lawmaker.chamber,
+                mftpArticles: lawmaker.articles.length,
+                ...lawmaker.votingSummary,
+                sponsoredBills: lawmaker.sponsoredBills,
+            }
+        })
+        return portioned
     }
 }
 

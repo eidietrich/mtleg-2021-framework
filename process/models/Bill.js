@@ -1,6 +1,6 @@
 const Action = require('./Action.js')
 
-const { BILL_STATUSES, FINANCE_COMMITTEES } = require('../config.js')
+const { BILL_STATUSES, FINANCE_COMMITTEES, MANUAL_SIGNINGS, MANUAL_VETOS } = require('../config.js')
 
 const {
     billKey,
@@ -13,7 +13,7 @@ const {
 
 class Bill {
     /* Translates bill data from openstates format (w/ added data modifications) to schema used for app */
-    constructor({ bill, annotations, articles, votes, keyBillIds, legalNotes }) {
+    constructor({ bill, annotations, articles, votes, keyBillIds, legalNotes, vetoMemos, publicComments }) {
         // console.log(bill)
 
         this.type = this.getType(bill)
@@ -52,6 +52,7 @@ class Bill {
             textUrl: this.getTextUrl(bill),
             fiscalNoteUrl: this.getFiscalNoteUrl(bill),
             legalNoteUrl: this.getLegalNoteUrl(bill, legalNotes),
+            vetoMemoUrl: this.getVetoMemoUrl(bill, vetoMemos),
 
             annotation: this.getAnnotations(bill, annotations),
             label: this.getLabel(bill, annotations),
@@ -59,6 +60,8 @@ class Bill {
             majorBillCategory: this.getMajorBillCategory(bill, annotations),
             articles: billArticles,
             numArticles: billArticles.length,
+
+            publicCommentCounts: this.getPublicCommentCounts(bill, publicComments),
 
             actions: this.actions,
         }
@@ -124,7 +127,15 @@ class Bill {
         2) A list actions taken on the bill. This function interprets that list to deduce how far a bill has gotten.  It relies on flags set via ACTIONS in config.js
 
         */
-        const statusFromLAWSLabel = BILL_STATUSES.find(d => d.key === bill.extras.bill_status)
+        let statusFromLAWSLabel
+        // Workaround for stale LAWS data
+        if (MANUAL_SIGNINGS.includes(bill.identifier)) {
+            statusFromLAWSLabel = BILL_STATUSES.find(d => d.key === 'Became Law')
+        } else if (MANUAL_VETOS.includes(bill.identifier)) {
+            statusFromLAWSLabel = BILL_STATUSES.find(d => d.key === 'Probably Dead')
+        } else {
+            statusFromLAWSLabel = BILL_STATUSES.find(d => d.key === bill.extras.bill_status)
+        }
         if (!statusFromLAWSLabel) {
             throw 'Missing bill status match for', bill.extras.bill_status
         }
@@ -339,6 +350,10 @@ class Bill {
             if (toGovernor && vetoedByGovernor) governorStatus = 'vetoed'
             if (toGovernor && letPassWithoutSignature) governorStatus = 'let pass'
 
+            // manual overrides
+            if (MANUAL_SIGNINGS.includes(bill.identifier)) governorStatus = 'signed'
+            if (MANUAL_VETOS.includes(bill.identifier)) governorStatus = 'vetoed'
+
             const subSteps = []
             steps.push({
                 step: 'Gov.',
@@ -350,6 +365,70 @@ class Bill {
 
         }
 
+        let lastVotes = []
+        // last votes taken in 
+        const thirdReadingVotes = actionsWithFlag(actions, 'thirdReading')
+            .reverse() // so last 3rd readings are found in next step
+        const lastHouseVote = thirdReadingVotes.find(d => d.chamber === 'House')
+        const lastSenateVote = thirdReadingVotes.find(d => d.chamber === 'Senate')
+
+        const chamber = this.getChamber(bill.identifier)
+
+        if (chamber === 'house') {
+            if (lastHouseVote) {
+                const vote = lastHouseVote.vote
+                lastVotes.push({
+                    chamber: 'house',
+                    action: vote.action,
+                    count: vote.count,
+                    date: vote.date
+                })
+            } else {
+                lastVotes.push({ chamber: 'house', action: null, count: null, date: null })
+            }
+            if (lastSenateVote) {
+                const vote = lastSenateVote.vote
+                lastVotes.push({
+                    chamber: 'senate',
+                    action: vote.action,
+                    count: vote.count,
+                    date: vote.date
+                })
+            } else {
+                lastVotes.push({ chamber: 'senate', action: null, count: null, date: null })
+            }
+
+        }
+        if (chamber === 'senate') {
+            if (lastSenateVote) {
+                const vote = lastSenateVote.vote
+                lastVotes.push({
+                    chamber: 'senate',
+                    action: vote.action,
+                    count: vote.count,
+                    date: vote.date
+                })
+            } else {
+                lastVotes.push({ chamber: 'senate', action: null, count: null, date: null })
+            }
+            if (lastHouseVote) {
+                const vote = lastHouseVote.vote
+                lastVotes.push({
+                    chamber: 'house',
+                    action: vote.action,
+                    count: vote.count,
+                    date: vote.date
+                })
+            } else {
+                lastVotes.push({ chamber: 'house', action: null, count: null, date: null })
+            }
+        }
+
+        // if (bill.identifier === 'HB 555') {
+        //     console.log(thirdReadingVotes.map(d => ({ date: d.date, descr: d.description })))
+        //     console.log(lastVotes)
+        // }
+        // console.log(bill.identifier, chamber)
 
 
         const output = {
@@ -358,6 +437,7 @@ class Bill {
             steps,
             status,
             dates,
+            lastVotes,
         }
         return output
     }
@@ -365,6 +445,15 @@ class Bill {
     // OLD
     getStatus = (bill) => {
         // Status as pulled from LAWS status line
+
+        // Workaround for stale LAWS data
+        if (MANUAL_SIGNINGS.includes(bill.identifier)) {
+            return BILL_STATUSES.find(d => d.key === 'Became Law')
+        }
+        if (MANUAL_VETOS.includes(bill.identifier)) {
+            return BILL_STATUSES.find(d => d.key === 'Probably Dead')
+        }
+
         const match = BILL_STATUSES.find(d => d.key === bill.extras.bill_status)
         if (!match) {
             throw 'Missing bill status match for', bill.extras.bill_status
@@ -447,6 +536,10 @@ class Bill {
             else if (toGovernor && ultimatelyPassed && (!signedByGovernor && !vetoedByGovernor)) progress.governorStatus = 'became law unsigned'
             else progress.governorStatus = 'pending'
 
+            // manual overrides
+            if (MANUAL_SIGNINGS.includes(bill.identifier)) progress.governorStatus = 'signed'
+            if (MANUAL_VETOS.includes(bill.identifier)) progress.governorStatus = 'vetoed'
+
         }
 
         if (!['bill', 'resolution', 'joint resolution', 'referendum proposal'].includes(this.type)) {
@@ -512,6 +605,12 @@ class Bill {
         else return null
     }
 
+    getVetoMemoUrl = (bill, vetoMemos) => {
+        const match = vetoMemos.find(d => d.bill === bill.identifier)
+        if (match) return match.url
+        else return null
+    }
+
     getAnnotations = (bill, annotations) => {
         const match = annotations.bills.find(d => d.key === bill.identifier)
         // if (match) console.log('Bill annotation found for', bill.identifier)
@@ -544,6 +643,20 @@ class Bill {
         const articlesAboutBill = articles.filter(article => article.data.billTags.includes(bill.identifier)).map(d => d.export())
         // if (articlesAboutBill.length > 0) console.log(bill.identifier, articlesAboutBill.length)
         return articlesAboutBill
+    }
+
+    getPublicCommentCounts = (bill, publicComments) => {
+        const billCommentCounts = publicComments.find(d => d.bill === bill.identifier)
+        if (!billCommentCounts) return {
+            total: 0,
+            for: 0,
+            against: 0,
+        }
+        return {
+            total: billCommentCounts.total,
+            for: billCommentCounts.for,
+            against: billCommentCounts.against,
+        }
     }
 
     determineVoteThreshold = (thresholds) => {
